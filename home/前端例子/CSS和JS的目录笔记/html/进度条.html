@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/page.css">
+    <style type="text/css">
+		.progress-new{background: #f6f6f6;padding: 32px 12px 16px;width: 446px;}
+		.progress-new .progress-wrap {width: 445px;height: 10px;border-radius: 5px;background: #DEDEE5;position:relative;}
+		.progress-new .progress-inner {height: 100%;background: #FF5A40;border-radius: 5px;}
+		.progress-new .progress-inner.finish {height: 100%;border-radius: 5px;
+		    background: -webkit-linear-gradient(#FF2C68, #FF4653 , #FF5E3D); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(right, #FF2C68, #FF5E3D); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(right, #FF2C68, #FF5E3D); /* Firefox 3.6 - 15 */
+    background: linear-gradient(to right, #FF2C68 , #FF5E3D); /* 标准的语法（必须放在最后） */}
+		.progress-new .res-tip{font-size:14px;color:#495078;margin-top:18px;}
+		.progress-new .res-tip.finish{color:#FC553B;}
+		.progress-new .res-tip .num{font-size:16px;}
+		.progress-new .res-tip .huibao-tip{font-size:14px;color:#6F7378;float:right;}
+		.progress-new .mubiao-tip{font-size:14px;color:#6F7378;margin-top:16px;}
+		.progress-new .mubiao-tip .line{font-size:12px;color:#DEDEE5;vertical-align:2px;margin-left:10px;margin-right:10px;}
+		.progress-new .huibao-tip .line{font-size:12px;color:#DEDEE5;vertical-align:2px;margin-left:10px;margin-right:10px;}
+		.progress-new .progress-node{position:absolute;left:0;top:-7px;height:24px;}
+		.progress-new .progress-node .icon{width:24px;height:24px;position:absolute;top:0;right:0;}
+		.progress-new .progress-node .icon.yes{background: url('images/progress-node-yes.png');}
+		.progress-new .progress-node .icon.no{background: url('images/progress-node-no.png');}
+		.progress-new .progress-node .tip{position:absolute;top:-33px;height:25px;line-height:25px;background:#495078;font-size:12px;color:#FFF;padding-left:4px;padding-right:4px;border-radius:3px;}
+		.progress-new .progress-node .tip .angle{position:absolute;margin:auto;right:0;left:0;bottom:-3px;width:6px;height:3px;background:url('images/progress-node-tip-angle.png');}
+		.zhongchou-finish-tip{box-sizing:border-box;width:470px;height:40px;line-height:40px;padding-left:20px;background:#FFF5EC;color:#FFB370;font-size:14px;border:1px solid #FFE8D4;margin-bottom:13px;}
+
+		.mubiao-num-new{height:60px;line-height:60px;font-size:20px;color:#FC553B;}
+		.mubiao-num-new .num{font-size:30px;font-weight:bold;font-family:"helvetica";vertical-align:bottom;}/* Verdana */
+
+
+
+
+
+	div.height100{height:100px;}
+    </style>
+
+</head>
+
+<body>
+<div class="height100"></div>
+	
+	<div class="progress-new">
+		<div class="progress-wrap">
+		    <div class="progress-node" style="width: 38%;z-index: 10;">
+		    	<div class="icon yes"></div>
+		    	<div class="tip hide" >7折购车7折购车
+					<div class="angle"></div>
+		    	</div>				
+        	</div>
+		    <div class="progress-node" style="width: 100%;z-index: 9;">
+		    	<div class="icon no"></div>
+		    	<div class="tip hide" >7折购车7折购车7折购车
+					<div class="angle"></div>
+		    	</div>				
+        	</div>
+        	<div class="progress-inner" style="width: 58%;"></div>
+    	</div>
+    	<p class="res-tip">已完成<span class="num">35%</span><span class="huibao-tip">＊鼠标划过锁或对勾查看回报</span></p>
+		<p class="mubiao-tip">终极解锁目标1000人<span class="line">|</span>已支持330人</p>
+	</div>
+<div class="height100"></div>
+	<div class="zhongchou-finish-tip">已达上限金额，活动结束</div>
+	<div class="progress-new">
+    	<div class="progress-wrap">
+    		<div class="progress-inner finish"></div>
+    	</div>
+    	<p class="res-tip finish">已完成<span class="num">100%</span><span class="huibao-tip">终极解锁目标1000人<span class="line">|</span>已支持1000人</p>
+	</div>
+<div class="height100"></div>
+<p class="mubiao-num-new">
+	目标人数<span class="num">10000</span>人
+</p>
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript">
+    	$(document).ready(function() {
+    		var tipArr=$('.progress-node').find('.tip');
+    		var tipRight=($('.progress-node').find('.tip').width()+8)/2-12;
+		     	$('.progress-node').find('.tip').css({
+		    		right: -tipRight,
+		    	});
+		    tipArr.each(function(index, el) {
+		    	var tipRight=($(this).width()+8)/2-12;
+		     	$(this).css({
+		    		right: -tipRight,
+		    	});
+		    });
+	     	var iconArr=$('.progress-node').find('.icon');
+	     	iconArr.each(function(){
+	    		$(this).bind('mouseover', function(event) {
+	    			$(this).parent('.progress-node').find('.tip').show();
+	    		}).bind("mouseout",function(event){
+	    			$(this).parent('.progress-node').find('.tip').hide();
+	    		});
+	    	});
+
+    	});
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="../../css/page.css">
+    <style type="text/css">
+
+    </style>
+</head>
+<body>
+
+
+
+
+
+
+<!-- js -->
+<script src="../../js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+		function say(){
+
+		}
+		function Person(){
+		}
+			Person.prototype.name = "Nicholas";
+			Person.prototype.age = 29;
+			Person.prototype.job = "Software Engineer";
+			Person.prototype.sayName = function(){
+			alert(this.name);
+			
+		};
+		// Person.prototype.toString = function(){
+		// 	alert(this.name);
+
+		// };
+		var person1 = new Person();
+		var person2 = new Person();
+		console.log(Person.prototype);
+		console.log(Object.prototype);
+		console.log(Object);
+		console.log(Person.prototype.constructor.prototype);
+		console.log(Person.prototype.isPrototypeOf(person1));
+		console.log('Object.prototype.isPrototypeOf(person1)'+Object.prototype.isPrototypeOf(person1));
+		console.log(person1.toString());
+		console.log(Object.isPrototypeOf(Person));//false
+
+		console.log(Object.getPrototypeOf(person1) == Person.prototype); //true
+		console.log(Object.getPrototypeOf(person1).name); //"Nicholas"
+		// 这里的第一行代码只是确定 Object.getPrototypeOf() 返回的对象实际就是这个对象的原型。
+// 第二行代码取得了原型对象中 name 属性的值，也就是 "Nicholas" 。使用 Object.getPrototypeOf()
+// 可以方便地取得一个对象的原型，而这在利用原型实现继承（本章稍后会讨论）的情况下是非常重要的
+		console.log(Object.getPrototypeOf(Person)); //
+		console.log(Object.getPrototypeOf(Function)); //
+		console.log(Object.getPrototypeOf(Math)); //
+		console.log(Object.getPrototypeOf(Object)); //
+		console.log(Object.getPrototypeOf(say)); //
+		console.log(Object.getPrototypeOf(function(){})); //
+
+		for(var prop in person1){
+			console.log(prop);
+		}
+		for(var prop in Person){
+			console.log(prop);
+		}
+		console.log(Person.length);
+		var propArr=Object.keys(person1);
+		var propArr2=Object.keys(Person);
+		var propArr3=Object.keys(Person.prototype);
+		console.log(propArr);//[]
+		console.log(propArr2);//[]
+		console.log(propArr3);
+
+function Cat(){
+}
+	Cat.prototype = {
+		name : "Nicholas",
+		age : 29,
+		job: "Software Engineer",
+		sayName : function () {
+		alert(this.name);
+		}
+	}; 
+	var cat = new Cat();
+	for(var prop in cat){
+		console.log(prop);
+	}
+</script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        
+    });
+</script>
+
+</body>
+</html>

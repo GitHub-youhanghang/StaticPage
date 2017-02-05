@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="css/page.css">
+	<style type="text/css">
+hr{margin: 10px}
+body{padding: 10px}
+	</style>
+
+
+</head>
+<body>
+<input name="myt" type="text" value="1">
+<input name="myt" type="text" value="2">
+<input name="myt" type="text" value="3">
+<input name="myt" type="text" value="4">
+<input name="myt" type="text" value="5">
+<input name="myt" type="text" value="6">
+<hr>
+<p id="intro">课程列表</p>
+  <div id="intro_">
+    <ul>  
+        <li title="第1个li">HTML</li>  
+        <li>CSS</li>  
+        <li title="第3个li">JavaScript</li>  
+        <li title="第4个li">Jquery</li>  
+        <li>Html5</li>  
+    </ul>     
+  </div>  
+ 
+<p>以下为获取的不为空的li标签title值:</p>
+<hr>
+
+<div id="test">
+   <span style="color:red">test1</span> test2
+</div>
+
+<a href="javascript:alert(test.innerHTML)">innerHTML内容</a>
+<p></p>
+<a href="javascript:alert(test.innerText)">innerText内容</a>
+<p></p>
+<a href="javascript:alert(test.outerHTML)">outerHTML内容</a>
+<p></p>
+<script type="text/javascript">
+// getElementsByName()方法
+// 1. 因为文档中的 name 属性可能不唯一，所有 getElementsByName() 方法返回的是元素的数组，而不是一个元素。
+
+// 2. 和数组类似也有length属性，可以和访问数组一样的方法来访问，从0开始。
+var name_myt=document.getElementsByName('myt');
+console.log("name是myt的长度是"+name_myt.length);
+
+</script>
+<script type="text/javascript">
+// getAttribute()方法
+// 通过元素节点的属性名称获取属性的值。
+
+// 语法：
+
+// elementNode.getAttribute(name)
+// 说明:
+// 1. elementNode：使用getElementById()、getElementsByTagName()等方法，获取到的元素节点。
+// 2. name：要想查询的元素节点的属性名字
+  // 在javascript中,document.write()方法；常用来网页向文档中输出内容。
+    var con=document.getElementsByTagName("li");
+    for (var i=0; i< con.length;i++){
+    var text = con[i].getAttribute('title');
+      if(text!=null)
+      {
+        document.write(text+"<br>");
+      }
+    } 
+ </script>
+ <script type="text/javascript">
+//  	节点属性
+// 在文档对象模型 (DOM) 中，每个节点都是一个对象。DOM 节点有三个重要的属性 ：
+
+// 1. nodeName : 节点的名称
+
+// 2. nodeValue ：节点的值
+
+// 3. nodeType ：节点的类型
+
+// 一、nodeName 属性: 节点的名称，是只读的。
+
+// 1. 元素节点的 nodeName 与标签名相同
+// 2. 属性节点的 nodeName 是属性的名称
+// 3. 文本节点的 nodeName 永远是 #text
+// 4. 文档节点的 nodeName 永远是 #document
+
+// 二、nodeValue 属性：节点的值
+
+// 1. 元素节点的 nodeValue 是 undefined 或 null
+// 2. 文本节点的 nodeValue 是文本自身
+// 3. 属性节点的 nodeValue 是属性的值
+
+// 三、nodeType 属性: 节点的类型，是只读的。以下常用的几种结点类型:
+
+// 元素类型    节点类型
+//   元素          1
+//   属性          2
+//   文本          3
+//   注释          8
+//   文档          9
+ </script> 
+
+
+
+
+<!-- appendChild -->
+<hr>
+<ul id="append_Child">
+  <li>JavaScript</li>
+  <li>HTML</li>
+</ul> 
+ 
+<script type="text/javascript">
+
+  var append_Child = document.getElementById("append_Child");  
+    var newNode = document.createElement("p");
+    newNode.innerHTML="<h1>1</h1>";
+    append_Child.appendChild(newNode);
+         
+</script> 
+
+
+
+
+<hr>
+<!-- insert_Before -->
+<ul id="insert_Before">
+  <li>JavaScript</li>
+  <li>HTML</li>
+</ul> 
+ 
+<script type="text/javascript">
+  var otest = document.getElementById("insert_Before");  
+  var lis=otest.childNodes;
+   function serachByHtml(arr,innerHTML)
+    {
+       for(i=0;i<arr.length;i++){
+        if(arr[i].innerHTML==innerHTML){
+            return arr[i];
+        }
+      }   
+     }
+    var res_li=serachByHtml(lis,"HTML");
+    var newNode = document.createElement("li");
+    newNode.innerHTML="php";
+    otest.insertBefore(newNode,res_li); 
+</script> 
+
+
+
+<hr>
+<!-- 清空节点 -->
+<div id="content">
+  <h1>html</h1>
+  <h1>php</h1>
+  <h1>javascript</h1>
+  <h1>jquery</h1>
+  <h1>java</h1>
+</div>
+
+<script type="text/javascript">
+function clearText() {
+  var content=document.getElementById("content");
+  // 在此完成该函数
+
+      var nodeList=content.childNodes;
+      var lenth=nodeList.length;
+      for(i=0;i<lenth;i++){
+        var x=content.removeChild(nodeList[0]);
+        console.log(x.nodeName);
+      }
+// 下面也可以实现
+// while(content.firstChild){
+
+//    content.removeChild(content.firstChild);
+
+// }
+}
+</script>
+<button onclick="clearText()">清除节点内容</button>
+<p>注意：在一个集合中，循环删除每一项，删除完一项后，集合重新排序，则需要每次遍历时都删除第一个(或者最后一个)</p>
+
+<hr>
+
+<!-- replaceChild -->
+  <div><b id="oldnode">JavaScript</b>是一个很常用的技术，为网页添加动态效果。</div>
+  <a href="javascript:replaceMessage()"> 将加粗改为斜体</a>
+  
+    <script type="text/javascript">
+      function replaceMessage(){
+          var oldnode=document.getElementById('oldnode');
+          var newnode=document.createElement('i');
+          var oldHtml=oldnode.innerHTML;
+          oldnode.parentNode.replaceChild(newnode,oldnode);
+          newnode.innerHTML=oldHtml;
+       
+       }    
+  </script>
+
+
+
+
+<hr>
+<script type="text/javascript">
+var main = document.body;
+//创建链接
+function createa(url,text)
+{
+    var a = document.createElement('a');
+    a.href=url;
+    a.innerHTML=text;
+    main.appendChild(a);  
+}
+// 调用函数创建链接
+
+createa('http://www.imooc.com/code/1696','创建a连接');
+</script> 
+
+
+<hr>
+
+<p>innerHTML和createTextNode都可以把一段内容添加到一个节点中，区别是如果这段内容中有html标签（如例子中的(strong)(/strong)时表现就不同了，在createTextNode中会当作文本处理，不会被浏览器解析，但用innerHTML就会被当作HTML代码处理（如你的例子中Hello会被加粗显示）。
+
+总的来说，如果你确定要插入的内容中没有html标签，可以用innerHTML，这样更简洁，但如果不能确定（比如要插入用户输入的内容）建议用createTextNode的方式。</p>
+<hr>
+
+<p id="width"></p>
+<p id="height"></p>
+<script type="text/javascript">
+var w= document.documentElement.clientWidth
+      || document.body.clientWidth;
+var h= document.documentElement.clientHeight
+      || document.body.clientHeight;
+   
+    
+      var width=document.getElementById('width');
+      var height=document.getElementById('height');
+      width.innerHTML=w;
+      height.innerHTML=h;
+      window.onresize=function(){///.....
+        var w= document.documentElement.clientWidth
+              || document.body.clientWidth;
+        var h= document.documentElement.clientHeight
+              || document.body.clientHeight;
+              width.innerHTML=w;
+              height.innerHTML=h;
+      }      
+
+
+</script>
+<hr>
+<div id="scroll" style="width: 400px;height: 200px;margin-left: 20px;border:1px solid;"></div>
+<p>scrollHeight和scrollWidth，获取网页内容高度和宽度。不是滚动的高度和宽度</p>
+<p>scrollHeight和scrollWidth还可获取Dom元素中内容实际占用的高度和宽度。</p>
+<script type="text/javascript">
+var scrollwh=document.getElementById('scroll');
+  var scroll_width=scrollwh.scrollWidth;
+  var scroll_height=scrollwh.scrollHeight;
+  scrollwh.innerHTML='宽度'+scroll_width+'高度'+scroll_height;
+</script>
+<hr>
+
+
+<script type="text/javascript">
+  //访问某id下的子节点
+  var box_=document.getElementById('intro_'),
+      ul_=box_.getElementsByTagName('ul'),
+      li_=box_.getElementsByTagName('li');
+      alert(box_.nodeName);
+      alert(ul_[0].nodeName);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="format-detection" content="email=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="adress=no" />
+    <title></title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link href="css/h5reset.css" rel="stylesheet">
+    <script type="text/javascript">
+        //rem单位根元素设置
+        (function(doc, win) {
+          var docEl = doc.documentElement;
+          var curWidth = 0;
+          var recalc = function() {
+            var clientWidth = docEl.clientWidth;
+            if (!clientWidth){return;}
+            if(curWidth !== clientWidth){
+              curWidth = clientWidth;
+              docEl.style.fontSize = Math.floor(100 * (clientWidth / 320)) + 'px';
+            }
+          };
+          if (!doc.addEventListener){return;}
+          try{recalc();}catch(e){}
+          win.addEventListener('resize', recalc, false);
+          doc.addEventListener('DOMContentLoaded', recalc, false);
+        })(document, window);
+    </script>
+    <style type="text/css">
+    .header{height:.44rem;background:#fff;overflow: hidden;}
+    .header .logo{display:block;width:1rem;height:.25rem;background:green;margin-left:.13rem;margin-top: .13rem;}
+    html,body{height: 100%;}
+    #content{min-height: 100%;background: #CCC;position: relative;}
+    #page{padding-bottom: 1rem;}
+    #footer{position:absolute;bottom:0;left:0;background: red;height: 1rem;width: 100%;}
+    </style>
+</head>
+
+<body>
+<div id="content">
+   <header class="header">
+        <a class="logo" href=""></a>
+   </header>
+   <div id="page">
+
+   </div>
+   <footer id="footer">
+       
+   </footer>   
+</div>
+
+
+
+
+
+<script type="text/javascript" src="js/zepto-1.1.4.min.js"></script>
+</body>
+
+</html>

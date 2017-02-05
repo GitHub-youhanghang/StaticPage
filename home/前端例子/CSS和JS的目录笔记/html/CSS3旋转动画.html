@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="css/page.css">
+	<style type="text/css">
+	.img{
+		width:200px;
+		height:200px;
+		border:100px solid green;
+		border-left-color: red;
+		border-right-color: black;
+		border-top-color: yellow;
+		margin:100px;
+		border-radius:50%;
+		-webkit-animation:circle 2s infinite linear;/*匀速 循环*/
+		}
+		@-webkit-keyframes circle{
+		0%{ transform:rotate(0deg); }
+		100%{ transform:rotate(360deg); }
+		}
+	</style>
+</head>
+<body>
+	
+<div class="img"></div>
+
+
+ 
+ <script src="js/jquery-1.9.1.min.js"></script>
+</body>
+</html>

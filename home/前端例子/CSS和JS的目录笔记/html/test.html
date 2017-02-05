@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="css/page.css">
+	<style type="text/css">
+
+	</style>
+</head>
+<body>
+
+<form action="" id="remindForm">
+<ul>
+<input type="text" hidden="didden" value="111" id="relation_act_id">
+	<li><label>名字</label><input type="text" id="username"></li>
+	<li><label>手机号</label><input type="text" id="phone"></li>
+	<li><label></label><input type="button" id="resend" value="发送"></li>
+
+</ul>	
+<button id="submit">提交</button>
+</form>
+
+
+
+
+
+<!-- js -->
+<script src="js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+	// 表单验证
+	var form = $('#remindForm');
+	var FEEL = {
+		NAMEERROR : '用户名错误',
+		PHONEERROR : '手机号错误',
+		VECODERROR : '请输入正确的验证码'
+	}
+	
+	inputWatch('#phone',function(){
+		var phone = $.trim($('#phone').val());
+		if(isPhoneNo(phone)){
+			$('#resend').removeClass('disabled');
+		}else{
+			$('#resend').addClass('disabled');
+			$('#resend').css('disabled','disabled')
+		}
+	});
+	
+	
+	// 发送验证码
+	$('#resend').click(function(){
+		var _this = $('#resend')
+		var phone = $.trim($('#phone').val());
+	    var relationActId = $.trim($('#relation_act_id').val());
+		var time = 10;
+		if(!isPhoneNo(phone)){
+			popMsg(FEEL.PHONEERROR);
+			return false;
+		}
+		if(!_this.hasClass('disabled')){
+			var timer;
+			$.ajax({
+	            url: '/h5/act/send_validate_code',
+	            type: 'post',
+	            dataType: 'json',
+	            data: {
+	                relation_act_id: relationActId,
+	                phone: phone
+	            },
+	            error: function (XMLHttpRequest, textStatus, errorThrown) {
+	                console.log('发送短信失败');
+	                clearInterval(timer);
+	                _this.val('重新发送');
+	                _this.removeClass('disabled');
+	            },
+	            success: function (data) {
+	                //不论发送成功失败，不进行任何提醒
+	                //alert("发送短信验证");
+	            	timer = setInterval(function(){
+						_this.addClass('disabled');
+						_this.val('重新发送' + time);
+						time--;
+						if(time < 0){
+							clearInterval(timer);
+							_this.val('重新发送');
+							_this.removeClass('disabled');
+						}
+					},1000);
+	            }
+	        });
+	
+			
+		}
+	})
+	
+	form.submit(function() {
+		var username = $.trim($('#username').val());
+		var phone = $.trim($('#phone').val());
+		var vecodeReg = /^\d{6}/;
+		
+	
+		if(!isChinaName(username)){
+			popMsg(FEEL.NAMEERROR);
+			return false;
+		}
+	
+		if(!isPhoneNo(phone)){
+			popMsg(FEEL.PHONEERROR);
+			return false;
+		}
+	
+		if(!vecodeReg.test(vecode)){
+			popMsg(FEEL.VECODERROR);
+			return false;
+		}
+	
+	
+		console.log('submit');
+		return false;
+	});
+	
+	// 监听事件
+	function inputWatch(select,fn){
+	    $(select).focus(function(){
+	        time = setInterval(fn,100);
+	    }).blur(function(){
+	        clearInterval(time);
+	    })
+	}
+	
+	// 验证名字
+	function isChinaName(name) {
+	    var pattern = /^[\u4E00-\u9FA5_a-zA-Z]{2,15}$/;
+	    return pattern.test(name);
+	}
+	
+	// 验证手机号
+	function isPhoneNo(phone) {
+	    var pattern = /^1[34578]\d{9}$/;
+	    return pattern.test(phone);
+	}
+	
+	/**
+	 * 错误弹出层
+	 * @param  {string} msg  错误提示
+	 * @param  {int} time 几秒后退出，1000 等于1秒
+	 * @return {[type]}      [description]
+	 */
+	popMsg = function(msg,time){
+	    var w = $(window).width();
+	    var h = $(window).height();
+	    if($(".msg20151118")){
+	        $(".msg20151118").remove();
+	    }
+	    var $box = $("<div class='msg20151118'></div>");
+	    $box.css({
+	        "background" : "rgba(0,0,0,.6)",
+	        "width" : "80%",
+	        "padding" : "10px",
+	        "line-height" : "24px",
+	        "font-size" : "14px",
+	        "text-align" : "center",
+	        "border-radius" : "10px",
+	        "color" : "#fff"
+	    })
+	    $box.text(msg)
+	    $("body").append($box);
+	    var width = $box.width();
+	    var height = $box.height();
+	    w = (w-width)/2;
+	    h = (h-height)/2;
+	    $box.css({
+	        "position" : "fixed",
+	        "top" : h,
+	        "left" : w
+	    })
+	    setTimeout(function(){
+	        $box.remove();
+	    },time || 3000);
+	}
+
+	
+	});
+
+</script>
+</body>
+</html>

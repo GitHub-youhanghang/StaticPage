@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    div {
+        width: 100px;
+        height: 100px;
+        background: red;
+        margin: 15px;
+        padding: 10px;
+        border: 5px solid green;
+        display: inline-block;
+        overflow: hidden;
+    }
+    
+    .none {
+        display: none;
+    }
+    
+    .hidden {
+        visibility: hidden;
+    }
+    
+    .opacity0 {
+        opacity: 0;
+    }
+    
+    .height0 {
+        height: 0;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="none"></div>
+    <div class="hidden"></div>
+    <div class="opacity0"></div>
+    <div class="height0">aa</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    <script src="js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+    $(".none").on("click", function() {
+        console.log("none clicked");
+    })
+    $(".hidden").on("click", function() {
+        console.log("hidden clicked");
+    })
+    $(".opacity0").on("click", function() {
+        console.log("opacity0 clicked");
+    })
+    $(".height0").on("click", function() {
+        console.log("height0 clicked");
+    })
+    </script>
+</body>
+
+</html>

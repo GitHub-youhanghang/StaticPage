@@ -1,0 +1,112 @@
+<!DOCTYPE >
+<html >
+<meta charset="utf-8">
+
+<head>
+    <title>两侧列固定中间列变宽2</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style type="text/css">
+    body {
+        font: 12px/18px Arial;
+        margin: 0;
+    }
+    
+    #header,
+    #footer {
+        background: #CCCCFF;
+        width: 85%;
+        margin: 0 auto;
+    }
+    
+    #Nav {
+        background: #dfC0FF;
+        width: 85%;
+        margin: 0 auto;
+    }
+    
+    h2 {
+        margin: 0;
+        padding: 20px;
+    }
+    
+    p {
+        padding: 15px 20px;
+        text-indent: 2em;
+        margin: 0;
+    }
+    
+    #container {
+        width: 85%;
+        margin: 0 auto;
+        background: url(images/background-right.gif) repeat-y top right;
+        position: relative;
+    }
+    
+    #innerContainer {
+        background: url(images/background-left.gif) repeat-y top left;
+    }
+    
+    #navi {
+        width: 200px;
+        position: absolute;
+        left: 0px;
+        top: 0px;
+    }
+    
+    #content {
+        right: 0px;
+        top: 0px;
+        margin-right: 200px;
+        margin-left: 200px;
+    }
+    
+    #side {
+        width: 200px;
+        position: absolute;
+        right: 0px;
+        top: 0px;
+    }
+    </style>
+</head>
+
+<body>
+    <div id="header">
+        <h2>Page Header</h2>
+    </div>
+    <div id="container">
+        <div id="innerContainer">
+            <div id="navi">
+                <h2>Navi Bar</h2>
+                <ul>
+                    <li>Home</li>
+                    <li>Web Design</li>
+                    <li>Web Dev</li>
+                    <li>Map</li>
+                    <li>Contact Us</li>
+                    <li>Home</li>
+                    <li>Web Design</li>
+                </ul>
+            </div>
+            <div id="content">
+                <h2>Page Content</h2>
+                <p>
+                    生活中到处都存在着缘分，缘聚缘散好像都是命中注定的事情；有些缘分也许从一开始就注定要失去，有些缘分也许是永远都不会有结果；</p>
+                <p>
+                    可是我却偏偏渴望创造一种奇迹。也许不是不曾心动，不是没有可能，只是有缘无份，情深缘浅，如果彼此出现早一点,也许就会有美好的结局,又或者相遇的时间再晚一点,晚到两个人在各自的爱情故事中经历了包容与体谅,善待和妥协，悲痛与快乐，到了那时也许走到一起就会有可能。</p>
+            </div>
+            <div id="side">
+                <h2>Side Bar</h2>
+                <ul>
+                    <li>Web Dev</li>
+                    <li>Map</li>
+                    <li>Contact Us</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <h2>Page Footer</h2>
+    </div>
+</body>
+
+</html>

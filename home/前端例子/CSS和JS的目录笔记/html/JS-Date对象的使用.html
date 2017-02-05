@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<h5 id="time1"></h5>
+	<h5 id="time2"></h5>
+
+
+<script src="js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript">
+		//将当前时间戳转换成日期格式
+		function  formatDate(now){     
+          var   year=now.getFullYear();     
+          var   month=now.getMonth()+1;     
+          var   date=now.getDate();     
+          var   hour=now.getHours();     
+          var   minute=now.getMinutes();     
+          var   second=now.getSeconds();     
+          return   year+"-"+month+"-"+date+"   "+hour+":"+minute+":"+second;
+        }        
+        setInterval(function(){
+        	var currentTime =new Date();
+        	var currentTimetext =formatDate(currentTime);
+        	$('#time1').text(currentTimetext);
+        },50)
+        
+
+        
+
+
+
+	</script>
+</body>
+</html>

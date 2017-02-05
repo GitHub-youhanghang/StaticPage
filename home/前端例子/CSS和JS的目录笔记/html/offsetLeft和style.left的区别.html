@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>offsetLeft和style.left</title>
+    <link rel="stylesheet" type="text/css" href="../css/page.css">
+    <style type="text/css">
+    .red{color: red;}
+    .out {
+        height: 600px;
+        background-color: pink;
+        overflow: hidden;
+    }
+    
+    .inner {
+        margin: 50px;
+        height: 300px;
+        background-color: #CCC;
+        overflow: hidden;
+        position: relative;
+    }
+    
+    p {
+        font-size: 20px;
+        text-indent: 100px;
+        line-height: 30px;
+    }
+    
+    .inner_son {
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        top: 70px;
+        left: 70px;
+        background-color: red;
+    }
+    
+    .inner_son_putongliu {
+        width: 100px;
+        height: 100px;
+        margin-left: 200px;
+        margin-top: 70px;
+        background: red;
+    }
+    </style>
+</head>
+
+<body style="padding-left:20px">
+    <div class="out">
+        <div class="inner">
+            <div style="margin-left: 20px;">
+                <div class="inner_son" id="inner_son" style="left:70px">
+                    <div>jquery方法获取的值</div>
+                    <div class="offset_value"></div>
+                    <div class="position_value"></div>
+                </div>
+                <div class="inner_son_putongliu" id="inner_son_putongliu"></div>
+            </div>
+        </div>
+        <p id="des1">1</p>
+        <p id="des2">1</p>
+        <p id="des3">1</p>
+        <p id="des4">1</p>
+    </div>
+    <p>offsetLeft 获取的是已定位的父对象（<span class="red">窗口相当于已定位,其他元素position:absolute或relative）的左边距</span>；如果当前元素的上几级父元素没有定位，那么获取的是当前元素到窗口左边框的距离，窗口不是body，此时当前元素div的style.lefts是空的；如果当前元素父div的position定义为relative,当前元素的position定义为absolute，那么获取的是当前元素到已定位父div左边框的距离,此时当前元素div的style.left 和offsetLeft是相同的；
+    </p>
+    <p>当你使用offsetLeft获取值，它总是等于当前元素style.left的数值，如果当前元素有定位和left的值的话</p>
+    <p>left 获取或设置相对于 具有定位属性(position定义为relative)的父对象 的左边距；</p>
+    <p>如果父div的position定义为relative,子div的position定义为absolute，那么子div的style.left的值是相对于父div的值， 这同offsetLeft是相同的；
+    </p>
+    <p>二者的区别在于：</p>
+    <p>1.style.left返回的是字符串，如30px,offsetLeft返回的是数值30；</p>
+    <p>2.style.left是可读写的，而是offsetLeft是只读的，因此如果要改变div的位置，只能修改style.left；
+    </p>
+    <p>3.style.left的值需要事先定义，否则取到的值为空；而且定义在css里是无法识别的，取到的值将依然为空，只有在html里定义的才有效；</p>
+    <p>获取匹配元素在当前视口的相对偏移。</p>
+    <p>var offset = p.offset();</p>
+    <p>p.html( "left: " + offset.left + ", top: " + offset.top );</p>
+    <p>获取匹配元素相对父元素的偏移。</p>
+    <p>返回的对象包含两个整型属性：top 和 left。为精确计算结果，请在补白、边框和填充属性上使用像素单位。此方法只对可见元素有效。</p>
+    <p>var position = p.position();</p>
+    <p>$("p:last").html( "left: " + position.left + ", top: " + position.top );</p>
+    <div id="D1" style="margin-left: 20px;position: relative;">
+        <div id=D2 style="margin-left: 200px;"></div>
+    </div>
+    <!-- js -->
+    <script src="../js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript">
+    var inner_son = document.getElementById('inner_son');
+    var des1 = document.getElementById('des1');
+    var des2 = document.getElementById('des2');
+    //offsetLeft和style.left在已定位的元素的值是一样的
+    des1.firstChild.nodeValue = "offsetLeft:" + inner_son.offsetLeft;
+    des2.firstChild.nodeValue = "style.left:" + inner_son.style.left; //style.left的值需要事先定义，否则取到的值为空；而且定义在css里是无法识别的，取到的值将依然为空，只有在html里用style属性定义的才有效
+    //offsetLeft和style.left在普通流的元素的值是一样的
+    var inner_son = document.getElementById('inner_son_putongliu');
+    var des3 = document.getElementById('des3');
+    var des4 = document.getElementById('des4');
+
+    des3.firstChild.nodeValue = "offsetLeft:" + inner_son_putongliu.offsetLeft;
+    des4.firstChild.nodeValue = "style.left:" + inner_son_putongliu.style.left;
+    $(document).ready(function() {
+        //获取匹配元素在当前视口的相对偏移。
+        var offset = $('.inner_son').offset();
+        $('.offset_value').html("offsetleft: " + offset.left + ", offsettop: " + offset.top);
+        //获取匹配元素相对已定位父元素的偏移。jquery手册描述的有点短
+        var position = $('.inner_son').position();
+        $('.position_value').html("positionleft: " + position.left + ", positiontop: " + position.top);
+    });
+
+
+//获得偏移量
+    function getElementLeft(element) {
+        var actualLeft = element.offsetLeft;
+        var current = element.offsetParent;
+        while (current !== null) {
+            actualLeft += current.offsetLeft;
+            current = current.offsetParent;
+        }
+        return actualLeft;
+    }
+
+    function getElementTop(element) {
+        var actualTop = element.offsetTop;
+        var current = element.offsetParent;
+        while (current !== null) {
+            actualTop += current.offsetTop;
+            current = current.offsetParent;
+        }
+        return actualTop;
+    }
+    var D1 = document.getElementById('D1');
+    var D2 = document.getElementById('D2');
+    console.log('D1 offsetLeft'+D1.offsetLeft);
+    console.log('D2 offsetLeft'+D2.offsetLeft);
+    var D2offsetLeft=getElementLeft(D1);
+    console.log('获得当前元素到窗口的距离'+D2.offsetLeft);
+ 	 $(document).ready(function() {
+        //获取匹配元素在当前视口的相对偏移。
+        var offset = $('#D2').offset();
+       console.log("jquery D2 offset.left: " + offset.left);
+      
+    });		
+function getBoundingClientRect(element) {
+    var scrollTop = document.documentElement.scrollTop;
+    var scrollLeft = document.documentElement.scrollLeft;
+    if (element.getBoundingClientRect) {
+        if (typeof arguments.callee.offset != "number") {
+            var temp = document.createElement("div");
+            temp.style.cssText = "position:absolute;left:0;top:0;";
+            document.body.appendChild(temp);
+            arguments.callee.offset = -temp.getBoundingClientRect().top - scrollTop;
+            document.body.removeChild(temp);
+            temp = null;
+        }
+        var rect = element.getBoundingClientRect();
+        var offset = arguments.callee.offset;
+        return {
+            left: rect.left + offset,
+            right: rect.right + offset,
+            top: rect.top + offset,
+            bottom: rect.bottom + offset
+        };
+    } else {
+        var actualLeft = getElementLeft(element);
+        var actualTop = getElementTop(element);
+        return {
+            left: actualLeft - scrollLeft,
+            right: actualLeft + element.offsetWidth - scrollLeft,
+            top: actualTop - scrollTop,
+            bottom: actualTop + element.offsetHeight - scrollTop
+        }
+    }
+}    	
+var D2positon=getBoundingClientRect(D2);
+console.log('getBoundingClientRect(D2)'+D2positon.left);			
+    </script>
+</body>
+
+</html>

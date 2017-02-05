@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    div {
+        width: 100px;
+        height: 100px;
+        background: red;
+        margin: 15px;
+        padding: 10px;
+        border: 5px solid green;
+        display: inline-block;
+        overflow: hidden;
+        transition: all linear 2s;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="none"></div>
+    <div class="hidden"></div>
+    <div class="opacity0"></div>
+    <div class="height0">aa</div>
+    <script src="js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+    $(".none").on("click", function() {
+        console.log("none clicked");
+        $(this).css("display", "none");
+    })
+    $(".hidden").on("click", function() {
+        console.log("hidden clicked");
+        $(this).css("visibility", "hidden");
+    })
+    $(".opacity0").on("click", function() {
+        console.log("opacity0 clicked");
+        $(this).css("opacity", 0);
+    })
+    $(".height0").on("click", function() {
+        console.log("height0 clicked");
+        $(this).css({
+            "height": 0,
+        });
+    })
+    </script>
+</body>
+
+</html>

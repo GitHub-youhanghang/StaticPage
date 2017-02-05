@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="css/page.css">
+<style type="text/css">
+body,ul,li,a,p,div{padding:0px; margin:0px; font-size:14px;}
+ul,li{list-style:none;}
+a{ text-decoration:none; color:#333;}
+ #demo{
+    overflow:hidden; /*溢出的部分不显示*/
+    width:290px;
+    height:228px;/*一定要确切，避免demo1与demo2之间的距离过大*/
+    padding:5px;
+    margin:50px auto;
+    }
+#express li{
+      list-style:none;
+      font-size:14px;
+      height:25px;
+      margin:0px 5px;
+      line-height:180%;/*行与行之间的距离*/
+      letter-spacing:2px;/*字与字之间的距离*/
+      border-bottom:1px dashed #ccc;
+      cursor:pointer;
+      }
+</style>
+</head>
+<body>
+	
+<div id="demo" >
+  <div id="demo1" >
+    <ul id="express">
+      <li><a href="#">召开背街小巷综合整治工作调度会</a></li>
+      <li><a href="#">平原街道加大出店经营整治</a></li>
+      <li><a href="#">平原街道召开计生业务培训会</a></li>
+　　　<li><a href="#">平原街道：干部进村入户宣传促征迁</a></li>
+　　　<li><a href="#">平原街道：为返乡群众免费孕检</a></li>
+      <li><a href="#">平原街道：狠抓春运道路交通安全</a></li>      
+    </ul>
+  </div>
+  <div id="demo2"></div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+ 
+ <script src="js/jquery-1.9.1.min.js"></script>
+ <script type="text/javascript">
+  //获取id=demo,id=demo1,id=demo2的元素对象，并把id=demo1的内容赋值给id=demo2
+  var demo=document.getElementById("demo");
+  var demo1=document.getElementById("demo1");
+  var demo2=document.getElementById("demo2");
+  demo2.innerHTML=demo1.innerHTML;
+  //给demo1,demo2加相同的高度
+  demo1.style.height=demo.offsetHeight+"px";
+  demo2.style.height=demo.offsetHeight+"px";
+  //定时器，每隔50毫秒调用一次scrollup()函数，来实现文字的滚动
+  var timer=window.setInterval("scrollup()",50);
+  //定义函数
+  function scrollup()
+  {
+    //如果demo滚上去的高度大于demo的高度，重新给demo赋值从0再开始滑动
+    if(demo.scrollTop>=demo.offsetHeight)
+    {
+      demo.scrollTop=0;
+    }else
+    {
+      demo.scrollTop++;
+    }
+  }
+  //鼠标放上停止滚动，鼠标离开继续滚动
+    demo.onmouseover=function(){
+                  //清除定时器
+                  clearInterval(timer);
+                  }
+    demo.onmouseout=function(){
+                  //添加定时器
+                  timer=window.setInterval("scrollup()",50);
+                  }
+
+</script>
+</body>
+</html>

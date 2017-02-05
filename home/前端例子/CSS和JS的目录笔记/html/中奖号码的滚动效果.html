@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/page.css">
+    <style type="text/css">
+	.win-user{height:30px;line-height:30px;background:red;color:#FFF;overflow:hidden;}
+    </style>
+</head>
+
+<body>
+    <div class="win-user" id="J_Scroll">
+        <ul id="J_ScrollTip1">
+            <li> 138＊＊＊3156中5折起亚KX</li>
+            <li> 138＊＊＊3156中6折起亚KX</li>
+            <li> 138＊＊＊3156中7折起亚KX</li>
+        </ul>
+        <ul id="J_ScrollTip2">
+            <li> 138＊＊＊3156中5折起亚KX</li>
+            <li> 138＊＊＊3156中6折起亚KX</li>
+            <li> 138＊＊＊3156中7折起亚KX</li>
+        </ul>
+    </div>
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript">
+    var area = document.getElementById('J_Scroll');
+    var con1 = document.getElementById('J_ScrollTip1');
+    var con2 = document.getElementById('J_ScrollTip2');
+    var speed = 50;
+    area.scrollTop = 0;
+    if ($("#J_ScrollTip1").find("li").length >= 1) {
+        con2.innerHTML = con1.innerHTML;
+        area.style.height = "30px";
+        var myScroll = setInterval("scrollUp()", speed);
+    }
+    function scrollUp() {
+        if (area.scrollTop >= con1.scrollHeight) {
+            area.scrollTop = 0;
+        } else {
+            area.scrollTop++;
+        }
+    }
+    </script>
+</body>
+
+</html>

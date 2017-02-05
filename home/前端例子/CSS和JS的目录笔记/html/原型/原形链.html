@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="../../css/page.css">
+    <style type="text/css">
+
+    </style>
+</head>
+<body>
+
+
+
+
+
+
+<!-- js -->
+<script src="../../js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+
+
+function Grandfather(){
+	this.role="yeye";
+}
+Grandfather.prototype.getGrandfatherRole=function(){
+	return this.role;
+}
+function Father(){
+	this.role="baba";
+}
+// Father.prototype.getFatherRole=function(){
+// 	return this.role;
+// };
+
+
+Father.prototype=new Grandfather();//重新指定原型，之前往原型上增加的方法就没有了
+
+var father=new Father();
+
+function Son(){
+	this.role="erzi";
+}
+console.log(father.getGrandfatherRole());// baba  因为father 有这个role的属性
+// console.log(father.getFatherRole());
+
+
+
+Son.prototype=new Father();//重新指定原型，之后往原型上增加方法 Son的实例都能调用
+Son.prototype.say=function(){
+return 'hello';
+}
+var son= new Son();
+console.log(son.getGrandfatherRole());
+console.log(son.say());
+console.log(son.constructor);
+console.log(Object.getPrototypeOf(son));
+console.log(Object.getPrototypeOf(Object.getPrototypeOf(son)));
+console.log(Object.getPrototypeOf(Object.getPrototypeOf(Object.getPrototypeOf(son))));
+
+console.log(son instanceof Son);//true
+console.log(son instanceof Father);//true
+console.log(son instanceof Grandfather);//true
+console.log(son instanceof Object);//true
+</script>
+
+<script type="text/javascript">
+		function SuperType(){
+		this.colors = ["red", "blue", "green"];
+		}
+		function SubType(){
+		// 继承了 SuperType
+		SuperType.call(this);
+		}
+		var instance1 = new SubType();
+		instance1.colors.push("black");
+		console.log(instance1.colors); //"red,blue,green,black"
+		var instance2 = new SubType();
+		console.log(instance2.colors); //"red,blue,green	
+		console.log(SuperType.prototype.isPrototypeOf(instance1)); 	
+</script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        
+    });
+</script>
+
+</body>
+</html>

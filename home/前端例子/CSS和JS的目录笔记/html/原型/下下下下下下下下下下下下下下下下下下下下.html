@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="../../css/page.css">
+    <style type="text/css">
+
+    </style>
+</head>
+<body>
+
+
+
+
+
+
+<!-- js -->
+<script src="../../js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+function createFunctions(){
+	var result = new Array();
+	for (var i=0; i < 5; i++){
+		result[i] = (function(i){
+			return i;
+		})(i);
+	console.log(result);
+}
+return result;
+}
+var result=createFunctions();
+
+
+
+
+
+for(var i = 0; i < 10; i++) {
+    setTimeout(function() {
+        console.log(i);
+    }, 1000);
+}
+var a =function(e){
+	return e;
+}(5);
+alert(a);
+// function(e){
+// 	alert(e);
+// }(5) 出错
+</script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        
+    });
+</script>
+
+</body>
+</html>

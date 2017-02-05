@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="../css/page.css">
+    <style type="text/css">
+	html,body{height: 100%;}
+    </style>
+</head>
+<body>
+
+
+<div id="box" class="box nox"></div>
+<button id="btnD">删除</button>
+<button id="btnT">添加</button>
+<button id="btnH">替换</button>
+<!-- js -->
+<script src="../js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+// 
+
+
+
+function $(id){
+    return document.getElementById(id);
+}
+var box = $('box');
+var classVal = box.getAttribute('class');
+console.log(classVal);
+//删除类
+$('btnD').onclick=function(){
+	classVal = classVal.replace("nox","");
+    box.setAttribute("class",classVal );
+}
+//添加类
+$('btnT').onclick=function(){
+	classVal = classVal.concat("mox");
+    box.setAttribute("class",classVal );
+}
+//替换类
+$('btnH').onclick=function(){
+classVal = classVal.replace("box","box1");
+box.setAttribute("class",classVal );
+}
+
+
+
+
+
+
+
+
+</script>
+<script type="text/javascript">
+  jQuery(document).ready(function($) {
+  	
+  });</script>
+
+</body>
+</html>

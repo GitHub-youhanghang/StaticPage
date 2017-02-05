@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="css/page.css">
+	<style type="text/css">
+	
+	</style>
+</head>
+<body>
+	
+
+
+
+<span class="J_time" data-date="999999"></span>
+<span class="J_time" data-date="999999"></span>
+<span class="J_time" data-date="999999"></span>
+<span class="J_time" data-date="999999"></span>
+<span class="J_time" data-date="999999"></span>
+<span class="J_time" data-date="999999"></span>
+<hr>
+<span class="J_timeC" data-date="804007"></span>
+<span class="J_timeC" data-date="804007"></span>
+<span class="J_timeC" data-date="804007"></span>
+<span class="J_timeC" data-date="804007"></span>
+<span class="J_timeC" data-date="804007"></span>
+<span class="J_timeC" data-date="804007"></span>
+<span class="J_timeC" data-date="804007"></span>
+
+
+
+
+
+
+
+
+
+ 
+ <script src="js/jquery-1.9.1.min.js"></script>
+ <script type="text/javascript">
+ $(document).ready(function() {
+ 	function callback_afterTimeEnd(){
+        window.location.reload();
+    }
+    countDown(".J_time","距结束",callback_afterTimeEnd);
+    countDown(".J_timeC","距开始",callback_afterTimeEnd);
+/**
+	 * 倒计时组件 data-date 值为毫秒数
+	 * @param  {string}   select   时间戳挂钩
+	 * @param  {string}   msg      剩余时间提示 
+	 * @param  {Function} callback [倒计时结束回调函数]
+	 * @return {undefined}           倒计时结束执行回调函数
+	 */
+	function countDown(select,msg,callback){
+	    var objTime = {
+	        "day" : "天",
+	        "day1" : ":",
+	        "hour" : "时",
+	        "hour1" : ":",
+	        "min" : "分",
+	        "min1" : ":",
+	        "second" : "秒",
+	        "second1" : ":"
+	    }
+	    $(select).each(function(){
+	        var _this = $(this);
+	        var dataTime = _this.attr("data-date") / 1000;
+	        var time = setInterval(function(){
+		        var str = msg;
+		        dataTime--;
+		        _this.attr("data-date",dataTime);
+		            // 倒计时结束
+		            if(dataTime == 0){
+		                clearInterval(time);
+		                _this.html("");
+		                if(typeof(callback) == "function"){
+		                    callback();
+		                    return;
+		                }
+		                return;
+		            }else{
+		                var day = Math.floor(dataTime / (24*60*60));
+		                var hour = Math.floor(dataTime / (60*60) - day*24);
+		                var min = Math.floor(dataTime / 60 - day*24*60 - hour*60);
+		                var second = Math.floor(dataTime - day*24*60*60 - hour*60*60 -min*60);
+		                if(day > 0){
+	                        str += "&nbsp;"
+	                        str += '<i class="time-i">' +  day + '</i>' + objTime.day + '<i class="time-i">' + hour + '</i>' + objTime.hour + '<i class="time-i">' + min + '</i>' + objTime.min + '<i class="time-i">' + second +'</i>' + objTime.second;
+		                }else{
+	                        str += "&nbsp;"
+	                        str += '<i class="time-i">' + hour + '</i>' + objTime.hour + '<i class="time-i">' + min + '</i>' + objTime.min + '<i class="time-i">' + second +'</i>' + objTime.second;;
+		                }
+		                
+		            }
+		            _this.html(str);
+	        },1000)
+	    })
+	}
+ });
+
+ </script>
+</body>
+</html>

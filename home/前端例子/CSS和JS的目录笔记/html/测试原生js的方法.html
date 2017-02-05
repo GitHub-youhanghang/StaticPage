@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/page.css">
+    <style type="text/css">
+	.demo{
+		width: 200px;height: 200px;background-color: red;
+	}	.demo2{
+		width: 200px;height: 200px;background-color: #CCC;
+	}
+    </style>
+</head>
+<body>
+
+<div id="demo" class="demo">
+	22
+</div>
+<div  class="demo">
+	111
+</div>
+<div  class="demo">
+	111
+</div>
+
+
+<div id="demo2" class="demo2"></div>
+
+
+
+<!-- <script type="text/javascript" src="js/原生js仿jquery一些常用方法.js"></script> -->
+<script type="text/javascript" src="js/js动画.js"></script>
+<script type="text/javascript">
+	var demo=document.getElementById('demo');
+            animate(demo, {width: 500, height: 200},10, 0.01, function(){
+                animate(demo, {width: 300, height: 200},10, 0.01);
+            });
+
+
+</script>
+
+
+
+
+
+
+<!-- js -->
+<script src="js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        
+    });
+</script>
+
+</body>
+</html>

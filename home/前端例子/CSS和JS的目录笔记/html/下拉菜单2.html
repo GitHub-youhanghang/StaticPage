@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+ <html>
+ <head>
+ <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+ <meta charset=utf-8 />
+ <title>js模拟select</title>
+ </head>
+    <style>
+   *{ margin:0; padding:0;}
+   li{ list-style:none;}
+   body{ font:12px "宋体"; color:#666;}
+   .select_down{ margin:100px auto; position:relative; width:600px; min-height:200px; height:auto!important; height:200px; border:1px solid #ccc; padding:20px; border-radius: 8px}
+   .select_down dt{float:left;width:134px;position:relative;margin-right:5px;display:inline;}
+   .select_down h3{color: #919191; font-size:12px;font-weight: normal;border:1px solid #e5e5e5;height:18px;background:#fbfbfb;line-height: 18px;text-indent:8px;}
+   .select_down ul{width: 132px;border: 1px solid #e5e5e5;background:#fbfbfb;position: absolute;top: 18px;left: 0;
+ z-index: 1;text-indent:8px;display:none;}
+ .select_down ul li{height:22px;line-height: 22px;cursor:pointer;}
+ .select_down ul li.hover{background:#f2f2f2;}
+  .select_down dt a{background:url('http://www.jb51.net/hxh-hua/478335/o_select.jpg') no-repeat;position:absolute;width:18px;height:18px;top:1px;right:1px; }
+   </style>
+ <body>
+   <div class="select_down" id="sel">
+           <dl>
+             <dt>
+                 <h3>select选择</h3>
+                 <a href="javascript:;"></a>
+                 <ul>
+                     <li>jq的select模拟1</li>
+                     <li>jq的select模拟2</li>
+                     <li>jq的select模拟3</li>
+                 </ul>
+             </dt>
+             <dt>
+                 <h3>select选择2</h3>
+                 <a href="javascript:;"></a>
+                 <ul>
+                     <li>jq的select模拟11</li>
+                     <li>jq的select模拟22</li>
+                     <li>jq的select模拟31</li>
+                 </ul>
+             </dt>
+
+         </dl>
+ </div>
+   <script>
+
+     window.onload=function(){
+     var oflink = document.getElementById('sel');
+     var aDt = oflink.getElementsByTagName('dt');
+     var aUl = oflink.getElementsByTagName('ul');
+     var aH3= oflink.getElementsByTagName('h3');
+     for(var i=0;i<aDt.length;i++){
+         aDt[i].index = i;
+         aDt[i].onclick = function(ev){
+             var ev = ev || window.event;
+             var This = this;
+             for(var i=0;i<aUl.length;i++){
+                 aUl[i].style.display = 'none';
+             }
+             aUl[this.index].style.display = 'block';
+             document.onclick = function(){
+                 aUl[This.index].style.display = 'none';
+             };
+             ev.cancelBubble = true;
+
+         };
+     }
+     for(var i=0;i<aUl.length;i++){
+
+         aUl[i].index = i;
+
+         (function(ul){
+
+             var iLi = ul.getElementsByTagName('li');
+
+             for(var i=0;i<iLi.length;i++){
+                 iLi[i].onmouseover = function(){
+                     this.className = 'hover';
+                 };
+                 iLi[i].onmouseout = function(){
+                     this.className = '';
+                 };
+                 iLi[i].onclick = function(ev){
+                     var ev = ev || window.event;
+                     aH3[this.parentNode.index].innerHTML = this.innerHTML;
+                     ev.cancelBubble = true;
+                     this.parentNode.style.display = 'none';
+                 };
+             }
+
+         })(aUl[i]);
+     }
+
+ }
+   </script>
+
+ </body>
+ </html>
