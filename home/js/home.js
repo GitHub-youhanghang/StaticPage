@@ -158,6 +158,71 @@
 
     var timeBtn = document.getElementById('timeBtn');
     timeBtn.onclick = function() {
+   function getDate(strDate) {
+       
+        var date = eval('new Date(' + strDate.replace(/\d+(?=-[^-]+$)/,
+            function(a) {
+                return parseInt(a, 10) - 1;
+            }).match(/\d+/g) + ')');
+        return date;
+    }
+    function show_date_time(timeEnd) {
+ 
+        var today = new Date();
+        var target = timeEnd;
+        var timeold = (target.getTime() - today.getTime());
+        var sectimeold = timeold / 1000;
+        var secondsold = Math.floor(sectimeold);
+        var msPerDay = 24 * 60 * 60 * 1000;
+        var e_daysold = timeold / msPerDay;
+
+        var daysold = Math.floor(e_daysold);
+
+        var dayif = parseInt(Math.floor(e_daysold));
+        var e_hrsold = (e_daysold - daysold) * 24;
+        var hrsold = Math.floor(e_hrsold);
+        var e_minsold = (e_hrsold - hrsold) * 60;
+        var minsold = Math.floor((e_hrsold - hrsold) * 60);
+        var seconds = Math.floor((e_minsold - minsold) * 60);
+
+        if (daysold < 0) {
+            document.getElementById("time").innerHTML = "逾期,倒计时已经失效";
+        } else {
+            // daysold='<span class="timev">'+daysold+'</span>';
+            // hrsold='<span class="timev">'+hrsold+'</span>';
+            // minsold='<span class="timev">'+minsold+'</span>';
+            // seconds='<span class="timev">'+seconds+'</span>';
+            if (daysold < 10) {
+                daysold = "<span class='timev'>0</span>" + '<span class="timev">' + daysold + '</span>'
+            } else {
+                daysold = '<span class="timev">' + daysold + '</span>'
+            }
+            if (hrsold < 10) {
+                hrsold = "<span class='timev'>0</span>" + '<span class="timev">' + hrsold + '</span>'
+            } else {
+                hrsold = '<span class="timev">' + hrsold + '</span>'
+            }
+            if (minsold < 10) {
+                minsold = "<span class='timev'>0</span>" + '<span class="timev">' + minsold + '</span>'
+            } else {
+                minsold = '<span class="timev">' + minsold + '</span>'
+            }
+            if (seconds < 10) {
+                seconds = "<span class='timev'>0</span>" + '<span class="timev">' + seconds + '</span>'
+            } else {
+                '<span class="timev">' + seconds + '</span>'
+            }
+            if (dayif > 0) {
+                document.getElementById("time").innerHTML = "距离结束时间还有：" + daysold + "天" + hrsold + "小时" + minsold + "分" + seconds + "秒";
+            } else {
+                document.getElementById("time").innerHTML = "<font color=red>距离结束时间还有：" + daysold + "天" + hrsold + "小时" + minsold + "分" + seconds + "秒</font>";
+            } //结束时间小于1天，字体呈红色提醒
+        }
+    }
+
+
+    var timeBtn = document.getElementById('timeBtn');
+    timeBtn.onclick = function() {
         var timeEndStr = document.getElementById('timeInput').value;
         var timeEnd = getDate(timeEndStr);
         setTimeout(function() {
@@ -168,33 +233,6 @@
 
         //将日期字符串转化为date传入倒计时函数
     }
-      // daysold='<span class="timev">'+daysold+'</span>';
-      // hrsold='<span class="timev">'+hrsold+'</span>';
-      // minsold='<span class="timev">'+minsold+'</span>';
-      // seconds='<span class="timev">'+seconds+'</span>';
-     if (daysold<10) {daysold="<span class='timev'>0</span>"+'<span class="timev">'+daysold+'</span>'}
-     else{daysold='<span class="timev">'+daysold+'</span>'}   
-     if (hrsold<10) {hrsold="<span class='timev'>0</span>"+'<span class="timev">'+hrsold+'</span>'}
-     else{hrsold='<span class="timev">'+hrsold+'</span>'}   
-     if (minsold<10) {minsold="<span class='timev'>0</span>"+'<span class="timev">'+minsold+'</span>'}  
-     else{minsold='<span class="timev">'+minsold+'</span>'} 
-     if (seconds<10) {seconds="<span class='timev'>0</span>"+'<span class="timev">'+seconds+'</span>'}
-     else{'<span class="timev">'+seconds+'</span>'}   
-     if (dayif>0) { 
-      document.getElementById("time").innerHTML="距离结束时间还有："+daysold+"天"+hrsold+"小时"+minsold+"分"+seconds+"秒";   
-     }   
-     else
-      {
-        document.getElementById("time").innerHTML="<font color=red>距离结束时间还有："+daysold+"天"+hrsold+"小时"+minsold+"分"+seconds+"秒</font>"; 
-      } //结束时间小于1天，字体呈红色提醒
-      
-    }   
-    show_date_time();
-    var timeBtn=document.getElementById('timeBtn');  
-    timeBtn.onclick=function(){
-      var target=document.getElementById('timeInput').value;
-      //将日期字符串转化为date传入倒计时函数
-    } 
 
  function divselectlist(){
       var box = document.getElementById('divselect'), 
