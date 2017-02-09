@@ -187,7 +187,7 @@
       {
         document.getElementById("time").innerHTML="<font color=red>距离结束时间还有："+daysold+"天"+hrsold+"小时"+minsold+"分"+seconds+"秒</font>"; 
       } //结束时间小于1天，字体呈红色提醒
-      }   
+      
     }   
     show_date_time();
     var timeBtn=document.getElementById('timeBtn');  
