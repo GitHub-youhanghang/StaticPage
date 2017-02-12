@@ -30,12 +30,16 @@
    
     <script>
         window.onload=function(){
-            var audio=document.getElementById('audio');
-            var timer=setTimeout(function(){
+              $('.bg-rain').click();       
+        }
+        $(document).ready(function() {
+            $('.bg-rain').click(function(event){
+                    var audio=document.getElementById('audio');
+                    var timer=setTimeout(function(){
                     audio.play();
                 },20000);
-
-        }
+            })
+        });
     </script>
 
 
