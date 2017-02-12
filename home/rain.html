@@ -5,10 +5,10 @@
     <meta charset="utf-8">
     <title>下雨天</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<!--     <link rel="stylesheet" type="text/css" href="/StaticPage/home/css/home.css">
-    <link rel="stylesheet" type="text/css" href="/StaticPage/home/css/hover.css">
-    <link rel="stylesheet" type="text/css" href="/StaticPage/home/css/animate.css">
-    <link rel="stylesheet" type="text/css" href="/StaticPage/home/css/swiper.min.css"> -->
+<!--     <link rel="stylesheet" type="text/css" href="css/home.css">
+    <link rel="stylesheet" type="text/css" href="css/hover.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+    <link rel="stylesheet" type="text/css" href="css/swiper.min.css"> -->
     <style type="text/css">
         *{margin: 0;padding: 0;}
 /*         .audio{display:none;position: fixed;bottom: 200px;left: 0;}
@@ -26,20 +26,21 @@
     <!-- 下雨声 -->
    <audio class="audio" controls="controls" autoplay="autoplay" name="media" loop="loop"><source src="http://yd.sc.chinaz.com/files/download/sound1/201309/3580.wav" type="audio/wav"></audio>
    <audio id="audio" class="audio" controls="controls"  name="media" loop="loop"><source src="http://yd.sc.chinaz.com/files/download/sound1/201309/3580.wav" type="audio/wav"></audio>
-    <script src="/StaticPage/home/js/jquery-1.9.1.min.js"></script>
+    <script src="js/jquery-1.9.1.min.js"></script>
    
     <script>
-        window.onload=function(){
-              $('.bg-rain').click();       
-        }
         $(document).ready(function() {
-            $('.bg-rain').click(function(event){
+
+           $('.bg-rain').bind('click',function(event){
+            alert();
                     var audio=document.getElementById('audio');
                     var timer=setTimeout(function(){
-                    audio.play();
-                },20000);
-            })
+                        audio.play();   
+                    },20000)            
+
         });
+             $('.bg-rain').trigger("click");
+       })
     </script>
 
 
