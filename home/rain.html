@@ -25,17 +25,18 @@
     
     <!-- 下雨声 -->
    <audio class="audio" controls="controls" autoplay="autoplay" name="media" loop="loop"><source src="http://yd.sc.chinaz.com/files/download/sound1/201309/3580.wav" type="audio/wav"></audio>
-   <audio id="audio" class="audio" controls="controls"  name="media" loop="loop"><source src="http://yd.sc.chinaz.com/files/download/sound1/201309/3580.wav" type="audio/wav"></audio>
+   <audio id="audio2" class="audio" controls="controls"  name="media" loop="loop"><source src="http://yd.sc.chinaz.com/files/download/sound1/201309/3580.wav" type="audio/wav"></audio>
     <script src="js/jquery-1.9.1.min.js"></script>
    
     <script>
         $(document).ready(function() {
 
            $('.bg-rain').bind('click',function(event){
-            alert();
-                    var audio=document.getElementById('audio');
+                    var audio1=document.getElementById('audio1');
+                    audio1.play();
+                    var audio2=document.getElementById('audio2');
                     var timer=setTimeout(function(){
-                        audio.play();   
+                        audio3.play();   
                     },20000)            
 
         });
