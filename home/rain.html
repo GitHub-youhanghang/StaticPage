@@ -40,10 +40,10 @@
     <div class="bg-rain">
     </div>
     <!-- 下雨声 -->
-    <audio id="audio1" class="audio" controls="controls" name="media" loop="loop" autoplay="autoplay">
+    <audio id="audio1" class="audio" controls="controls" name="media" loop="loop" >
         <source src="http://yd.sc.chinaz.com/files/download/sound1/201309/3580.wav" type="audio/wav">
     </audio>
-    <audio id="audio2" class="audio" controls="controls" name="media" loop="loop" autoplay="autoplay">
+    <audio id="audio2" class="audio" controls="controls" name="media" loop="loop" >
         <source src="http://yd.sc.chinaz.com/files/download/sound1/201309/3580.wav" type="audio/wav">
     </audio>
     <script src="js/zepto.min.js"></script>
@@ -52,15 +52,20 @@
         var audio1 = document.getElementById('audio1');
         var audio2 = document.getElementById('audio2');
         var flag = true;
-        var timer=null;
+        var timer = null;
         $('.bg-rain').bind('touchend', function(event) {
             if (flag) {
                 audio1.play();
-               
-                flag=false;
+                clearTimeout(timer);
+                timer = setTimeout(function() {
+                    audio2.play();
+                }, 20000)
+                flag = false;
             } else {
                 audio1.pause();
-                flag=true;
+                audio2.pause();
+                clearTimeout(timer);
+                flag = true;
 
             }
         });
