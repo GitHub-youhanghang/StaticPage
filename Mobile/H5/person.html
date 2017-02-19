@@ -180,6 +180,7 @@
     .box-alist li a {
         display: block;
         font-size: .4rem;
+        border-bottom: 1px solid #CCC
     }
     
     .footer {
@@ -483,6 +484,7 @@
         var popBtn = $('.more');
         var popBox = $('.pop-box');
         var closeBtn = $('.box-close');
+        var popBg = $('.pop-bg');
         popBtn.bind('touchstart', function(event) {
 
             popBox.parents('.pop-bg').show();
@@ -491,6 +493,15 @@
         closeBtn.bind('touchstart', function(event) {
             popBox.parents('.pop-bg').hide();
             
+
+        })   
+
+        //当遮罩被点击时要自动关闭，这会很好地考查事件冒泡机制的机会。
+ 
+        popBg.bind('touchstart', function(event) {
+            if (event.target==event.currentTarget) {
+                 popBox.parents('.pop-bg').hide();
+            }    
 
         })
 
