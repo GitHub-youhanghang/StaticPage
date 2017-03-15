@@ -72,7 +72,7 @@ var NotificationHandler = {
             // alert(NotificationHandler.currentTimerIndex)
              var targetEle=$('#cookieCon').find('.list-group-item').eq(NotificationHandler.currentTimerIndex);
 
-               mScroll(targetEle);
+               NotificationHandler.mScroll(targetEle);
             n.close();  
         };  
   
@@ -91,11 +91,23 @@ var NotificationHandler = {
     }  
 };  
   
-document.addEventListener('load', function() {  
-    //try to request permission when page has been loaded.  
-    NotificationHandler.requestPermission();  
-});  
+// document.addEventListener('load', function() {  
+//     //try to request permission when page has been loaded.  
+//     NotificationHandler.requestPermission();
+//     console.log('发出请求'); 
+// });  
+$(document).ready(function() {
+    setTimeout(function(){
+     if (NotificationHandler.isPermissionGranted()) {
+        console.log('已经允许通知')
+    }
+    else{
+        NotificationHandler.requestPermission();
+    }       
+    },8000)
 
+
+});
 //当网页获取焦点3s后，给当前信息添加动画
 $(window).on('focus',function(){
     setTimeout(function(){
