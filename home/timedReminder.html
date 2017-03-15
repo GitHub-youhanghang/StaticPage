@@ -36,7 +36,7 @@
     }
     
     #cookieCon {
-        padding: 20px;
+        padding: 20px 0;
     }
     
     #cookieCon p {
@@ -175,23 +175,26 @@
         top: -20px;
         right: 0;
     }
-    .timerhelp{position: fixed;top:0;right: 0;width: 380px;display: none;}
+    .timerhelp{position: fixed;top:0;right: 0;width: 320px;display: none;border: 1px solid;}
     body{background: #fafbfc;}
     .jumbotron{padding: 10px;}
+    .timerhelpA:hover .timerhelp{display: block;}
+    #switchDescribe{position: fixed;top:100px;left:100px;width: 100px;height: 50px;line-height: 50px;background: red;border-radius: 10%;text-align: center;color: #FFF;font-size: 18px;cursor: pointer;}
     /*    */
     </style>
 </head>
 
 <body>
-        
+     <div id="switchDescribe"></div>
+
     <div class="container">
-        <div class="jumbotron fadeInDown animated">
-        <h4>使用说明</h4>
+        <div id="describe" class="jumbotron fadeInDown animated">
+            <h4>使用说明</h4>
             <ul class="list-unstyled">
-              <li>1、打开网站8s后会向用户发出请求，请允许当前网站向用户弹出通知</li>
-              <li>2、关闭当前网页将没有定时功能，使用时不要关闭</li>
+              <li>1、初次打开网站8s后会向用户发出请求，请允许当前网站向用户弹出通知。 <a class="timerhelpA" href="#">手动打开方式，在地址栏最左侧点击选择允许通知<img src="css/images/timerhelp.png" class="timerhelp img-responsive" alt="Cinque Terre"></a></li>
+              <li>2、关闭当前网页将没有定时功能，使用时不要关闭。</li>
             </ul>        
-            <img class="timerhelp" src="css/images/timerhelp.png" class="img-responsive" alt="Cinque Terre">
+            
         </div>
         <div class="row fadeInDown animated">
             <div class="col-md-12">
@@ -398,11 +401,7 @@
         </div>
         </script>
         <audio id="audioTip" style="display: none" src="audio/iphoneqq.mp3"></audio>
-        <!--             <div className="timerDiv">
-            <div class="timerHoursFlag"></div>
-            <div class="timerEveryFlag"></div>
-            <div class="timerOneFlag"></div>
-        </div>  -->
+ 
         <!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
         <script src="js/jquery-1.9.1.min.js"></script>
         <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
@@ -410,14 +409,31 @@
         <script src="js/jquery.cookie.js"></script>
         <script src="js/notification.js"></script>
         <script src="js/timedReminderInfo.js"></script>
-        <script type="text/javascript">
- 
-        // //离开页面的警告
-        //  $(window).bind('beforeunload',function(){
+     <script type="text/javascript">
+         $(document).ready(function() {
+             $('#switchDescribe').text('关闭说明');
+             var openFlag=true;
+             $('#switchDescribe').on('click',function(){
+                if (openFlag) {
+                     $(this).text('打开说明').animate({opacity: 0}, 3000);
+                     openFlag=false;
 
-        //      return '您输入的内容尚未保存，确定离开此页面吗？';
-        //  });
-        </script>
+                     $('#describe').hide();
+                }else{
+                    $(this).text('关闭说明').animate({opacity: 0}, 3000);
+                    openFlag=true;
+                    $('#describe').show();
+                }
+               
+             })
+             $('#switchDescribe').mousemove(function(){
+                $(this).animate({opacity: 1}, 1);
+             }).mouseout(function(){
+                $(this).animate({opacity: 0}, 1);
+             })
+
+         });
+     </script> 
 </body>
 
 </html>
