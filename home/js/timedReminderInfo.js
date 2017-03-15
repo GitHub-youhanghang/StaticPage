@@ -470,7 +470,7 @@
             var timerHourStr = currentList.find('.form-control').find("option:selected").text();
             var timerHourStr_Cookie = ($.cookie(currentTimerIndex.toString() + '_timerHourStr') == "null") ? false : ($.cookie(currentTimerIndex.toString() + '_timerHourStr'));
             timerHourStr = timerHourStr_Cookie || timerHourStr;
-            var timerHour = parseInt(timerHourStr);
+            var timerHour = parseFloat(timerHourStr);
 
 
             var targetDateEveryStr = currentList.find('.time-everday').val();
