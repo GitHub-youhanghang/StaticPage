@@ -32,7 +32,7 @@
 
         var scriptHtml1 = $('#script1')[0].innerHTML;
         var scriptHtml2 = $('#script2')[0].innerHTML;
-        // 事件添加区==========================================================================================
+ // 事件添加区==========================================================================================
         //添加
         $('#btnSubmit').on('click', function() {
                 var tipCon = $('#textarea').val();
@@ -67,6 +67,7 @@
 
         })
 
+        //确定删除一条
 
         $('#deleteTip').find('.btn-primary').on('click', function() {
             // log($(this).parents('.modal'));
@@ -74,6 +75,7 @@
             deleteOneTip(currentDelIndex);
 
         })
+        //确定删除所有
         $('#deleteAllTip').find('.btn-primary').on('click', function() {
             $(this).parents('.modal').modal('hide');
 
@@ -85,6 +87,7 @@
              clearAll(strArr, cookieCon);
         })
 
+        //保存编辑好的当前信息
         $('#editTip').find('.btn-primary').on('click', function() {
                 $(this).parents('.modal').modal('hide');
                 var newCon = $(this).parents('.modal').find('.editTextarea ').val();
@@ -93,17 +96,18 @@
                 $.cookie(currentDelIndex.toString(), newCon);
                 renderAll(cookieCon);
             })
-            //复制 编辑 删除 事件区====================================================================================       
-            //删除一条
+//复制 编辑 删除 事件区====================================================================================       
+            //删除当前信息
         $(cookieCon).on('click', '.btnDelete', function() {
                 currentDelIndex = $(this).parents(".list-group-item").index();
 
                 var deleteCon = $.cookie(currentDelIndex.toString());
                 $('#deleteTip').modal('show').find('.modal-title').text('确定要删除当前信息吗？删除的信息会放在回收站');
                 $('#deleteTip').find('.modal-body').text(deleteCon);
+                $(this).parents(".list-group-item").find('.btnTimerReset ').trigger('click');
 
             })
-        //信息复制        
+        //复制当前信息        
         $(cookieCon).on('click', '.btnCopy', function() {
             //当前索引
             var currentIndex = $(this).parents(".list-group-item").index();
@@ -123,13 +127,14 @@
             }).text('复制成功！');
 
         })
-        //信息编辑
+        //编辑信息
         $(cookieCon).on('click', '.btnEdit', function() {
                 currentDelIndex = $(this).parents(".list-group-item").index();
 
                 var currentCon = $.cookie(currentDelIndex.toString());
                 $('#editTip').modal('show');
                 $('#editTip').find('.editTextarea').val(currentCon);
+                $(this).parents(".list-group-item").find('.btnTimerReset ').trigger('click');
 
             })
 
@@ -161,7 +166,7 @@
             deleteAllAbsolutely();
         })
 
-            // 事件添加区 结束==========================================================================================
+ // 事件添加区 结束==========================================================================================
 
         //添加一条信息
         function addOneTip(tipCon) {
@@ -223,6 +228,9 @@
 
 
             renderAll(cookieCon);
+
+            //清除定时器
+            
 
         }
 
@@ -717,6 +725,13 @@
 
             $(this).prev('.btnTimerStart').button('reset').dequeue();
             //将存在cookie上定时的时间全部清除
+            $.cookie('info' + i.toString(), null);
+           
+            time($(this)[0]);
+
+        })
+
+        function clearAllTimer(){
             for (var i = 0; i < parseInt($.cookie('cookieNumVal')); i++) {
                 $.cookie(i.toString() + '_timerHourStr', null);
                 $.cookie(i.toString() + '_targetDateEveryStr', null);
@@ -724,11 +739,8 @@
                 //将当前信息存在有定时功能的标志清空
 
                 $.cookie('info' + i.toString(), null);
-            }
-            time($(this)[0]);
-
-        })
-
+            }            
+        }
         function log() {
             console.log.apply(console, arguments);
         };
