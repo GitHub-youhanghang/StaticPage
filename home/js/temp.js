@@ -1,5 +1,5 @@
     // console.log();
-
+//未发现错误的版本，回收站看起来是成功的
     $(document).ready(function() {
         //
         // $("#btnRefresh").trigger("click");
@@ -821,6 +821,7 @@
             //     console.log("该select中 不存在该项");
             // }
         }
+
 
 
 
