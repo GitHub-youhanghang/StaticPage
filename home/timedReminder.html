@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>定时提醒</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 引入 Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- 
+    <link href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" type="text/css" href="css/hover.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+    <!-- HTML5 Shim 和 Respond.js 用于让 IE8 支持 HTML5元素和媒体查询 -->
+    <!-- 注意： 如果通过 file://  引入 Respond.js 文件，则该文件无法起效果 -->
+    <!--[if lt IE 9]>
+         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+         <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+      <![endif]-->
+    <!-- 自定义css -->
+    <style type="text/css">
+    .panel-heading {
+        font-size: 26px;
+    }
+    
+    .btn {
+        width: 150px;
+    }
+    
+    textarea {
+        resize: none;
+        margin-bottom: 10px;
+    }
+    
+    label {
+        margin-bottom: 10px;
+    }
+    
+    #cookieCon {
+        padding: 20px;
+    }
+    
+    #cookieCon p {
+        font-size: 16px;
+    }
+    
+    .list-group-item {
+        position: relative;
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+    
+    .list-group-item p {
+        text-indent: 2em;
+    }
+    
+    .list-group-item .list-num {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        text-align: center;
+        background: #999;
+        color: #FFF;
+        text-indent: 0;
+    }
+    
+    .list-group-item .list-btns {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+    
+    .list-group-item .list-btns button {
+        width: 40px;
+        text-indent: 0;
+        padding: 0;
+    }
+    
+    .row {
+        position: relative;
+    }
+    
+    #copySuccess {
+        width: 140px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: #474949;
+        color: #FFF;
+        display: none;
+    }
+    
+    .modal-footer {
+        text-align: center;
+    }
+    
+    .editTextarea {
+        width: 100%;
+    }
+    
+    .timerNum {
+        position: absolute;
+        bottom: 3px;
+        left: 0;
+        width: 100%;
+        height: 24px;
+        line-height: 24px;
+        border-top: 1px solid #ddd;
+    }
+    
+    .timerNum label {
+        font-weight: normal;
+    }
+    
+    .timerNum .form-control {
+        display: inline-block;
+        width: 40px;
+        height: 24px;
+        padding: 0;
+    }
+   .btn-list{
+         position: absolute;
+        bottom: -6px;
+        right: 0;   
+   } 
+    .btnTimerStart {
+
+        height: 34px;
+        font-size: 14px;
+        padding: 0;
+    }
+    .btnTimerReset{
+         height: 34px;
+        font-size: 14px;
+        padding: 0;       
+    }
+    .timerNum input {
+        height: 24px;
+    }
+    
+    .tip {
+        color: red;
+        position: absolute;
+        right: 0;
+        bottom: -20px;
+    }
+    
+    .list-group-item {
+        margin-bottom: 20px;
+    }
+    
+    .checkbox-inline {
+        position: relative;
+    }
+    .script{display: none}
+    #btnClearRecycleBin{float: right;    margin-top: -8px;
+    margin-right: 20px;}
+    .renew-tip{display: none;color: red;position: absolute;top:-20px;right:0;}
+    /*    */
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!--       <div class="jumbotron fadeInDown animated">
+            <h1>欢迎登陆本页面！</h1>
+            <p>这里用来提供最常用的网址</p>
+        </div> -->
+        <div class="row fadeInDown animated">
+            <div class="col-md-12">
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        定时提醒
+                    </div>
+                    <div class="panel-body">
+                        <form role="form">
+                            <div class="form-group">
+                                <label for="name">添加提示内容,控制在400字以下,信息保存31天</label>
+                                <textarea id="textarea" class="form-control" rows="3"></textarea>
+                                <a id="btnSubmit" class="btn btn-default">添加</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row fadeInDown animated">
+            <div class="col-md-12">
+                <div class="panel panel-success">
+                    <div class="panel-heading">
+                        cookie内容
+                    </div>
+                    <div class="panel-body">
+                       <!--  <a id="btnRefresh" class="btn btn-default">刷新内容</a> -->
+                        <a id="btnClear" class="btn btn-default">清除所有内容</a>
+                        <a id="btnCopyAll" class="btn btn-default">复制所有内容</a>
+                        <a id="btnOpenRecycleBin" class="btn btn-default">查看回收站</a>
+                        <ul class="list-group" id="cookieCon">
+                           
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div id="copySuccess" class="alert alert-success"></div>
+        </div>
+    </div>
+    <!-- 模态框删除一条（Modal） -->
+    <div class="modal fade" id="deleteTip" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                    </button>
+                    <h4 class="modal-title">
+                    </h4>
+                </div>
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                        取消
+                    </button>
+                    <button type="button" class="btn btn-primary">
+                        确定
+                    </button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- 模态框删除所有（Modal） -->
+    <div class="modal fade" id="deleteAllTip" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                    </button>
+                    <h4 class="modal-title">
+                    </h4>
+                </div>
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                        取消
+                    </button>
+                    <button type="button" class="btn btn-primary">
+                        确定
+                    </button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- 模态框编辑当前内容（Modal） -->
+    <div class="modal fade" id="editTip" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                    </button>
+                    <h4 class="modal-title">
+                        编辑当前内容
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <form role="form">
+                        <div class="form-group">
+                            <textarea class="editTextarea form-control" rows="3"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                        取消
+                    </button>
+                    <button type="button" class="btn btn-primary">
+                        确定
+                    </button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+
+
+
+<!-- 回收站 -->
+<div class="modal fade" id="recycleBinBox" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">回收站内容<button id="btnClearRecycleBin" class="btn btn-default">清除回收站内容</button></h4>
+
+            </div>
+            <div class="modal-body">
+                <ul class="list-group" id="recycleBinCon">
+                   
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>    
+    <scripts style="display: none;" id="script1" type="text/javascript">
+        <div class="list-btns btn-group btn-group-xs">
+            <button type="button"  class="btnCopy btn btn-default">复制</button>
+            <button type="button" class="btnEdit btn btn-default">修改</button>
+            <button type="button" class="btnDelete btn btn-default">删除</button>
+        </div>
+        <form role="form " class="timerNum">
+            <div class="form-group ">
+                <label for="name">每隔</label>
+                <select class="form-control">
+                    <option>无</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>小时提醒
+                <label class="checkbox-inline">每天在
+                    <input class="time-everday" type="time">提醒一次</label>
+                <label class="checkbox-inline">在
+                    <input class="datetime-local-one" type="datetime-local">提醒一次</label>
+                <div class="btn-list">
+                <button type="button" class="btnTimerStart btn btn-default" data-title="警告 启动失败！" data-container="body" data-toggle="popover" data-placement="left" data-trigger="manual" data-content="时间没有设置成功！" data-loading-text="正在倒计时提醒中.." >保存并启动</button>
+                <button type="button" class="btnTimerReset btn btn-default">重置定时器</button>
+                </div>
+            </div>
+        </form>
+
+                                
+    </script>   
+
+    <script style="display: none" id="script2" type="text/javascript">
+        <div class="list-btns btn-group btn-group-xs">
+            <button type="button" class="btnRenew btn btn-default">恢复</button>
+        </div>
+         <span class="renew-tip">恢复成功</span>                        
+    </script>      
+    <audio id="audioTip" style="display: none" src="audio/iphoneqq.mp3"></audio>
+<!--             <div className="timerDiv">
+            <div class="timerHoursFlag"></div>
+            <div class="timerEveryFlag"></div>
+            <div class="timerOneFlag"></div>
+        </div>  -->  
+    <!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.cookie.js"></script>
+    <script src="js/notification.js"></script>
+    <script src="js/timedReminderInfo.js"></script>
+    <script>
+    </script>
+    <script type="text/javascript">
+    //禁止页面刷新
+    // window.onbeforeunload = function(event) {
+    //     (event || window.event).returnValue = "确定退出吗";
+    // }
+    </script>
+</body>
+
+</html>

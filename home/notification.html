@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+	<div id="test"></div>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+	    var arrSpace=[];
+        for (var i = 0; i < 100; i++) {
+            arrSpace.push('.............');
+        }
+        console.log(arrSpace.join(''));
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+// var test=document.getElementById('test');
+// 			var timerLength=2*60*60*1000;
+// 				showTimer(timerLength,test);
+//        function showTimer(timerLength, ele) {
+
+//             var sectimeold = timerLength / 1000;
+//             var secondsold = Math.floor(sectimeold);
+
+//             var msPerDay = 24 * 60 * 60 * 1000;
+//             var e_daysold = timerLength / msPerDay;
+
+//             var daysold = Math.floor(e_daysold);
+
+//             var dayif = parseInt(Math.floor(e_daysold));
+//             var e_hrsold = (e_daysold - daysold) * 24;
+//             var hrsold = Math.floor(e_hrsold);
+//             var e_minsold = (e_hrsold - hrsold) * 60;
+//             var minsold = Math.floor((e_hrsold - hrsold) * 60);
+//             var seconds = Math.floor((e_minsold - minsold) * 60);
+
+//             if (daysold < 0) {
+//                 console.log('当前没有倒计时信息');
+//                 ele.innerHTML = "没有倒计时"
+//             } else {
+//                 // daysold='<span class="timev">'+daysold+'</span>';
+//                 // hrsold='<span class="timev">'+hrsold+'</span>';
+//                 // minsold='<span class="timev">'+minsold+'</span>';
+//                 // seconds='<span class="timev">'+seconds+'</span>';
+//                 if (daysold < 10) {
+//                     daysold = "<span class='timev'>0</span>" + '<span class="timev">' + daysold + '</span>'
+//                 } else {
+//                     daysold = '<span class="timev">' + daysold + '</span>'
+//                 }
+//                 if (hrsold < 10) {
+//                     hrsold = "<span class='timev'>0</span>" + '<span class="timev">' + hrsold + '</span>'
+//                 } else {
+//                     hrsold = '<span class="timev">' + hrsold + '</span>'
+//                 }
+//                 if (minsold < 10) {
+//                     minsold = "<span class='timev'>0</span>" + '<span class="timev">' + minsold + '</span>'
+//                 } else {
+//                     minsold = '<span class="timev">' + minsold + '</span>'
+//                 }
+//                 if (seconds < 10) {
+//                     seconds = "<span class='timev'>0</span>" + '<span class="timev">' + seconds + '</span>'
+//                 } else {
+//                     '<span class="timev">' + seconds + '</span>'
+//                 }
+//                 if (dayif > 0) {
+//                     ele.innerHTML = "倒计时提醒：" + daysold + "天" + hrsold + "小时" + minsold + "分" + seconds + "秒";
+//                 } else {
+//                     ele.innerHTML = "<font color=red>倒计时提醒：" + daysold + "天" + hrsold + "小时" + minsold + "分" + seconds + "秒</font>";
+//                 } //结束时间小于1天，字体呈红色提醒
+//             }
+
+
+//             	timerLength=timerLength-1000;
+//               setTimeout(function() {
+// 				   showTimer(timerLength,ele)
+// 				   },1000)
+//   }
+
+</script>
+<script type="text/javascript">
+// 　　function f1(){
+// 　　　　var n=999;
+// 　　　　 nAdd=function(){n+=1;alert(n)}
+
+// 　　　　function f2(){
+// 			console.log(n);
+// 　　　　}
+// 　　　　return f2;
+// 　　}
+
+
+// // 	var result=f1();
+// // 　　result(); // 999
+// // 　　nAdd();
+// // 　　result(); // 1000  var result=f1();用全局变量保result保存闭包f2,result()只是直接运行了f2(),并没有运行f1(),没有重新定义变量n,但此时运行完nAdd()后，n变成了1000，闭包(f2)只能取得包含函数中任何变量的最后一个值，所以打印1000
+
+// 	f1()();
+// 	nAdd();
+// 	f1()();//这种调用方式重新定义函数f1的局部变量 var n=999;所以还是打印了999
+    </script>
+
+
+</body>
+
+</html>
