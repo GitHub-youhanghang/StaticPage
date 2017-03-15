@@ -116,7 +116,7 @@
     
     .timerNum .form-control {
         display: inline-block;
-        width: 40px;
+        width: 50px;
         height: 24px;
         padding: 0;
     }
@@ -175,16 +175,24 @@
         top: -20px;
         right: 0;
     }
+    .timerhelp{position: fixed;top:0;right: 0;width: 380px;display: none;}
+    body{background: #fafbfc;}
+    .jumbotron{padding: 10px;}
     /*    */
     </style>
 </head>
 
 <body>
+        
     <div class="container">
-        <!--       <div class="jumbotron fadeInDown animated">
-            <h1>欢迎登陆本页面！</h1>
-            <p>这里用来提供最常用的网址</p>
-        </div> -->
+        <div class="jumbotron fadeInDown animated">
+        <h4>使用说明</h4>
+            <ul class="list-unstyled">
+              <li>1、打开网站8s后会向用户发出请求，请允许当前网站向用户弹出通知</li>
+              <li>2、关闭当前网页将没有定时功能，使用时不要关闭</li>
+            </ul>        
+            <img class="timerhelp" src="css/images/timerhelp.png" class="img-responsive" alt="Cinque Terre">
+        </div>
         <div class="row fadeInDown animated">
             <div class="col-md-12">
                 <div class="panel panel-success">
@@ -385,9 +393,9 @@
         </form>
         </script>
         <script style="display: none" id="script2" type="text/javascript">
-        < div class = "list-btns btn-group btn-group-xs" >
-            < button type = "button"
-        class = "btnRenew btn btn-default" > 恢复 < /button> < /div> < span class = "renew-tip" > 恢复成功 < /span>
+         <div class = "list-btns btn-group btn-group-xs">
+            <button type = "button" class = "btnRenew btn btn-default" > 恢复 < /button> < /div> < span class = "renew-tip" > 恢复成功 < /span>
+        </div>
         </script>
         <audio id="audioTip" style="display: none" src="audio/iphoneqq.mp3"></audio>
         <!--             <div className="timerDiv">
