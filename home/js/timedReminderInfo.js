@@ -559,46 +559,6 @@
              var timerEvery_=timerEvery;
              var timerOne_=timerOne;
 
-
-
-
-            //在当前信息显示所有的倒计时
-            // setTimeout(function() {
-
-            //     //处理中
-            //     if (isNaN(timerHourS_)) {
-            //         timerHourS_=-1;//在调用showTimer时输出当前没有定时器
-            //     }                
-            //     showTimer(timerHourS_, currentList.find('.timerHoursFlag')[0]);
-               
-            //     setTimeout(arguments.callee, 1000);
-            // }, 200);
-            // setTimeout(function() {
-            //     //处理中
-            //     if (isNaN(timerEvery_)) {
-            //         timerEvery_=-1;//在调用showTimer时输出当前没有定时器
-            //     }
-            //    // showTimer(timerEvery_, currentList.find('.timerEveryFlag')[0]);
-               
-            //     setTimeout(arguments.callee, 1000);
-            // }, 200);               
-            // setTimeout(function() {
-            //     //处理中
-            //      if (isNaN(timerOne_)) {
-            //         timerOne_=-1;//在调用showTimer时输出当前没有定时器
-            //     }               
-            //    // showTimer(timerOne_, currentList.find('.timerOneFlag')[0]);
-            
-            //     setTimeout(arguments.callee, 1000);
-            // }, 200);            
-            // showTimer(timerHourS,currentList.find('.timerHoursFlag')[0]);
-            // showTimer(timerEvery, currentList.find('.timerEveryFlag')[0]);
-            // showTimer(timerHourS, currentList.find('.timerOneFlag')[0]);
-
-
-            // log(timerHourS)
-            // log(timerEvery)
-            // log(timerOne)
             console.log(' ')
             //console.log('======================================当前第(' + currentTimerIndex + ')的定时功能开启状态介绍开始')
             if (isNaN(timerHourS)) {
@@ -607,7 +567,7 @@
             } else {
                // console.log('每隔几个个小时提醒定时功能：开启')
                 timerHoursFlagArr[currentTimerIndex] = setInterval(function() {
-                    NotificationHandler.showNotification(currentCon);
+                    NotificationHandler.showNotification(currentCon,currentTimerIndex);
                 }, timerHourS)
 
 
@@ -643,7 +603,7 @@
                // console.log('未来某个时间提醒：开启,倒计时时间为' + changeToHour(timerOne))
 
                 timerOneFlagArr[currentTimerIndex] = setTimeout(function() {
-                    NotificationHandler.showNotification(currentCon);
+                    NotificationHandler.showNotification(currentCon,currentTimerIndex);
                 }, timerOne)
             }
             //console.log('======================================当前第(' + currentTimerIndex + ')的定时功能开启状态介绍结束')
@@ -704,28 +664,22 @@
 
 
         $(cookieCon).on('click', '.btnTimerReset', function() {
+            var currentTimerIndex= $(this).parents(".list-group-item").index();
             clearInterval(timerHoursFlagArr[currentTimerIndex]);
             clearTimeout(timerEveryFlagArr[currentTimerIndex]);
             clearTimeout(timerOneFlagArr[currentTimerIndex]);
-            // if ("undefined" == typeof timerHoursFlag) { 
-            //     console.log('timerHoursFlag，每隔几小时提醒定时器未设置')
-            // }else{
-            //     clearInterval(timerHoursFlag);
-            // }
-            // if ("undefined" == typeof timerEveryFlag) { 
-            //     console.log('timerEveryFlag，每天定时提醒定时器未设置')
-            // }else{
-            //     clearTimeout(timerEveryFlag);
-            // }
-            // if ("undefined" == typeof timerOneFlag) { 
-            //     console.log('timerOneFlag，到固定时间提醒定时器未设置')
-            // }else{
-            //     clearTimeout(timerOneFlag);
-            // }
+ 
+                     jsSelectItemByValue($('#cookieCon').find('li').eq(currentTimerIndex).find('.form-control')[0],'无');
 
+                    $('#cookieCon').find('li').eq(currentTimerIndex).find('.time-everday').attr("value", null);
+                    $('#cookieCon').find('li').eq(currentTimerIndex).find('.datetime-local-one').attr("value",null);
+   
+                 $.cookie(currentTimerIndex.toString() + '_timerHourStr', null);
+                $.cookie(currentTimerIndex.toString() + '_targetDateEveryStr', null);
+                $.cookie(currentTimerIndex.toString() + '_targetDateOneStr', null);  
             $(this).prev('.btnTimerStart').button('reset').dequeue();
             //将存在cookie上定时的时间全部清除
-            $.cookie('info' + i.toString(), null);
+            $.cookie('info' + currentTimerIndex.toString(), null);
            
             time($(this)[0]);
 
@@ -789,7 +743,7 @@
 
                     // alert($('#cookieCon').find('li').eq(i).find('.form-control')[0])
                     //将当前select初始化
-                    jsSelectItemByValue($('#cookieCon').find('li').eq(i).find('.form-control')[0], $.cookie(i.toString() + '_timerHourStr'))
+                    jsSelectItemByValue($('#cookieCon').find('li').eq(i).find('.form-control')[0], $.cookie(i.toString() + '_timerHourStr'));
 
                     $('#cookieCon').find('li').eq(i).find('.time-everday').attr("value", $.cookie(i.toString() + '_targetDateEveryStr'));
                     $('#cookieCon').find('li').eq(i).find('.datetime-local-one').attr("value", $.cookie(i.toString() + '_targetDateOneStr'));
