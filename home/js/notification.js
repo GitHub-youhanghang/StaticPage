@@ -43,9 +43,9 @@ var NotificationHandler = {
             return;  
         }  
   
-        var n = new Notification("你收到第"+currentTimerIndex+"条提醒！", {  
+        var n = new Notification("你收到第"+(currentTimerIndex+1)+"条提醒！", {  
             icon: '../css/images/logo.png',  
-            body: tipCon  
+            body: tipCon
         });  
   
         //onshow函数在消息框显示时会被调用  
@@ -53,10 +53,10 @@ var NotificationHandler = {
         n.onshow = function() {  
             console.log('notification shows up'); 
             document.getElementById('audioTip').play();   
-            //20秒后关闭消息框  
-            setTimeout(function() {  
-                n.close();  
-            }, 20000);
+            //20秒后关闭消息框  ,暂时取消自动关闭
+            // setTimeout(function() {  
+            //     n.close();  
+            // }, 20000);
 
             //弹出提示音
 
