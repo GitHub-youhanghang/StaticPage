@@ -44,7 +44,7 @@ var NotificationHandler = {
         }  
   
         var n = new Notification("你收到第"+(currentTimerIndex+1)+"条提醒！", {  
-            icon: '../css/images/logo.png',  
+            icon: 'css/images/logo.png',  
             body: tipCon
         });  
   
