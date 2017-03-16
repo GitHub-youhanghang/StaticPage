@@ -659,7 +659,9 @@
 
             //但如果用户输入的是空格，制表符，换页符呢?这样的话，也是不为空的，但是这样的数据就不是我们想要的吧。 其实可以用正则表达式来把这些“空”的符号去掉来判断的 
             if (datetime.replace(/(^s*)|(s*$)/g, "").length == 0) {
-                $(this).after('<span class="tip">时间不完整,请填入完整信息</span>').next('.tip').fadeOut(5000).remove();
+                $(this).after('<span class="tip">时间不完整,请填入完整信息</span>').next('.tip').fadeOut(5000,function(){
+                    $(this).remove();
+                });
             }
 
         })
