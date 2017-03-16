@@ -28,10 +28,11 @@
         //定义回收站的数量
         
          var recycleBinNum=$.cookie('recycleBinNum')||0;
+             $.cookie('recycleBinNum',recycleBinNum);
           recycleBinNum=parseInt(recycleBinNum);
 
-        var scriptHtml1 = $('#script1')[0].innerHTML;
-        var scriptHtml2 = $('#script2')[0].innerHTML;
+        var scriptHtml1 = $('#addTipHtml')[0].innerHTML;
+        var scriptHtml2 = $('#deleteTipHtml')[0].innerHTML;
  // 事件添加区==========================================================================================
         //添加
         $('#btnSubmit').on('click', function() {
@@ -200,7 +201,8 @@
             //存入cookie中 ，name是以recycleBinIndex开头的字符串
             //当前回收站里信息的个数为
             var recycleBinNum=$.cookie('recycleBinNum');
-            $.cookie('recycleBinItem'+recycleBinNum.toString(),deleteCon, {
+                recycleBinNum=recycleBinNum.toString();
+            $.cookie('recycleBinItem'+recycleBinNum,deleteCon, {
                 expires: 365
             });
 
