@@ -20,30 +20,30 @@
         //定义cookie条数
         // 当前存在cookie信息的数目
         var cookieNum = $.cookie('cookieNumVal') || 0;
-            $.cookie('cookieNumVal',cookieNum);
-            cookieNum=parseInt(cookieNum);
+        $.cookie('cookieNumVal', cookieNum);
+        cookieNum = parseInt(cookieNum);
 
 
 
         //定义回收站的数量
-        
-         var recycleBinNum=$.cookie('recycleBinNum')||0;
-             $.cookie('recycleBinNum',recycleBinNum);
-          recycleBinNum=parseInt(recycleBinNum);
+
+        var recycleBinNum = $.cookie('recycleBinNum') || 0;
+        $.cookie('recycleBinNum', recycleBinNum);
+        recycleBinNum = parseInt(recycleBinNum);
 
         var scriptHtml1 = $('#addTipHtml')[0].innerHTML;
         var scriptHtml2 = $('#deleteTipHtml')[0].innerHTML;
- // 事件添加区==========================================================================================
+        // 事件添加区==========================================================================================
         //添加
         $('#btnSubmit').on('click', function() {
                 var tipCon = $('#textarea').val();
                 if (!tipCon) {
-                    $(this).after('<span style="color:red;margin-left:30px;font-size:22px;">内容不能为空!</span>').next('span').fadeOut(3000,function(){$(this).remove()});
+                    $(this).after('<span style="color:red;margin-left:30px;font-size:22px;">内容不能为空!</span>').next('span').fadeOut(3000, function() { $(this).remove() });
                     return;
                 }
                 var submitFlag = addOneTip(tipCon);
                 if (submitFlag) {
-                    $(this).after('<span style="color:red;margin-left:30px;font-size:22px;">添加成功!</span>').next('span').fadeOut(3000,function(){$(this).remove()});
+                    $(this).after('<span style="color:red;margin-left:30px;font-size:22px;">添加成功!</span>').next('span').fadeOut(3000, function() { $(this).remove() });
                 }
             })
             //渲染
@@ -59,7 +59,11 @@
             //先放入回收站一份
 
             if ($.cookie('0') == 'null') {
-                $(this).after('<span style="color:red;margin-left:30px;font-size:22px;">内容现在是空的!</span>').next('span').fadeOut(3000,function(){$(this).remove()});
+                $(this).css('color','red').text('内容是空的');
+                var _this = $(this);
+                setTimeout(function() {
+                    _this.css('color','black').text('清除所有内容');
+                }, 3000);
             } else {
                 $('#deleteAllTip').modal('show').find('.modal-title').text('确定要删除所有信息吗？删除的信息会放在回收站');
             }
@@ -68,36 +72,21 @@
 
         })
 
-        //确定删除一条
 
-        $('#deleteTip').find('.btn-primary').on('click', function() {
-            // log($(this).parents('.modal'));
-            $(this).parents('.modal').modal('hide');
-            deleteOneTip(currentDelIndex);
-
-        })
-        //确定删除所有
+            //确定删除所有
         $('#deleteAllTip').find('.btn-primary').on('click', function() {
             $(this).parents('.modal').modal('hide');
 
-            var deleteNum=parseInt($.cookie('cookieNumVal'));
-            for (var i = 0; i <deleteNum; i=0) {
+            var deleteNum = parseInt($.cookie('cookieNumVal'));
+            for (var i = 0; i < deleteNum; i = 0) {
                 deleteOneTip(i);
                 deleteNum--;
             }
-             clearAll(strArr, cookieCon);
+            clearAll(strArr, cookieCon);
         })
 
-        //保存编辑好的当前信息
-        $('#editTip').find('.btn-primary').on('click', function() {
-                $(this).parents('.modal').modal('hide');
-                var newCon = $(this).parents('.modal').find('.editTextarea ').val();
-                // log(newCon);
-                // currentDelIndex 修改某一个值
-                $.cookie(currentDelIndex.toString(), newCon);
-                renderAll(cookieCon);
-            })
-//复制 编辑 删除 事件区====================================================================================       
+
+            //复制 编辑 删除 事件区====================================================================================       
             //删除当前信息
         $(cookieCon).on('click', '.btnDelete', function() {
                 currentDelIndex = $(this).parents(".list-group-item").index();
@@ -108,44 +97,61 @@
                 $(this).parents(".list-group-item").find('.btnTimerReset ').trigger('click');
 
             })
-        //复制当前信息        
-        $(cookieCon).on('click', '.btnCopy', function() {
-            //当前索引
-            var currentIndex = $(this).parents(".list-group-item").index();
-            // log(currentIndex);
-            //获取当前段落元素
-            var currentP = $(cookieCon).find('li').eq(currentIndex).find('p')[0];
-            //复制段落文字
-            copyToClipboard(currentP);
+         //确定删除一条
+        $('#deleteTip').find('.btn-primary').on('click', function() {
+                // log($(this).parents('.modal'));
+                $(this).parents('.modal').modal('hide');
 
-            $('#copySuccess').show(function() {
-                var that = $(this);
-                var timer = null;
-                clearTimeout(timer);
-                var timer = setTimeout(function() {
-                    that.fadeOut('slow');
-                }, 2000)
-            }).text('复制成功！');
-
-        })
-        //编辑信息
-        $(cookieCon).on('click', '.btnEdit', function() {
-                currentDelIndex = $(this).parents(".list-group-item").index();
-
-                var currentCon = $.cookie(currentDelIndex.toString());
-                $('#editTip').modal('show');
-                $('#editTip').find('.editTextarea').val(currentCon);
-                $(this).parents(".list-group-item").find('.btnTimerReset ').trigger('click');
+                deleteOneTip(currentDelIndex);
 
             })
+            //复制当前信息        
+        $(cookieCon).on('click', '.btnCopy', function() {
+                //当前索引
+                var currentIndex = $(this).parents(".list-group-item").index();
+                // log(currentIndex);
+                //获取当前段落元素
+                var currentP = $(cookieCon).find('li').eq(currentIndex).find('p')[0];
+                //复制段落文字
+                copyToClipboard(currentP);
 
+                $('#copySuccess').show(function() {
+                    var that = $(this);
+                    var timer = null;
+                    clearTimeout(timer);
+                    var timer = setTimeout(function() {
+                        that.fadeOut('slow');
+                    }, 2000)
+                }).text('复制成功！');
+
+            })
+            //编辑信息
+        $(cookieCon).on('click', '.btnEdit', function() {
+            currentDelIndex = $(this).parents(".list-group-item").index();
+            $('#editTipNum').text(currentDelIndex+1);
+            var currentCon = $.cookie(currentDelIndex.toString());
+            $('#editTip').modal('show');
+            $('#editTip').find('.editTextarea').val(currentCon);
+            
+
+        })
+        //保存编辑好的当前信息
+        $('#editTip').find('.btn-primary').on('click', function() {
+                $(this).parents('.modal').modal('hide');
+                var newCon = $(this).parents('.modal').find('.editTextarea ').val();
+                // log(newCon);
+                // currentDelIndex 修改某一个值
+                $.cookie(currentDelIndex.toString(), newCon);
+                renderAll(cookieCon);
+                $(cookieCon).find(".list-group-item").eq(currentDelIndex).find('.btnTimerReset ').trigger('click');
+            })
         //打开回收站
 
-        $('#btnOpenRecycleBin').on('click',function(){
+        $('#btnOpenRecycleBin').on('click', function() {
                 $('#recycleBinBox').modal('show');
                 renderRecycleBin();
             })
-        //恢复信息
+            //恢复信息
         $(recycleBinCon).on('click', '.btnRenew', function() {
             //当前索引
             var currentIndex = $(this).parents(".list-group-item").index();
@@ -158,21 +164,21 @@
             //
 
             //将当前信息从回收站删除
-            $.cookie('recycleBinItem'+currentIndex.toString(),null);
-                 
+            $.cookie('recycleBinItem' + currentIndex.toString(), null);
+
             recycleBinReset();
             renderRecycleBin();
         })
-        $('#btnClearRecycleBin').on('click',function(){
+        $('#btnClearRecycleBin').on('click', function() {
             deleteAllAbsolutely();
         })
 
- // 事件添加区 结束==========================================================================================
+        // 事件添加区 结束==========================================================================================
 
         //添加一条信息
         function addOneTip(tipCon) {
             //添加到cookie
-            var cookieNum=parseInt($.cookie('cookieNumVal'));
+            var cookieNum = parseInt($.cookie('cookieNumVal'));
             $.cookie(strArr[cookieNum], tipCon, {
                 expires: 31
             });
@@ -197,12 +203,12 @@
         //删除一条
         function deleteOneTip(currentIndex) {
 
-            var deleteCon=$.cookie(currentIndex.toString());
+            var deleteCon = $.cookie(currentIndex.toString());
             //存入cookie中 ，name是以recycleBinIndex开头的字符串
             //当前回收站里信息的个数为
-            var recycleBinNum=$.cookie('recycleBinNum');
-                recycleBinNum=recycleBinNum.toString();
-            $.cookie('recycleBinItem'+recycleBinNum,deleteCon, {
+            var recycleBinNum = $.cookie('recycleBinNum');
+            recycleBinNum = recycleBinNum.toString();
+            $.cookie('recycleBinItem' + recycleBinNum, deleteCon, {
                 expires: 365
             });
 
@@ -210,7 +216,7 @@
             recycleBinNum++;
 
             //删除信息的个数存入cookie中
-            $.cookie('recycleBinNum',recycleBinNum);
+            $.cookie('recycleBinNum', recycleBinNum);
             //回收站重置
             recycleBinReset();
             //渲染回收站
@@ -232,7 +238,7 @@
             renderAll(cookieCon);
 
             //清除定时器
-            
+
 
         }
 
@@ -285,22 +291,22 @@
                 var iStr = i.toString();
                 recycleBinCon.innerHTML +=
                     '<li class="list-group-item">' + '<p>' +
-                    $.cookie('recycleBinItem'+iStr) + '</p>' +
+                    $.cookie('recycleBinItem' + iStr) + '</p>' +
                     '<span class="list-num">' + (i + 1) + '</span>' +
                     scriptHtml2 +
-                    '</li>';                
+                    '</li>';
 
             }
         }
 
         //彻底删除
-        function deleteAllAbsolutely(){
+        function deleteAllAbsolutely() {
             for (var i = 0; i < parseInt($.cookie('recycleBinNum')); i++) {
-               $.cookie('recycleBinItem'+i.toString(),null);
-            } 
-            $.cookie('recycleBinNum',0);
-            
-           renderRecycleBin();
+                $.cookie('recycleBinItem' + i.toString(), null);
+            }
+            $.cookie('recycleBinNum', 0);
+
+            renderRecycleBin();
         }
 
         function cookieReset() {
@@ -338,8 +344,8 @@
             for (var i = 0; i < parseInt($.cookie('recycleBinNum')); i++) {
                 var iStr = i.toString();
                 // log($.cookie(iStr));
-                if ($.cookie('recycleBinItem'+iStr) != 'null') {
-                    cookieValArr.push($.cookie('recycleBinItem'+iStr));
+                if ($.cookie('recycleBinItem' + iStr) != 'null') {
+                    cookieValArr.push($.cookie('recycleBinItem' + iStr));
                     // log($.cookie(iStr));
                 }
                 // log(cookieValArr);
@@ -347,13 +353,13 @@
             //重新按顺序设置cookie所有值  ########################
             for (var j = 0; j < cookieValArr.length; j++) {
                 var jStr = j.toString();
-                $.cookie('recycleBinItem'+jStr, cookieValArr[j]);
+                $.cookie('recycleBinItem' + jStr, cookieValArr[j]);
                 // console.log($.cookie(jStr));
             }
 
             //重置 recycleBinNum  ,这句可有可无          
             $.cookie('recycleBinNum', cookieValArr.length);
-          
+
 
 
         }
@@ -411,33 +417,33 @@
 
         }
         //===================btnCopyAll复制所有cookie内容=======================
-    $('#btnCopyAll').on('click',function(){
-            var cookieValArr = [];
+        $('#btnCopyAll').on('click', function() {
+                var cookieValArr = [];
 
-            //获得cookie不为空的值，添加到一个数组上
-            for (var i = 0; i < parseInt($.cookie('cookieNumVal')); i++) {
-                var iStr = i.toString();
-                // log($.cookie(iStr));
-                if ($.cookie(iStr) != 'null') {
-                    cookieValArr.push($.cookie(iStr));
+                //获得cookie不为空的值，添加到一个数组上
+                for (var i = 0; i < parseInt($.cookie('cookieNumVal')); i++) {
+                    var iStr = i.toString();
                     // log($.cookie(iStr));
+                    if ($.cookie(iStr) != 'null') {
+                        cookieValArr.push($.cookie(iStr));
+                        // log($.cookie(iStr));
+                    }
+
                 }
-                 
-            }  
-            // console.log(cookieValArr); 
-             $('body').append('<div id="AllCookieCon" style="display:none;"></div>');
-             for (var i = 0; i < cookieValArr.length; i++) {
-              $('#AllCookieCon')[0].innerHTML += cookieValArr[i]+'\n' ; 
-             }
-             copyToClipboard($('#AllCookieCon')[0]);
-             $(this).text('全部复制成功');
-             var _this=$(this);
-             setTimeout(function(){
-                _this.text('复制所有内容');
-             },3000)        
-    })
-        //==================定时功能===============================================================================  
-        //最大的倒计时时间
+                // console.log(cookieValArr); 
+                $('body').append('<div id="AllCookieCon" style="display:none;"></div>');
+                for (var i = 0; i < cookieValArr.length; i++) {
+                    $('#AllCookieCon')[0].innerHTML += cookieValArr[i] + '\n';
+                }
+                copyToClipboard($('#AllCookieCon')[0]);
+                $(this).css('color','red').text('全部复制成功');
+                var _this = $(this);
+                setTimeout(function() {
+                    _this.css('color','black').text('复制所有内容');
+                }, 3000)
+            })
+            //==================定时功能===============================================================================  
+            //最大的倒计时时间
         var maxTime = 0;
         //定义3*30个定时器,保证所有的定时器都是独立的
         var timerHoursFlagArr = []
@@ -454,15 +460,15 @@
         var currentTimerIndex = null;
 
         //定义超长字符串.
-        var arrSpace=[];
+        var arrSpace = [];
         for (var i = 0; i < 100; i++) {
             arrSpace.push('...........................................................................................');
         }
-            var longStr=arrSpace.join('') 
+        var longStr = arrSpace.join('')
         $(cookieCon).on('click', '.btnTimerStart ', function() {
             var currentTimerIndex = $(this).parents(".list-group-item").index();
             var currentList = $(this).parents(".list-group-item");
-            var currentCon = $.cookie(currentTimerIndex.toString())+longStr;
+            var currentCon = $.cookie(currentTimerIndex.toString()) + longStr;
 
             // var aaa=currentList.find('.time-everday').val(); 
             // alert(aaa);
@@ -557,19 +563,19 @@
             var timerEvery = timerEveryAll - timerEveryCurrent;
             var timerOne = getDate(targetDateOneStr) - currentDate.getTime();
 
-             var timerHourS_=timerHourS;
-             var timerEvery_=timerEvery;
-             var timerOne_=timerOne;
+            var timerHourS_ = timerHourS;
+            var timerEvery_ = timerEvery;
+            var timerOne_ = timerOne;
 
             console.log(' ')
-            //console.log('======================================当前第(' + currentTimerIndex + ')的定时功能开启状态介绍开始')
+                //console.log('======================================当前第(' + currentTimerIndex + ')的定时功能开启状态介绍开始')
             if (isNaN(timerHourS)) {
                 //console.log('未开启开启每隔几个个小时提醒定时功能')
                 timerHourS = -1;
             } else {
-               // console.log('每隔几个个小时提醒定时功能：开启')
+                // console.log('每隔几个个小时提醒定时功能：开启')
                 timerHoursFlagArr[currentTimerIndex] = setInterval(function() {
-                    NotificationHandler.showNotification(currentCon,currentTimerIndex);
+                    NotificationHandler.showNotification(currentCon, currentTimerIndex);
                 }, timerHourS)
 
 
@@ -595,17 +601,17 @@
                 }
                 // console.log(timerEvery)
                 timerEveryFlagArr[currentTimerIndex] = setTimeout(function() {
-                    NotificationHandler.showNotification(currentCon,currentTimerIndex);
+                    NotificationHandler.showNotification(currentCon, currentTimerIndex);
                 }, timerEvery)
 
             }
             if (timerOne < 0) {
-               // console.log('未来某个时间提醒,或已经超过指定时间：未开启')
+                // console.log('未来某个时间提醒,或已经超过指定时间：未开启')
             } else {
-               // console.log('未来某个时间提醒：开启,倒计时时间为' + changeToHour(timerOne))
+                // console.log('未来某个时间提醒：开启,倒计时时间为' + changeToHour(timerOne))
 
                 timerOneFlagArr[currentTimerIndex] = setTimeout(function() {
-                    NotificationHandler.showNotification(currentCon,currentTimerIndex);
+                    NotificationHandler.showNotification(currentCon, currentTimerIndex);
                 }, timerOne)
             }
             //console.log('======================================当前第(' + currentTimerIndex + ')的定时功能开启状态介绍结束')
@@ -627,13 +633,13 @@
 
             // 获取最大的倒计时时间
             if (isNaN(timerHourS)) {
-                timerHourS=-1;
-            }            
+                timerHourS = -1;
+            }
             if (isNaN(timerEvery)) {
-                timerEvery=-1;
-            }            
+                timerEvery = -1;
+            }
             if (isNaN(timerOne)) {
-                timerOne=-1;
+                timerOne = -1;
             }
             maxTime = Math.max(timerHourS, timerEvery, timerOne)
                 // log(maxTime)
@@ -659,7 +665,7 @@
 
             //但如果用户输入的是空格，制表符，换页符呢?这样的话，也是不为空的，但是这样的数据就不是我们想要的吧。 其实可以用正则表达式来把这些“空”的符号去掉来判断的 
             if (datetime.replace(/(^s*)|(s*$)/g, "").length == 0) {
-                $(this).after('<span class="tip">时间不完整,请填入完整信息</span>').next('.tip').fadeOut(5000,function(){
+                $(this).after('<span class="tip">时间不完整,请填入完整信息</span>').next('.tip').fadeOut(5000, function() {
                     $(this).remove();
                 });
             }
@@ -668,28 +674,29 @@
 
 
         $(cookieCon).on('click', '.btnTimerReset', function() {
-            var currentTimerIndex= $(this).parents(".list-group-item").index();
+            
+            var currentTimerIndex = $(this).parents(".list-group-item").index();
             clearInterval(timerHoursFlagArr[currentTimerIndex]);
             clearTimeout(timerEveryFlagArr[currentTimerIndex]);
             clearTimeout(timerOneFlagArr[currentTimerIndex]);
- 
-                     jsSelectItemByValue($('#cookieCon').find('li').eq(currentTimerIndex).find('.form-control')[0],'无');
 
-                    $('#cookieCon').find('li').eq(currentTimerIndex).find('.time-everday').attr("value", null);
-                    $('#cookieCon').find('li').eq(currentTimerIndex).find('.datetime-local-one').attr("value",null);
-   
-                 $.cookie(currentTimerIndex.toString() + '_timerHourStr', null);
-                $.cookie(currentTimerIndex.toString() + '_targetDateEveryStr', null);
-                $.cookie(currentTimerIndex.toString() + '_targetDateOneStr', null);  
+            jsSelectItemByValue($('#cookieCon').find('li').eq(currentTimerIndex).find('.form-control')[0], '无');
+
+            $('#cookieCon').find('li').eq(currentTimerIndex).find('.time-everday').attr("value", null);
+            $('#cookieCon').find('li').eq(currentTimerIndex).find('.datetime-local-one').attr("value", null);
+
+            $.cookie(currentTimerIndex.toString() + '_timerHourStr', null);
+            $.cookie(currentTimerIndex.toString() + '_targetDateEveryStr', null);
+            $.cookie(currentTimerIndex.toString() + '_targetDateOneStr', null);
             $(this).prev('.btnTimerStart').button('reset').dequeue();
             //将存在cookie上定时的时间全部清除
             $.cookie('info' + currentTimerIndex.toString(), null);
-           
+
             time($(this)[0]);
 
         })
 
-        function clearAllTimer(){
+        function clearAllTimer() {
             for (var i = 0; i < parseInt($.cookie('cookieNumVal')); i++) {
                 $.cookie(i.toString() + '_timerHourStr', null);
                 $.cookie(i.toString() + '_targetDateEveryStr', null);
@@ -697,8 +704,9 @@
                 //将当前信息存在有定时功能的标志清空
 
                 $.cookie('info' + i.toString(), null);
-            }            
+            }
         }
+
         function log() {
             console.log.apply(console, arguments);
         };
@@ -794,64 +802,64 @@
 
 
 
-  //      function showTimer(timerLength, ele) {
+        //      function showTimer(timerLength, ele) {
 
-  //           var sectimeold = timerLength / 1000;
-  //           var secondsold = Math.floor(sectimeold);
+        //           var sectimeold = timerLength / 1000;
+        //           var secondsold = Math.floor(sectimeold);
 
-  //           var msPerDay = 24 * 60 * 60 * 1000;
-  //           var e_daysold = timerLength / msPerDay;
+        //           var msPerDay = 24 * 60 * 60 * 1000;
+        //           var e_daysold = timerLength / msPerDay;
 
-  //           var daysold = Math.floor(e_daysold);
+        //           var daysold = Math.floor(e_daysold);
 
-  //           var dayif = parseInt(Math.floor(e_daysold));
-  //           var e_hrsold = (e_daysold - daysold) * 24;
-  //           var hrsold = Math.floor(e_hrsold);
-  //           var e_minsold = (e_hrsold - hrsold) * 60;
-  //           var minsold = Math.floor((e_hrsold - hrsold) * 60);
-  //           var seconds = Math.floor((e_minsold - minsold) * 60);
+        //           var dayif = parseInt(Math.floor(e_daysold));
+        //           var e_hrsold = (e_daysold - daysold) * 24;
+        //           var hrsold = Math.floor(e_hrsold);
+        //           var e_minsold = (e_hrsold - hrsold) * 60;
+        //           var minsold = Math.floor((e_hrsold - hrsold) * 60);
+        //           var seconds = Math.floor((e_minsold - minsold) * 60);
 
-  //           if (daysold < 0) {
-  //               console.log('当前没有倒计时信息');
-  //               ele.innerHTML = "没有倒计时"
-  //           } else {
-  //               // daysold='<span class="timev">'+daysold+'</span>';
-  //               // hrsold='<span class="timev">'+hrsold+'</span>';
-  //               // minsold='<span class="timev">'+minsold+'</span>';
-  //               // seconds='<span class="timev">'+seconds+'</span>';
-  //               if (daysold < 10) {
-  //                   daysold = "<span class='timev'>0</span>" + '<span class="timev">' + daysold + '</span>'
-  //               } else {
-  //                   daysold = '<span class="timev">' + daysold + '</span>'
-  //               }
-  //               if (hrsold < 10) {
-  //                   hrsold = "<span class='timev'>0</span>" + '<span class="timev">' + hrsold + '</span>'
-  //               } else {
-  //                   hrsold = '<span class="timev">' + hrsold + '</span>'
-  //               }
-  //               if (minsold < 10) {
-  //                   minsold = "<span class='timev'>0</span>" + '<span class="timev">' + minsold + '</span>'
-  //               } else {
-  //                   minsold = '<span class="timev">' + minsold + '</span>'
-  //               }
-  //               if (seconds < 10) {
-  //                   seconds = "<span class='timev'>0</span>" + '<span class="timev">' + seconds + '</span>'
-  //               } else {
-  //                   '<span class="timev">' + seconds + '</span>'
-  //               }
-  //               if (dayif > 0) {
-  //                   ele.innerHTML = "倒计时提醒：" + daysold + "天" + hrsold + "小时" + minsold + "分" + seconds + "秒";
-  //               } else {
-  //                   ele.innerHTML = "<font color=red>倒计时提醒：" + daysold + "天" + hrsold + "小时" + minsold + "分" + seconds + "秒</font>";
-  //               } //结束时间小于1天，字体呈红色提醒
-  //           }
+        //           if (daysold < 0) {
+        //               console.log('当前没有倒计时信息');
+        //               ele.innerHTML = "没有倒计时"
+        //           } else {
+        //               // daysold='<span class="timev">'+daysold+'</span>';
+        //               // hrsold='<span class="timev">'+hrsold+'</span>';
+        //               // minsold='<span class="timev">'+minsold+'</span>';
+        //               // seconds='<span class="timev">'+seconds+'</span>';
+        //               if (daysold < 10) {
+        //                   daysold = "<span class='timev'>0</span>" + '<span class="timev">' + daysold + '</span>'
+        //               } else {
+        //                   daysold = '<span class="timev">' + daysold + '</span>'
+        //               }
+        //               if (hrsold < 10) {
+        //                   hrsold = "<span class='timev'>0</span>" + '<span class="timev">' + hrsold + '</span>'
+        //               } else {
+        //                   hrsold = '<span class="timev">' + hrsold + '</span>'
+        //               }
+        //               if (minsold < 10) {
+        //                   minsold = "<span class='timev'>0</span>" + '<span class="timev">' + minsold + '</span>'
+        //               } else {
+        //                   minsold = '<span class="timev">' + minsold + '</span>'
+        //               }
+        //               if (seconds < 10) {
+        //                   seconds = "<span class='timev'>0</span>" + '<span class="timev">' + seconds + '</span>'
+        //               } else {
+        //                   '<span class="timev">' + seconds + '</span>'
+        //               }
+        //               if (dayif > 0) {
+        //                   ele.innerHTML = "倒计时提醒：" + daysold + "天" + hrsold + "小时" + minsold + "分" + seconds + "秒";
+        //               } else {
+        //                   ele.innerHTML = "<font color=red>倒计时提醒：" + daysold + "天" + hrsold + "小时" + minsold + "分" + seconds + "秒</font>";
+        //               } //结束时间小于1天，字体呈红色提醒
+        //           }
 
 
-  //               timerHourS_=timerHourS_-1000;
-  //             setTimeout(function() {
-  //                  showTimer(timerHourS_,ele)
-  //                  },1000)
-  // }
+        //               timerHourS_=timerHourS_-1000;
+        //             setTimeout(function() {
+        //                  showTimer(timerHourS_,ele)
+        //                  },1000)
+        // }
         /**
          * 获取指定类名的元素对象集合
          * @param {Object} node 父节点
