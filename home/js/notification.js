@@ -25,9 +25,10 @@ var NotificationHandler = {
         });  
     }, 
     mScroll:function(ele){
+            var offset=ele.offset()
       $("html,body").stop(true);
         $("html,body").animate({
-            scrollTop: ele.offset().top-300
+            scrollTop: offset.top-300
         }, 1000);
     }, 
     showNotification: function(tipCon,currentTimerIndex) { 
