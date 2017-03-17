@@ -120,7 +120,7 @@
         padding: 0;
     }
     .timerNum .time-everday{width: 120px;}
-    .timerNum .datetime-local-one{width: 180px;}
+    .timerNum .datetime-local-one{width: 210px;}
     .btn-list {
         position: absolute;
         bottom: -6px;
@@ -190,8 +190,8 @@
         <div id="describe" class="jumbotron fadeInDown animated">
             <h4>使用说明</h4>
             <ul class="list-unstyled">
-              <li>1、初次打开网站8s后会向用户发出请求，请允许当前网站向用户弹出通知。 <a class="timerhelpA" href="#">手动打开方式，在地址栏最左侧点击选择允许通知<img src="css/images/timerhelp.png" class="timerhelp img-responsive" alt="Cinque Terre"></a></li>
-              <li>2、关闭当前网页将没有定时功能，使用时不要关闭。</li>
+              <li>1、初次打开网站<span style="font-size: 18px;color: red;">8s</span>后会向用户发出请求，请<span style="font-size: 18px;color: red;">允许</span>当前网站向用户弹出通知。 <a class="timerhelpA" href="#">手动打开方式，在地址栏最左侧点击选择允许通知<img src="css/images/timerhelp.png" class="timerhelp img-responsive" alt="Cinque Terre"></a></li>
+              <li>2、关闭当前网页将没有定时功能，<span style="font-size: 18px;color: red;">使用时不要关闭。</span></li>
             </ul>        
             
         </div>
@@ -293,7 +293,7 @@
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
                     </button>
                     <h4 class="modal-title">
-                        编辑当前内容
+                        编辑当前第<span id="editTipNum">条</span>内容
                     </h4>
                 </div>
                 <div class="modal-body">
