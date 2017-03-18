@@ -55,9 +55,9 @@ var NotificationHandler = {
             console.log('notification shows up'); 
             document.getElementById('audioTip').play();   
             //20秒后关闭消息框  ,暂时取消自动关闭
-            // setTimeout(function() {  
-            //     n.close();  
-            // }, 20000);
+            setTimeout(function() {  
+                n.close();  
+            }, 5*60*1000);
 
             //弹出提示音
 
