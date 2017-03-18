@@ -442,13 +442,13 @@
                     _this.css('color','black').text('复制所有内容');
                 }, 3000)
             })
-            //==================定时功能===============================================================================  
+//==================定时功能===============================================================================  
             //最大的倒计时时间
         var maxTime = 0;
         //定义3*30个定时器,保证所有的定时器都是独立的
-        var timerHoursFlagArr = []
-        var timerEveryFlagArr = []
-        var timerOneFlagArr = []
+        var timerHoursFlagArr = [];
+        var timerEveryFlagArr = [];
+        var timerOneFlagArr = [];
 
         for (var i = 0; i < 30; i++) {
             timerHoursFlagArr[i] = null;
@@ -459,20 +459,12 @@
         //定义启动定时的索引
         var currentTimerIndex = null;
 
-        //定义超长字符串.
-        var arrSpace = [];
-        for (var i = 0; i < 100; i++) {
-            arrSpace.push('...........................................................................................');
-        }
-        var longStr = arrSpace.join('')
         $(cookieCon).on('click', '.btnTimerStart ', function() {
             var currentTimerIndex = $(this).parents(".list-group-item").index();
             var currentList = $(this).parents(".list-group-item");
-            var currentCon = $.cookie(currentTimerIndex.toString()) + longStr;
+            var currentCon = $.cookie(currentTimerIndex.toString());
 
-            // var aaa=currentList.find('.time-everday').val(); 
-            // alert(aaa);
-            // $.cookie(((currentTimerIndex+1)*100).toString(),currentTimerIndex)
+
             //获取定时时间
             //获得当前信息的定时时间，若cookie上有则使用cookie上的
             var timerHourStr = currentList.find('.form-control').find("option:selected").text();
@@ -563,9 +555,9 @@
             var timerEvery = timerEveryAll - timerEveryCurrent;
             var timerOne = getDate(targetDateOneStr) - currentDate.getTime();
 
-            var timerHourS_ = timerHourS;
-            var timerEvery_ = timerEvery;
-            var timerOne_ = timerOne;
+            // var timerHourS_ = timerHourS;
+            // var timerEvery_ = timerEvery;
+            // var timerOne_ = timerOne;
 
             console.log(' ')
                 //console.log('======================================当前第(' + currentTimerIndex + ')的定时功能开启状态介绍开始')
@@ -651,6 +643,12 @@
                     $(this).dequeue();
                 });
             }
+            if (timerHoursFlagArr[currentTimerIndex] != null ) {
+                $(this).button('loading').delay(5*24*60*60*1000).queue(function() {
+                    $(this).button('reset');
+                    $(this).dequeue();
+                });
+            }
 
 
 
@@ -695,7 +693,35 @@
             time($(this)[0]);
 
         })
+        //遍历所有的定时器将当前有定时器的启动按钮主动触发点击
+        function allTimerRun() {
+            //先将所有信息渲染出来
+            renderAll(cookieCon);
+            //遍历当前信息
+            for (var i = 0; i < parseInt($.cookie('cookieNumVal')); i++) {
 
+                //如果当前信息有在定时则触发btnTimerStart 点击事件
+                if ($.cookie('info' + i.toString()) == 'true') {
+                    $('#cookieCon').find('li').eq(i).find('.btnTimerStart').trigger('click');
+                    //将定时信息初始化到表单中
+
+                    // alert($('#cookieCon').find('li').eq(i).find('.form-control')[0])
+                    //将当前select初始化
+                    jsSelectItemByValue($('#cookieCon').find('li').eq(i).find('.form-control')[0], $.cookie(i.toString() + '_timerHourStr'));
+
+                    $('#cookieCon').find('li').eq(i).find('.time-everday').attr("value", $.cookie(i.toString() + '_targetDateEveryStr'));
+                    $('#cookieCon').find('li').eq(i).find('.datetime-local-one').attr("value", $.cookie(i.toString() + '_targetDateOneStr'));
+
+                    //显示当前倒计时时间的倒计时
+
+
+
+                }
+
+            }
+
+        }
+        allTimerRun();
         function clearAllTimer() {
             for (var i = 0; i < parseInt($.cookie('cookieNumVal')); i++) {
                 $.cookie(i.toString() + '_timerHourStr', null);
@@ -741,35 +767,7 @@
         }
 
 
-        //遍历所有的定时器将当前有定时器的启动按钮主动触发点击
-        function allTimerRun() {
-            //先将所有信息渲染出来
-            renderAll(cookieCon);
-            //遍历当前信息
-            for (var i = 0; i < parseInt($.cookie('cookieNumVal')); i++) {
 
-                //如果当前信息有在定时则触发btnTimerStart 点击事件
-                if ($.cookie('info' + i.toString()) == 'true') {
-                    $('#cookieCon').find('li').eq(i).find('.btnTimerStart').trigger('click');
-                    //将定时信息初始化到表单中
-
-                    // alert($('#cookieCon').find('li').eq(i).find('.form-control')[0])
-                    //将当前select初始化
-                    jsSelectItemByValue($('#cookieCon').find('li').eq(i).find('.form-control')[0], $.cookie(i.toString() + '_timerHourStr'));
-
-                    $('#cookieCon').find('li').eq(i).find('.time-everday').attr("value", $.cookie(i.toString() + '_targetDateEveryStr'));
-                    $('#cookieCon').find('li').eq(i).find('.datetime-local-one').attr("value", $.cookie(i.toString() + '_targetDateOneStr'));
-
-                    //显示当前倒计时时间的倒计时
-
-
-
-                }
-
-            }
-
-        }
-        allTimerRun();
 
 
         //定义将毫秒变成小时的函数
