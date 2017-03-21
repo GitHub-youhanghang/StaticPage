@@ -19,7 +19,8 @@
 
         //定义cookie条数
         // 当前存在cookie信息的数目
-        var cookieNum = $.cookie('cookieNumVal') || 0;
+        var cookieNumVal=parseInt($.cookie('cookieNumVal'));
+        var cookieNum = cookieNumVal || 0;
         $.cookie('cookieNumVal', cookieNum);
         cookieNum = parseInt(cookieNum);
 
