@@ -4,10 +4,10 @@
         //
         // $("#btnRefresh").trigger("click");
         //
-        var cookieCon = $('#cookieCon')[0];
+        var cookieCon = $('#addCon')[0];
 
         //回收站
-        var recycleBinCon = $('#recycleBinCon')[0];
+        var recycleBinCon = $('#delCon')[0];
         //定义当前删除的索引
         var currentDelIndex = null;
         //创建数组用作cookie的名称

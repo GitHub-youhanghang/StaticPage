@@ -174,8 +174,37 @@
         </div>
         <!-- /.modal -->
     </div>
-
-
+    <!-- 密码填入框 -->
+<!--     <div class="modal fade" id="passwordBox" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×
+                    </button>
+                    <h4 class="modal-title">
+                        填写密码才能访问
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <form role="form">
+                        <div class="form-group">
+                            <input type="password" class="form-control" id="inputPassword" placeholder="请输入密码">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button id="closeWin" type="button" class="btn btn-default">
+                        取消则关闭网页
+                    </button>
+                    <button id="visitWin" type="button" class="btn btn-primary">
+                        确定
+                    </button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div> 
     <!-- /.modal -->
     <div style="display: none;" id="addTipHtml">
         <div class="list-btns btn-group btn-group-xs">
@@ -192,7 +221,7 @@
                     <option>1</option>
                     <option>1.5</option>
                     <option>2</option>
-                    <option>0.002</option>
+                    <option>0.01</option>
                 </select>小时提醒，
                 每天在
                     <input class="time-everday form-control" type="time">提醒一次，
@@ -220,7 +249,7 @@
         <script src="js/bootstrap.min.js"></script>
         <script src="js/jquery.cookie.js"></script>
         <script src="js/notification.js"></script>
-        <script src="js/timedReminder.js"></script>
+        <script src="js/timedReminderInfo.js"></script>
      <script type="text/javascript">
          $(document).ready(function() {
              $('#switchDescribe').text('关闭说明');

@@ -46,7 +46,7 @@ var NotificationHandler = {
   
         var n = new Notification("你收到第"+(currentTimerIndex+1)+"条提醒！", {  
             icon: 'css/images/logo.png',  
-            body: tipCon
+            body: tipCon+'------------------------------------------'
         });  
   
         //onshow函数在消息框显示时会被调用  

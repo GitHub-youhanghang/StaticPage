@@ -17,11 +17,11 @@
         margin-bottom: 10px;
     }
     
-    #cookieCon {
+    #addCon {
         padding: 20px 0;
     }
-     #cookieCon .list-group-item{padding-top: 24px;padding-bottom: 0;padding-left: 20px;padding-right: 20px;}
-    #cookieCon p {
+     #addCon .list-group-item{padding-top: 24px;padding-bottom: 0;padding-left: 20px;padding-right: 20px;}
+    #addCon p {
         font-size: 16px;
         background: #CCC;
         border-radius: 6px;
@@ -161,3 +161,4 @@
     .btn-group-{display: block;height:36px;}
     .btn-group- a.btn{width: 33.33%}
     .btn-group--{display: inline-block;margin-left: 20px;}
+    #delCon .list-group-item{padding-top: 26px;}
