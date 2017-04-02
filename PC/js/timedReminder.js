@@ -259,8 +259,8 @@ $(document).ready(function() {
             //内容
             var iStr = i.toString();
             addCon.innerHTML +=
-                '<li class="list-group-item">' + '<p>' +
-                localStorage.getItem(iStr) + '</p>' +
+                '<li class="list-group-item">' + '<p>' +'<xmp>'+
+                localStorage.getItem(iStr) +'</xmp>'+ '</p>' +
                 '<span class="list-num">' + (i + 1) + '</span>' +
                 scriptHtml1 +
                 '</li>';
@@ -275,8 +275,8 @@ $(document).ready(function() {
         for (var i = 0; i < parseInt(localStorage.getItem('delNum')); i++) {
             var iStr = i.toString();
             delCon.innerHTML +=
-                '<li class="list-group-item">' + '<p>' +
-                localStorage.getItem('recycleBinItem' + iStr) + '</p>' +
+                '<li class="list-group-item">' + '<p>' +'<xmp>'+
+                localStorage.getItem('recycleBinItem' + iStr)+'</xmp>'+'</p>' +
                 '<span class="list-num">' + (i + 1) + '</span>' +
                 scriptHtml2 +
                 '</li>';
