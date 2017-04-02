@@ -41,7 +41,7 @@ $(document).ready(function() {
         var currentIndex = $(this).parents(".list-group-item").index();
         // log(currentIndex);
         //获取当前段落元素
-        var currentP = $(addCon).find('li').eq(currentIndex).find('p')[0];
+        var currentP = $(addCon).find('li').eq(currentIndex).find('xmp')[0];
         //复制段落文字
         copyToClipboard(currentP);
 
@@ -140,7 +140,7 @@ $(document).ready(function() {
             var currentIndex = $(this).parents(".list-group-item").index();
             // log(currentIndex);
             //获取当前段落元素
-            var currentPCon = $(delCon).find('li').eq(currentIndex).find('p').text();
+            var currentPCon = $(delCon).find('li').eq(currentIndex).find('xmp').text();
 
             addOneTip(currentPCon)
             $(this).parents(".list-group-item").find('.renew-tip').show().fadeOut(3000);
