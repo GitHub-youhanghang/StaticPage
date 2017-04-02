@@ -29,7 +29,9 @@
             white-space: pre-wrap;
     word-break: break-all;
     word-wrap: break-word;
+    margin-bottom: 10px;
     }
+    xml{margin: 0}
     
     .list-group-item {
         position: relative;
