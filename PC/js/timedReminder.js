@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	// btnOpen
+    // btnOpen
     //全局变量  所有addCon变成addCon
     var addCon = $('#addCon')[0];
     var delCon = $('#delCon')[0];
@@ -98,22 +98,35 @@ $(document).ready(function() {
     //清除所有 
     $('#btnClear').on('click', function() {
 
-        //先放入回收站一份
+            //先放入回收站一份
 
-        if (localStorage.getItem('0') == 'null') {
-            $(this).css('color', 'red').text('内容是空的');
-            var _this = $(this);
-            setTimeout(function() {
-                _this.css('color', 'black').text('清除所有内容');
-            }, 3000);
-        } else {
-            $('#deleteAllTip').modal('show').find('.modal-title').text('确定要删除所有信息吗？删除的信息会放在回收站');
-        }
+            if (localStorage.getItem('0') == 'null') {
+                $(this).css('color', 'red').text('内容是空的');
+                var _this = $(this);
+                setTimeout(function() {
+                    _this.css('color', 'black').text('清除所有内容');
+                }, 3000);
+            } else {
+                $('#deleteAllTip').modal('show').find('.modal-title').text('确定要删除所有信息吗？删除的信息会放在回收站');
+            }
+
+
+
+        })
+        //清除所有 定时器
+    $('#btnClearTimer').on('click', function() {
+
+        for (var i = 0; i < parseInt(localStorage.getItem('addNum')); i++) {
+
+          
+                $('#addCon').find('li').eq(i).find('.btnTimerReset').trigger('click');
+             
+
+            }
 
 
 
     })
-
 
     //确定删除所有
     $('#deleteAllTip').find('.btn-primary').on('click', function() {
@@ -124,7 +137,7 @@ $(document).ready(function() {
             deleteOneTip(i);
             deleteNum--;
         }
-        clearAll( addCon);
+        clearAll(addCon);
     })
 
     //打开回收站
@@ -164,10 +177,10 @@ $(document).ready(function() {
             //获得cookie不为空的值，添加到一个数组上
             for (var i = 0; i < parseInt(localStorage.getItem('addNum')); i++) {
                 var iStr = i.toString();
-             
+
                 if (localStorage.getItem(iStr) != 'null') {
                     cookieValArr.push(localStorage.getItem(iStr));
-                    
+
                 }
 
             }
@@ -183,7 +196,7 @@ $(document).ready(function() {
                 _this.css('color', 'black').text('复制所有内容');
 
             }, 3000)
-             $('#AlladdCon').remove();
+            $('#AlladdCon').remove();
         })
         /******************function***************************/
 
@@ -259,8 +272,8 @@ $(document).ready(function() {
             //内容
             var iStr = i.toString();
             addCon.innerHTML +=
-                '<li class="list-group-item">' + '<div class="tip-p">' +'<xmp>'+
-                localStorage.getItem(iStr) +'</xmp>'+ '</div>' +
+                '<li class="list-group-item">' + '<div class="tip-p">' + '<xmp>' +
+                localStorage.getItem(iStr) + '</xmp>' + '</div>' +
                 '<span class="list-num">' + (i + 1) + '</span>' +
                 scriptHtml1 +
                 '</li>';
@@ -275,8 +288,8 @@ $(document).ready(function() {
         for (var i = 0; i < parseInt(localStorage.getItem('delNum')); i++) {
             var iStr = i.toString();
             delCon.innerHTML +=
-                '<li class="list-group-item">' + '<div class="tip-p">' +'<xmp>'+
-                localStorage.getItem('recycleBinItem' + iStr)+'</xmp>'+'</div>' +
+                '<li class="list-group-item">' + '<div class="tip-p">' + '<xmp>' +
+                localStorage.getItem('recycleBinItem' + iStr) + '</xmp>' + '</div>' +
                 '<span class="list-num">' + (i + 1) + '</span>' +
                 scriptHtml2 +
                 '</li>';
@@ -605,136 +618,136 @@ $(document).ready(function() {
 
     })
 
-		//时间信息不完整校验
-        $(addCon).on('blur', '.time-everday,.datetime-local-one  ', function() {
-            // alert()
-            var datetime = $(this).val();
+    //时间信息不完整校验
+    $(addCon).on('blur', '.time-everday,.datetime-local-one  ', function() {
+        // alert()
+        var datetime = $(this).val();
 
-            //但如果用户输入的是空格，制表符，换页符呢?这样的话，也是不为空的，但是这样的数据就不是我们想要的吧。 其实可以用正则表达式来把这些“空”的符号去掉来判断的 
-            if (datetime.replace(/(^s*)|(s*$)/g, "").length == 0) {
-                $(this).after('<span class="tip">时间不完整,请填入完整信息</span>').next('.tip').fadeOut(5000, function() {
-                    $(this).remove();
-                });
-            }
-
-        })
-
-        //重置定时器
-        $(addCon).on('click', '.btnTimerReset', function() {
-            
-            var currentTimerIndex = $(this).parents(".list-group-item").index();
-            clearInterval(timerHoursFlagArr[currentTimerIndex]);
-            clearTimeout(timerEveryFlagArr[currentTimerIndex]);
-            clearTimeout(timerOneFlagArr[currentTimerIndex]);
-
-            jsSelectItemByValue($('#addCon').find('li').eq(currentTimerIndex).find('.form-control')[0], '无');
-
-            $('#addCon').find('li').eq(currentTimerIndex).find('.time-everday').val('');
-            $('#addCon').find('li').eq(currentTimerIndex).find('.datetime-local-one').val('');
-
-            localStorage.setItem(currentTimerIndex.toString() + '_timerHourStr', null);
-            localStorage.setItem(currentTimerIndex.toString() + '_targetDateEveryStr', null);
-            localStorage.setItem(currentTimerIndex.toString() + '_targetDateOneStr', null);
-            $(this).prev('.btnTimerStart').button('reset').dequeue();
-            //将存在cookie上定时的时间全部清除
-            localStorage.setItem('info' + currentTimerIndex.toString(), null);
-
-            time($(this)[0]);
-
-        })
-
-        //遍历所有的定时器将当前有定时器的启动按钮主动触发点击
-        function allTimerRun() {
-            //先将所有信息渲染出来
-            renderAll(addCon);
-            //遍历当前信息
-            for (var i = 0; i < parseInt(localStorage.getItem('addNum')); i++) {
-
-                //如果当前信息有在定时则触发btnTimerStart 点击事件
-                if (localStorage.getItem('info' + i.toString()) == 'true') {
-                    $('#addCon').find('li').eq(i).find('.btnTimerStart').trigger('click');
-                    //将定时信息初始化到表单中
-
-                    // alert($('#addCon').find('li').eq(i).find('.form-control')[0])
-                    //将当前select初始化
-                    jsSelectItemByValue($('#addCon').find('li').eq(i).find('.form-control')[0], localStorage.getItem(i.toString() + '_timerHourStr'));
-
-                    $('#addCon').find('li').eq(i).find('.time-everday').val( localStorage.getItem(i.toString() + '_targetDateEveryStr'));
-                    $('#addCon').find('li').eq(i).find('.datetime-local-one').val( localStorage.getItem(i.toString() + '_targetDateOneStr'));
-
-                    //显示当前倒计时时间的倒计时
-
-
-
-                }
-
-            }
-
-        }
-        allTimerRun();
-
-        function clearAllTimer() {
-            for (var i = 0; i < parseInt(localStorage.getItem('addNum')); i++) {
-                localStorage.setItem(i.toString() + '_timerHourStr', null);
-                localStorage.setItem(i.toString() + '_targetDateEveryStr', null);
-                localStorage.setItem(i.toString() + '_targetDateOneStr', null);
-                //将当前信息存在有定时功能的标志清空
-
-                localStorage.setItem('info' + i.toString(), null);
-            }
+        //但如果用户输入的是空格，制表符，换页符呢?这样的话，也是不为空的，但是这样的数据就不是我们想要的吧。 其实可以用正则表达式来把这些“空”的符号去掉来判断的 
+        if (datetime.replace(/(^s*)|(s*$)/g, "").length == 0) {
+            $(this).after('<span class="tip">时间不完整,请填入完整信息</span>').next('.tip').fadeOut(5000, function() {
+                $(this).remove();
+            });
         }
 
-        //将字符串变成date 类型  
-        function getDate(strDate) {
+    })
 
-            var date = eval('new Date(' + strDate.replace(/\d+(?=-[^-]+$)/,
-                function(a) {
-                    return parseInt(a, 10) - 1;
-                }).match(/\d+/g) + ')');
-            return date;
-        }
+    //重置定时器
+    $(addCon).on('click', '.btnTimerReset', function() {
+
+        var currentTimerIndex = $(this).parents(".list-group-item").index();
+        clearInterval(timerHoursFlagArr[currentTimerIndex]);
+        clearTimeout(timerEveryFlagArr[currentTimerIndex]);
+        clearTimeout(timerOneFlagArr[currentTimerIndex]);
+
+        jsSelectItemByValue($('#addCon').find('li').eq(currentTimerIndex).find('.form-control')[0], '无');
+
+        $('#addCon').find('li').eq(currentTimerIndex).find('.time-everday').val('');
+        $('#addCon').find('li').eq(currentTimerIndex).find('.datetime-local-one').val('');
+
+        localStorage.setItem(currentTimerIndex.toString() + '_timerHourStr', null);
+        localStorage.setItem(currentTimerIndex.toString() + '_targetDateEveryStr', null);
+        localStorage.setItem(currentTimerIndex.toString() + '_targetDateOneStr', null);
+        $(this).prev('.btnTimerStart').button('reset').dequeue();
+        //将存在cookie上定时的时间全部清除
+        localStorage.setItem('info' + currentTimerIndex.toString(), null);
+
+        time($(this)[0]);
+
+    })
+
+    //遍历所有的定时器将当前有定时器的启动按钮主动触发点击
+    function allTimerRun() {
+        //先将所有信息渲染出来
+        renderAll(addCon);
+        //遍历当前信息
+        for (var i = 0; i < parseInt(localStorage.getItem('addNum')); i++) {
+
+            //如果当前信息有在定时则触发btnTimerStart 点击事件
+            if (localStorage.getItem('info' + i.toString()) == 'true') {
+                $('#addCon').find('li').eq(i).find('.btnTimerStart').trigger('click');
+                //将定时信息初始化到表单中
+
+                // alert($('#addCon').find('li').eq(i).find('.form-control')[0])
+                //将当前select初始化
+                jsSelectItemByValue($('#addCon').find('li').eq(i).find('.form-control')[0], localStorage.getItem(i.toString() + '_timerHourStr'));
+
+                $('#addCon').find('li').eq(i).find('.time-everday').val(localStorage.getItem(i.toString() + '_targetDateEveryStr'));
+                $('#addCon').find('li').eq(i).find('.datetime-local-one').val(localStorage.getItem(i.toString() + '_targetDateOneStr'));
+
+                //显示当前倒计时时间的倒计时
 
 
-        //倒计时3秒
-        var wait = 3;
 
-        function time(o) {
-            if (wait == 0) {
-                o.removeAttribute("disabled");
-                o.innerText = "重置定时器";
-                wait = 3;
-            } else {
-
-                o.setAttribute("disabled", true);
-                o.innerText = "重置成功(" + wait + ")";
-                wait--;
-                setTimeout(function() {
-                        time(o)
-                    },
-                    1000)
-            }
-        }
-
-
-        //定义将毫秒变成小时的函数
-        function changeToHour(millisecond) {
-            var hour = millisecond / 1000 / 60 / 60;
-            return hour;
-        }
-
-        // 6.设置select中text="paraText"的第一个Item为选中 
-        function jsSelectItemByValue(objSelect, objItemText) {
-            //判断是否存在 
-            var isExit = false;
-            for (var i = 0; i < objSelect.options.length; i++) {
-                if (objSelect.options[i].text == objItemText) {
-                    objSelect.options[i].selected = true;
-                    isExit = true;
-                    break;
-                }
             }
 
         }
+
+    }
+    allTimerRun();
+
+    function clearAllTimer() {
+        for (var i = 0; i < parseInt(localStorage.getItem('addNum')); i++) {
+            localStorage.setItem(i.toString() + '_timerHourStr', null);
+            localStorage.setItem(i.toString() + '_targetDateEveryStr', null);
+            localStorage.setItem(i.toString() + '_targetDateOneStr', null);
+            //将当前信息存在有定时功能的标志清空
+
+            localStorage.setItem('info' + i.toString(), null);
+        }
+    }
+
+    //将字符串变成date 类型  
+    function getDate(strDate) {
+
+        var date = eval('new Date(' + strDate.replace(/\d+(?=-[^-]+$)/,
+            function(a) {
+                return parseInt(a, 10) - 1;
+            }).match(/\d+/g) + ')');
+        return date;
+    }
+
+
+    //倒计时3秒
+    var wait = 3;
+
+    function time(o) {
+        if (wait == 0) {
+            o.removeAttribute("disabled");
+            o.innerText = "重置定时器";
+            wait = 3;
+        } else {
+
+            o.setAttribute("disabled", true);
+            o.innerText = "重置成功(" + wait + ")";
+            wait--;
+            setTimeout(function() {
+                    time(o)
+                },
+                1000)
+        }
+    }
+
+
+    //定义将毫秒变成小时的函数
+    function changeToHour(millisecond) {
+        var hour = millisecond / 1000 / 60 / 60;
+        return hour;
+    }
+
+    // 6.设置select中text="paraText"的第一个Item为选中 
+    function jsSelectItemByValue(objSelect, objItemText) {
+        //判断是否存在 
+        var isExit = false;
+        for (var i = 0; i < objSelect.options.length; i++) {
+            if (objSelect.options[i].text == objItemText) {
+                objSelect.options[i].selected = true;
+                isExit = true;
+                break;
+            }
+        }
+
+    }
 
 
 
