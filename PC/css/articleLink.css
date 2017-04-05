@@ -1,0 +1,49 @@
+li{list-style: none}
+a{text-decoration: none;}
+ul{margin: 0;padding: 0;}
+.link-con{display: none}
+.tab-pane{padding: 10px;border: 1px solid #CCC;border-top: none;}
+#myTab li a{width: 300px;text-align: center;font-size: 22px;height: 80px;line-height: 80px;padding: 0;}
+.mod{display: none;}
+.tab-box{padding-top: 20px;padding-bottom: 20px;}
+.tab-box-tit{height: 60px;line-height: 60px;font-size: 18px;}
+.tab-box-tit ul{    display: -moz-box; 
+    display: -webkit-box; 
+    display: box;height: 60px; border: 1px solid #CCC}
+.tab-box-tit ul li{    -moz-box-flex: 1; 
+    -webkit-box-flex: 1; 
+    box-flex: 1;
+text-align: center;} 
+.tab-box-tit ul li a{text-decoration: none;}
+.tab-box-tit ul li:hover{background: #CCC;} 
+.tab-box-tit ul li.tab-select{background: #CCC;font-size: 26px;}
+.tab-box-con{border: 1px solid #CCC;border-top: none;}
+.tab-box-con .mod{padding: 10px;}  
+
+.tab-box-con .mod a{    position: relative;
+    display: inline-block;
+    width: 33.33%;
+    padding: 10px 15px;
+    margin-bottom: -1px;
+    background-color: #fff;
+    border: 1px solid #ddd;color:#555;    
+  text-decoration: none;    word-break:keep-all;/* 不换行 */
+    white-space:nowrap;/* 不换行 */
+    overflow:hidden;/* 内容超出宽度时隐藏超出部分的内容 */
+    text-overflow:ellipsis;/* 当对象内文本溢出时显示省略标记(...) ；需与overflow:hidden;一起使用。*/}
+    .tab-box-con .mod a:hover{background: #337ab7;color: #FFF;}
+
+.pc-help a{position: relative;
+    display: inline-block;
+    width: 33%;
+    padding: 10px 15px;
+    margin-bottom: -1px;
+    background-color: #fff;
+    border: 1px solid #ddd;color:#555;    
+  text-decoration: none;    word-break:keep-all;/* 不换行 */
+    white-space:nowrap;/* 不换行 */
+    overflow:hidden;/* 内容超出宽度时隐藏超出部分的内容 */
+    text-overflow:ellipsis;/* 当对象内文本溢出时显示省略标记(...) ；需与overflow:hidden;一起使用。*/}
+
+
+.pc-help a:hover{background: #337ab7;color: #FFF;}

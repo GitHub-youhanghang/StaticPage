@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>web笔记</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 引入 Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- 
+    <link href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"> -->
+    <link rel="stylesheet" type="text/css" href="css/hover.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+    <!-- HTML5 Shim 和 Respond.js 用于让 IE8 支持 HTML5元素和媒体查询 -->
+    <!-- 注意： 如果通过 file://  引入 Respond.js 文件，则该文件无法起效果 -->
+    <!--[if lt IE 9]>
+         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+         <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+      <![endif]-->
+    <!-- 自定义css -->
+    <link rel="stylesheet" type="text/css" href="css/articleLink.css">
+</head>
+
+<body>
+    <!-- cssLink -->
+    <div id="CSS" class="link-con">
+        <a href="http://www.cnblogs.com/freespider/p/4280021.html">CSS控制文本超出指定宽度后用省略号代替，CSS控制文本不换行</a>
+
+    </div>
+    <div id="CSS3" class="link-con">
+    </div> 
+    <div id="JS" class="link-con">
+    </div>  
+    <div id="jquery" class="link-con">
+    </div>  
+    <div id="react" class="link-con">
+    </div>  
+    <div id="augular" class="link-con">
+    </div>  
+    <div id="其他" class="link-con">
+
+    </div>                         
+    <div class="container">
+        <ul id="myTab" class="nav nav-tabs">
+            <li class="active"><a href="#home" data-toggle="tab">前端(css+js)</a></li>
+            <li><a href="#ios" data-toggle="tab">后端(php,框架)</a></li>
+            <li><a href="#PCHelp" data-toggle="tab">电脑问题</a></li>
+        </ul>
+        <div id="myTabContent" class="tab-content">
+            <div class="tab-pane fade in active" id="home">
+                <div id="front" class="tab-box">
+                    <div class="tab-box-tit J-front-tit">
+                        <ul>
+                            <li class="select" title="CSS">
+                                <a href="#">CSS</a>
+                            </li>
+                            <li title="CSS3">
+                                <a href="#">CSS3</a>
+                            </li>
+                            <li title="JS">
+                                <a href="#">JS</a>
+                            </li>
+                            <li title="jquery">
+                                <a href="#">jquery</a>
+                            </li>
+                            <li title="react">
+                                <a href="#">react</a>
+                            </li>
+                            <li title="augular">
+                                <a href="#">augular</a>
+                            </li>
+                            <li title="其他">
+                                <a href="#">其他</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tab-box-con J-front-con">
+                        <div class="mod" style="display: block">                      
+                        </div>
+                        <div class="mod">
+                        </div>
+                        <div class="mod">
+                        </div>
+                        <div class="mod">
+                        </div>
+                        <div class="mod">
+                        </div>
+                        <div class="mod">
+                        </div>
+                        <div class="mod">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="ios">
+                <div class="tab-box">
+                    <div class="tab-box-tit J-php-tit">
+                        <ul>
+                            <li class="select">
+                                <a href="#">公告</a>
+                            </li>
+                            <li>
+                                <a href="#">规则</a>
+                            </li>
+                            <li>
+                                <a href="#">论坛</a>
+                            </li>
+                            <li>
+                                <a href="#">安全</a>
+                            </li>
+                            <li>
+                                <a href="#">公益</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tab-box-con J-php-con">
+                        <div class="mod" style="display: block">
+                            1
+                        </div>
+                        <div class="mod">
+                            2
+                        </div>
+                        <div class="mod">
+                            3
+                        </div>
+                        <div class="mod">
+                            4
+                        </div>
+                        <div class="mod">
+                            5
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="PCHelp">
+                <div class="pc-help">
+
+            <a href="http://www.cr173.com/html/71168_1.html" add_date="1483429201" icon="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACNElEQVQ4je2R30uTYRTHv8/z/tg7t9W0UaxGmIUSSAUWC+pCCqOM0lK28MYuxIsu8yJIioV3aXVTF3ZRNwWCmaUXFVSzIjBFp4XT1ein5LbMpe829+59n/fpSom2/oPO1TkczodzPgf4H+TPIhCsdgJL+xm4XeMsdPnA20ggWC2qy6z8Su2rcCGAuJJcHa5us8vKhcnEnDK9WPTaLhJ2MbitRM98iSmsYglAUyEABYDro0fOH6to73o2u5yYWnDveu4PHRxomDz08kdxi2ERvHOGZv7rBLHjxY4t+zY3Bx7MdDJdT50aahqbWWkO+UYneE/VGaJpxwGgdbDcVSyb7Yqgu35mpScum6dHpERr/PRrWHr3PvrmfvPH8TxJGxz9APpP3y5VKFBmEkxRKiSdEuuMJuIp0eSsMhx7jFTcnCi04h599sRXzXZz1lGSJhnTv5HkasbjYrnTajT0+cMhmuNwqroJyUKEQoDOmug9wgkrs2mbtjqWS5OMtcjrMnv7GsMhAKApQ5hOMwEWl3S0tbtKKgRxyjrWiIZu6NLTgbqI+qg2qq1+Qc2gW2ViTiuyuBfsmXN/DwcugTglnQJIL2rb5/McAYDv4c42TkgXzxqmlDNu2Oy0VxbpvFVinrUW/axI+eGUQbMxla6/VRdR8wAA4L27u85t1TvccrbSahrE5BxpgX5XTeVaUlM+CAAEyr8NnhwLgYDnAVZBd7weAaabGHKm3l3/eWRxJNvr62WF3ADAb4mx7W3MkySxAAAAAElFTkSuQmCC">win10系统无法切换账户应用打不开怎么办 解决教程_西西软件资讯</a>
+            <a href="http://www.lolhunter.cn/" add_date="1484393886">LOLHunter,亨特儿,Hunter,LOL挂机刷金币软件,LOL挂机脚本,LOL脚本,挂机脚本,刷金币脚本,免费脚本,英雄联盟刷金币辅助,亨特儿官网</a>
+            <a href="http://blog.csdn.net/freshlover/article/details/44261229/" add_date="1488159350" icon="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABgklEQVQ4jcWTTy8DYRDGf9PubruEEFai2sSfkDRt4s9hL+Li6lu4IeFrOOMbkLhIHNzFzcWlEkoPKpGgSLuCpNXV12FrdW2ExMEcJpl35nneZ955R44QxR8s8hcwgBY+Ur4XQE8kMJIpxDRRbp23cplasYiq1r4jAHNykr6FBTrn5tD7+0P5t0eHXHfPVwJFxDRJrq3ROz8PIt+IVtSvb8ItiKYxsrdHx+ysn3R2dylvb1M9zdN4fkLiJvpAgmhHZ5jAWlwKgK9Wlrlb30AIKqkVCoFYPsaYPs5hZrNe0cUFJ6OjKKVCBF/NH2M8nQ7c4oF/Np+g4ThNTR6ZaBq/+WE+QWVnp4kXYoODDG1tYiSTKBQ0PSgi8ZgfQcsbRLu6GDvYp218witVCpTitXhJ/eEe0TR0y6JeKnFm257UVgWuU+F8eobb1VXcSrlJLxjDQ7TbNm1TU+ipFG6pFGhNPpepRZZh0G7bxDMZNMtColEa1Rru/R0vh4dU83lfgfz7Nr4Doo6Dci0l0QIAAAAASUVORK5CYII=">Sublime Text 无法使用Package Control或插件安装失败的解决方法 - freshlover的专栏 - 博客频道 - CSDN.NET</a>
+            
+            
+                <a href="https://greasyfork.org/zh-CN/scripts" add_date="1488898544" icon="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABXElEQVQ4jZWTParCQBSFz+CgFoYkGCJoITKVexBclOAC3IKFnWV24A5cgK0QUEwsVEQ0YmEx5xUvb1Dyo+/CbYaZb849914gGwrADMAawDPNdXqmcu6/xXwwGLBerxNAUc5zXwohVgDY7/cZRRGllGWQVeZnAAzDkLVajUqpbyBGiRoOh+x2u2y1WtxsNgay2+0+QRQAzFzX5fF4ZLvdpu/73G63rFQqnEwm3O/3rFarRYAZUodpWZaBNJtNxnHMv1gsFkWAtQTQA4AkSaCUQhiGmE6n6HQ6xqDT6VTUtR7w22dDtSyL1+uVWmuj4HA4sNFo5Cl4mhJe07ZtLpdLBkHA8/lMrTUvlwtd182UgNSIQqcdx+H9fqfWmrfbjY7jUAjxZqIqAwCg53l8PB4G8lKOGe15GUAIQc/zmCQJSXI0GuWO9OqTEtu2OR6PKaXMjPJXSlC2TC/xr3X+AblgI7SP3jS+AAAAAElFTkSuQmCC">用户脚本</a>
+                <a href="chrome-extension://dhdgffkkebhmkfjojejmpbldmpobfkfo/options.html#nav=dashboard" add_date="1488898644" icon="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACQ0lEQVQ4jX1TTWtTQRQ9575JHnmlELqxqxKwNE1MF62CW7sRaQsFETfiWgSX4o8Ql6I/oHThx84qgr9AUJS2BlvcJBt3xVJS8pKZe11kRkIXXhjmztw759yvIQACsNXV1Wunp6ebZVnm+I/keT4qimLv8PDwCwASAJrN5sPRaPSMZMHJFQAg6Wb272xmUNXzarX6+Ojo6CXX1taunpycfM4mMiIpZoZpoAQSATSEUA0hhLm5uetZrVZ7ICLrWZaNAVQAZBMyipllJCWmKQAykkLSA3DD4fC3lGVZJWkkE4ORpJkxMUedNhFEXyvLsiqqapEhLQCwqd0u3NHMaGZUVXMikliMpCdpMYXsAmAAYJwUx0hCROAAMEVB0k3XTUQMAFQVABxJqCrMzNukNXSqaqpKVYVz7tV4PO5WKpUrqno3AsPMKCKvvfc/RGQ5hHAnETtVpZmhXq/f3t/ff5fo2+3228FgsAsAMzMz97rd7ptka7Vau4PBYA8AOT8//yLP80av19tILUw5LywsfASAfr9/66Kt0Wi8Hw6HPeecq5L8DiDl7+M8gGQ3DlQW52Ac/TIz+yYil5yIDESkFR9m0UFj1ZuRNURwlyIg2XbO9aVWq+2EEDYXFxe3o6MHEDqdzpaqrocQbnQ6na1pW7PZ3DazzaIodggAS0tLj8qyfCoinwD8UtVlM9uY/kQkP4jITwCXVfVmnudPjo+Pn6fps5WVlatnZ2f3vfeF996b2R8RgYik3tfdRM5nZ2d3Dg4OvgKQv3a6NZ3ncib5AAAAAElFTkSuQmCC">当前安装脚本</a>
+                <a href="https://www.zhihu.com/question/23228162" add_date="1488899310" icon="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABV0lEQVQ4jWPkantxhIWJ2ZqBDPDn39+jTMianSVZSDKAhYnZmgnGUedlYlgXJ8AQIM9KmiEwRrQOO8O/f/8ZFoTzwSUZGRkZJLrfMLwoFcHQyN/5Bs0AI06GvA2fGdbe+8XwvEQEroAT6kaxbgifjYmB4UkxwkC4AV6LPjC8+P6P4fc/CJ+VkYHh93+EjT//EfDCzc+oKpA1I4N/aOJwA04lCDCoiyNi4WM5xJkSUKczMUI0/8XlArMFH1A0o4cBLoAhXaDPzsDAwMCQq8uOIs6MwwsYBjR68DKsu/idocWLlyFZkx1dGr8LAhVYGf7++8+QuOMrQ+DCDwx9frxwud//IV6DhQ0MoKTdBeH8DAtOfWdgYGBg2PfiD0P6mk8M3/8xMAh2vUEJF2TAyNfx+j8DAwPDKj9ehnVXfzKsuPsLu1MZMf2PYgC5gOnPv79HydX859/fowD6kXNStdV4NAAAAABJRU5ErkJggg==">有哪些鲜为人知却非常有意思、好用的 Chrome 扩展？ - 知乎</a>
+                <a href="https://sspai.com/post/27723" add_date="1488900673" icon="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACkklEQVQ4jW2TTWicVRSGn3Pud7+Z/MwkMlMSC7VVa6lIC0VcuLCC3RhFEIUKLrrTXbuSUiyUtN0XunHRbesmuBURXFajK93401qaSDQlSZ1kxsl8k5l773ExM0GH3uXD+x4O9z0vjD0DHWdDLgYyzrNxkUAC+KlSP1b1+WHR1N/uhPvSebwOsAi6ONTAfyYOzXavNnem7LJLhdlruUjJgGA0c5Uvd4q9xVOtrd9H2v0BI/Bzbe78VOZviqp0BjyREhKCTsdI8vmjTuy//2Jjc3noNTFQgfRbbe6NkvPfdHt7FrtFlJhciklkcoKsVjM9UA/+r/U89cNapwivnNjd3AAkY7iKy/wVDQF38GCcOnki8889y8TLp8hqdfIjhyVsbPjV9872ZoRDadJfYJfLBqIC9kOlfiyqvtput63y7jvZ3LUrzF+/yt69B2JOpfjlV1befBsJwfVUE2ILS+AEkgJUvT+Sx+hldtZ2Prtlax+eY291lY1PL1rx3bKlVou43QCn0jeTYByahCoMM08xBbNBKin0BefQPCebqSPVGcEMwSEIMvi90BlGqQB/NPv3e1jbAaI6GOU9SUTCyoqVXjiKTJaxGJMHE3hwFloAaiBv0fhT4KtpUU0pBQF6Dx/iymXbufM5Wq1QWVggNpsxd5kWKS4BZqAyuoGvK7Xjz0+U7qpR6+a+py5zaXdXLCWy+fmEpVjZ+ru07eT7u5vrZz6GQgbb7F+kfTt74PTTeX67BM90UyKoIiJkvT4lFZqqy1vt7gevF421kceNTnkR9Fy3s3o6+S/KXpOomw7JcsPaOPdjS7hxcevR+cuhaIzM/+vCqImjMr0E+UdMPRXQ+An/PB7vzJMauy8wcON86QkM4F81fCaAIZCUaQAAAABJRU5ErkJggg==">让你用 Chrome 上网快到想哭：Vimium - 少数派 - 高品质数字消费指南</a>
+            
+            <a href="https://aws.amazon.com/cn/" add_date="1489298792" icon="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA70lEQVQ4je2TP04CQRSHv8cfo5HCqbSzMrbDCaS3YOcEewT1BtwAvIF7gl0KerjBtktFaQeFBgKuz4LVLJuJmGzrl0wyeZnf93vNQE2kOthOzm3+IYEId0CvGE9VmTVbmpzcv6dewXrcGYjwAFwcKV2p8nzWfxv8CJbx7SNIcsor0twFqIQI9iCmpIhGmreTDVeABsZlo2+BFs9SIDqQAeUQEMJeblwmrcp6dn90uOEyJZenoj4GtXioCqqyXunupfGL4E/8C+oJViXBZxcYAYvjIX0BdcZlBjyfaRnfWGiEQAASFQXXwNi4eVJjYz9fRHFLjwTE2PEAAAAASUVORK5CYII=">AWS 云服务-最专业的大数据和云计算服务以及云解决方案提供商</a>
+            <a href="http://jingyan.baidu.com/article/676629976f22a454d51b842f.html" add_date="1489552775" icon="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAByElEQVQ4jaWTv2sTYRjHP3dJzJk2Q6RoMzQi6HCiCFdKJCgiVHFQkEIp1Eymgz8G5y7i4uAiiCCoiAoqIkTyBwgOSrAEQ0HaKuhwSaVNaKNJo+auyT0OodFrLgj2Mz7P+/2+3/fHo+iGKWwBP8D8+9h/ifcPF1C9Gq9e/+TQ4SLpTB2Auw9qXLteoeX0SLCZFy/rrK8Lj56uEY36uXXnOwCJuMbJ0ZBrrStB5Vt7i1CoXd4RUVlaanb6G3XPBPlZi2SqRHxE4+p0BC2ocG4iTGzIz0zO4uCBbezbGyA70yAR1/446IYpIiI3blZEN0zRDVM+f7HFi6MnFkU3THnyvCYiIrphSidTdLAdRgsqDAz4mFuwGZtcZjy5zOLXJg1LWFltATC/YHcfYXIiTCSismd3gGrV4fyFMmv19p1MXS7z7OEgibhGLm8xejzUbeBT4fSpPlZWWyRTpY4YoFBscvFKmcf3d6EFld6vUK05JFMlCsUmm/kwZzN1qewy7jJIZ+qe4g3ysxbpzI/eBoGAO54XjuMeHddPPHumjzfZX7zNNogN+Tl2ZDs+H7zLWXz8ZDMyHGR8rL+3Qbhf5d7tnf9M8TfKVsf5N9mtvVgM6ArFAAAAAElFTkSuQmCC">输入数字或字母间隙变大怎么办_百度经验</a>
+            <a href="https://accounts.rallets.com/#/activate_succeeded?leftTraffic=1.0&amp;_k=126l5q" add_date="1489552996" icon="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABl0lEQVQ4ja2TMarqQBiFv8lEUsRAsgPFQjBaBLfgTtxDFuEOLCzTWLmAQAQXMEVESEBcggGrkEzmFY8Eve8Vl8s9MMzh/+c/cJjzi+PxaObzOVprhBB8B8YYpJQURYG9WCwIw/Bbg18hpcSu65qu6+i6DsuyAAb+eDwAmE6n/+3XdY1tWdbQEEIMp+s6lFIATCYTpJQIITDG0M9YloX17ksIQVVVVFWFlJI8z8nzHCnlUO9FenwItG1L0zTEcUyappRlSVmWpGlKHMc0TUPbth8CKKXMV2RZZlzXNZ7nGc/zjOu6Jsuyf94ppYzdC93vd5RSXK9XiqJACMHr9QJgPB6z3+85n88sl0uiKGI2m31a+DF+zULbtgA8n0+SJOF0OnE4HADYbrckSUIYhgRBAIBt/x0dBIQQSCkZjUbsdjuCIOByuQCw2WxYr9cIIbBtG6314OBDwBiD7/sYY9Bas1qtANBa4/v+8OZ9Z+w+xn08jTEDj6JoENdaf0S5v23HcXiPMzDw/qvea+/ccRzs2+2G1vrH6/wHAcUneqcPJ3IAAAAASUVORK5CYII=">Rallets 用户</a>
+            <a href="http://www.lonlife.cn/Feedback" add_date="1489657056" icon="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACQUlEQVQ4jY1STWsTURQ9972ZZNJa2zTazyy6rkgRqSAIRgRLu9Da2gp+rHTrXkUx6g8Q3LpUBAfSWJSKujAVcWGR4MKuXAjGljSTNtWpZj7euy6CaQpN6dnc97j3nAvnXEIj5jja65WnJOQRDSU1sPD3jzG7frFjDU0gtvxG4WutPlKs5RpBHGKOzq2739xm5K0C6bQAERNkgoGQGQ+LE20rWH6pdhIw6q+vgwQABDqNwDN8z32Pd2wAOcBmAgAs5mr1TkqDSG+r2J8t5/syzsJOWxtBDZU7M4VkSzT+Q/vedTeUj9os3IIKqpqxIYRg1ipKRCZruVyFzq5OJgo1D2xbAICFyAhFLKhQ2HvM4CqEnGCiL75GholeEdEFMq0bAQcfVmOdpU0TFxcZAIjEmHbXS0X4JTAf9taco0vjiWeGEMbSmXgeIIuD6uPSua48xsjbFEinNQCQNE4A/ATTXW5I5k3n8sByd2blvER4qdtePSha25MaeAMwwbZlLYU0i46hyt5Wra/I3vZ4WFhL9GScYUHK7M0604LkfRXqIWmoUfarUEK9BYgxDVU3sUbASZKCoDUA8pnZABAnQcWf44kH/TPOZ2bWS5P7h3ebUB37Zkt9yRe/uSdbvg0AmGL5v1c7JGbC3ZzE8RQwnwMGUwwA2Phuwh9QRlg+Ra0RIPRe11KDrh/AbtA3U37a/7xc2K63o07S5pgSzgEZtRY48D9tkBipnI1XGmeMZmQA8MSvZESKY+DwniYOLMYQgPnGmX/AE/XHZE1R6QAAAABJRU5ErkJggg==">玲珑网游加速器免费版 - lonlife珑凌/玲珑网游加速器</a>
+            <a href="https://zhidao.baidu.com/question/648296304346056605.html" add_date="1490250869" icon="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAByElEQVQ4jaWTv2sTYRjHP3dJzJk2Q6RoMzQi6HCiCFdKJCgiVHFQkEIp1Eymgz8G5y7i4uAiiCCoiAoqIkTyBwgOSrAEQ0HaKuhwSaVNaKNJo+auyT0OodFrLgj2Mz7P+/2+3/fHo+iGKWwBP8D8+9h/ifcPF1C9Gq9e/+TQ4SLpTB2Auw9qXLteoeX0SLCZFy/rrK8Lj56uEY36uXXnOwCJuMbJ0ZBrrStB5Vt7i1CoXd4RUVlaanb6G3XPBPlZi2SqRHxE4+p0BC2ocG4iTGzIz0zO4uCBbezbGyA70yAR1/446IYpIiI3blZEN0zRDVM+f7HFi6MnFkU3THnyvCYiIrphSidTdLAdRgsqDAz4mFuwGZtcZjy5zOLXJg1LWFltATC/YHcfYXIiTCSismd3gGrV4fyFMmv19p1MXS7z7OEgibhGLm8xejzUbeBT4fSpPlZWWyRTpY4YoFBscvFKmcf3d6EFld6vUK05JFMlCsUmm/kwZzN1qewy7jJIZ+qe4g3ysxbpzI/eBoGAO54XjuMeHddPPHumjzfZX7zNNogN+Tl2ZDs+H7zLWXz8ZDMyHGR8rL+3Qbhf5d7tnf9M8TfKVsf5N9mtvVgM6ArFAAAAAElFTkSuQmCC">华硕飞行堡垒如何关掉触摸板_百度知道</a>
+            <a href="http://www.cnplugins.com/" add_date="1491055219" icon="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAADW0lEQVQ4jVWTS2hcZRTH/+f7bu5jnp3JtDNJTA3BUWMlPrANthonJgEJlFJpFkErbqSQghup1t0tRXdK66IPq6AubEUFRZSgYhoSG2pfY20jxCFaTYwxTmLmTuZxH99xkabU3+qcP+fADw6HsAYBwKv7nnheWmJFOzL6We+14TdrZW+8b6Tl80KyKGeXGoMe2w4AMG5DAwDbBtk25OYHG4fu2pp6YDq7YY/ju09edubO9NunfAD++sJoLqf1nD17q6f1ghlEBAZDvn14571dS9nBzkRTVZnKFADyxXl3cvaXE8MffrnMANFNE8L/EddfOXBwcyyxPxINN0PTAMVr1ipAaXW1+OM/v7/V/cbJ15ihiMASgGDYpO/W+z7d+9zx1nTzCzpzFH7gw3UVfJ/hBYyKB0MY4TsbW3q6WpoeunvXldM2INYMcjDHtu9b6s50Wlx1XCKhw63DJ3AQKPgNLry0hCs9JpKeVGSc++vG4zsPfjChAdCP7X36dKLLMlY+XnTjkbi+XC7yxVQK6HyEqpUaeOUCdmxd5g2pqFCuL/VEWGXPJQ8BGNDakbA2tUSf4g5BP+cWG7ITLsZ1nSq7hhALRaARsOo8jPP5kzSwvcokLIk6k25qXX3t7abI7bhPxTKGI2oEfZvB+d4bvNDehsZIHCg7CJwSImETy8Y9qDh1ggRYMaJRo9y/534lri8skFcNNAYTuSBtYwOxZAAEJr55JwKUByJmMBMJYqdUj37zyTUhzhcKvPqvW5EaceArjiRCTJWrKM0vQY8moIdjKDtVxGrTMKMmmOHD0Fgxj307M1PTADjF2dUzEvIlEoEnpKF3PFriqcmj5KS7IS0L/m+T2L3NYaEnCL5i+CyuXpkfAVCXANCEqL+pNfLMxmxE1sqesuKWyLQ5bKifYBp5dKQdtDWnCUrVkQzpv16aGz984LuXXz/R60sA4vL03Ew2mbqUag0NNbaGpecGHmk6xzIh1kyNM36MY8mQQMzQpsb/UO+cuvjs+6P5wpYtUyQB8ODgoDz27hfTGRm/EA419MdTZsy0NEGChPUnRHsyKVZKtaCQ/3vk+NEfho989P2YbUPYNtStX1gP7kAsud9+7MXOgSbd0ATSRUMtLtbF2NeFiUPvjX51+ywA/AeHWnkikLQkhAAAAABJRU5ErkJggg==">Chrome插件,Chrome商店,谷歌浏览器插件下载 - Chrome插件网</a>
+            <a href="http://jingyan.baidu.com/article/f7ff0bfc1a13362e26bb13ee.html" add_date="1491122060" icon="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAByElEQVQ4jaWTv2sTYRjHP3dJzJk2Q6RoMzQi6HCiCFdKJCgiVHFQkEIp1Eymgz8G5y7i4uAiiCCoiAoqIkTyBwgOSrAEQ0HaKuhwSaVNaKNJo+auyT0OodFrLgj2Mz7P+/2+3/fHo+iGKWwBP8D8+9h/ifcPF1C9Gq9e/+TQ4SLpTB2Auw9qXLteoeX0SLCZFy/rrK8Lj56uEY36uXXnOwCJuMbJ0ZBrrStB5Vt7i1CoXd4RUVlaanb6G3XPBPlZi2SqRHxE4+p0BC2ocG4iTGzIz0zO4uCBbezbGyA70yAR1/446IYpIiI3blZEN0zRDVM+f7HFi6MnFkU3THnyvCYiIrphSidTdLAdRgsqDAz4mFuwGZtcZjy5zOLXJg1LWFltATC/YHcfYXIiTCSismd3gGrV4fyFMmv19p1MXS7z7OEgibhGLm8xejzUbeBT4fSpPlZWWyRTpY4YoFBscvFKmcf3d6EFld6vUK05JFMlCsUmm/kwZzN1qewy7jJIZ+qe4g3ysxbpzI/eBoGAO54XjuMeHddPPHumjzfZX7zNNogN+Tl2ZDs+H7zLWXz8ZDMyHGR8rL+3Qbhf5d7tnf9M8TfKVsf5N9mtvVgM6ArFAAAAAElFTkSuQmCC">foxmail无法绑定QQ邮箱 显示账号或密码错误_百度经验</a>
+            <a href="http://jingyan.baidu.com/article/020278118970ef1bcd9ce555.html" add_date="1491273480" icon="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAByElEQVQ4jaWTv2sTYRjHP3dJzJk2Q6RoMzQi6HCiCFdKJCgiVHFQkEIp1Eymgz8G5y7i4uAiiCCoiAoqIkTyBwgOSrAEQ0HaKuhwSaVNaKNJo+auyT0OodFrLgj2Mz7P+/2+3/fHo+iGKWwBP8D8+9h/ifcPF1C9Gq9e/+TQ4SLpTB2Auw9qXLteoeX0SLCZFy/rrK8Lj56uEY36uXXnOwCJuMbJ0ZBrrStB5Vt7i1CoXd4RUVlaanb6G3XPBPlZi2SqRHxE4+p0BC2ocG4iTGzIz0zO4uCBbezbGyA70yAR1/446IYpIiI3blZEN0zRDVM+f7HFi6MnFkU3THnyvCYiIrphSidTdLAdRgsqDAz4mFuwGZtcZjy5zOLXJg1LWFltATC/YHcfYXIiTCSismd3gGrV4fyFMmv19p1MXS7z7OEgibhGLm8xejzUbeBT4fSpPlZWWyRTpY4YoFBscvFKmcf3d6EFld6vUK05JFMlCsUmm/kwZzN1qewy7jJIZ+qe4g3ysxbpzI/eBoGAO54XjuMeHddPPHumjzfZX7zNNogN+Tl2ZDs+H7zLWXz8ZDMyHGR8rL+3Qbhf5d7tnf9M8TfKVsf5N9mtvVgM6ArFAAAAAElFTkSuQmCC">怎么看电脑型号_百度经验</a>
+            <a href="https://www.asus.com.cn/supportonly/GL552JX/HelpDesk_download" add_date="1491273630" icon="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACfElEQVQ4jUWTT4iWZRTFf+fc533fT4fBvnIsEiPTihkkMMWGCloEQkQOqETbFi5aBOGiFkGLcFRchgrVrtklM7RqE8hsiiIKF8noooWKSv4pgySdme+5Ld4ZutvLOffcc88VgHbPZloQRrUhHQiTxaAOLOQWHGQUyA66gG/fkvzisUwHAKmCXECBIqi0EAYKkqAZIxF2Q3VhOD5GkYIK4BayJbUKLiSB1OAifjz9JnsnHyMBctQPSNDMIh4JUIuzQBmB1hSoI0PMHX2ZvZNDag/ve1RQxeoooiUVpA1V0BYgyIAPD0zy7DNDFhbvkXWF9ZKbfmUHpTcPEgiPMWIELrzxwlO8tHsH8+dvcP1OcunWA365/j8JQEaHNP1ZptfdDkIt2x9/hB8+f52J4QCoLCze4/0vLnLzPnz9wXNYvYJDp69Sct11RLohumBh9hUmhi0AD5fh5LnfuXF/BeiwGg6+9igp0Jk/KNAgF9JCEcwdnWbXzk2AIOHIiYv8fO0h9oBK9OfMBIm0KIpC2kgtHx3cxdv7tzFSYpJjX11h7te/MEnVAFxYTcCJ6MPljADBzJ5tzL43RSow5pvzt/lk/gpIUDb2IBmrkBgSUpViguefHPLlx3uQjWpy4fI/HDq7BO6QAhR9uKSeqCY4QR2l2dAw/+mrbB62JJWbdx8wc3yJXG2RICNJFXAAgesIrN4jV8r00xNM7hinkqwswzuzl7n2d0UhUgMig1EE0ICC6gaoZBoItPXwd7lzyzhY/Plv5bdblbSglD4bCnAgQ2rA1JZg88aWosKlu8sIYOrd73Pp9jLpte9TgDesZaMnsExVC6qIhn1bg59OPaH/ANyizsFRQIGFAAAAAElFTkSuQmCC">ASUS中国键盘指示灯驱动 ATK</a>
+        
+                </div>
+                
+            </div>            
+        </div>
+    </div>
+    <!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+
+
+    //将链接内容插入制定元素内
+
+    $(document).ready(function() {
+
+    var tabBoxTitLi=$('#front').find('.tab-box-tit').find('ul').find('li');
+    var tabBoxConMod=$('#front').find('.tab-box-con').find('.mod');
+    var tabBoxTitLength=tabBoxTitLi.length;        
+        for (var i = 0; i < tabBoxTitLength; i++) {
+            var idName=tabBoxTitLi.eq(i).attr('title');
+            var currentLinkCon=$('#'+idName).children();
+            tabBoxConMod.eq(i).append(currentLinkCon);
+        }
+
+        $('.tab-box-con').find('a').each(function(){
+            $(this).attr('target','_blank')
+        })
+
+
+    });
+
+    //tab切换
+    $(document).ready(function() {
+        function tabBox(tabBoxTit, tabBoxCon) {
+
+            // 获取所有的页签和要切换的内容
+            var lis = $('.' + tabBoxTit).find('li');
+            var divs = $('.' + tabBoxCon).find('.mod');
+
+            lis.each(function() {
+                $(this).on('click', function() {
+                    var index = $(this).index();
+                    changeTab(index);
+                });
+
+            });
+
+            function changeTab(curIndex) {
+                lis.each(function(index, el) {
+                    $(this).attr('class', '');
+
+                });
+                divs.each(function(index, el) {
+                    $(this).hide();
+
+                });
+                // 高亮显示当前页签
+                lis.eq(curIndex).addClass('tab-select');
+                divs.eq(curIndex).show();
+
+            }
+        }
+        //前端内容的tab切换
+        tabBox('J-front-tit', 'J-front-con');
+
+        //php内容tab切换
+        tabBox('J-php-tit', 'J-php-con');
+    });
+    </script>
+    <script type="text/javascript">
+    $(function() {
+        $('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
+            // 获取已激活的标签页的名称
+            var activeTab = $(e.target).text();
+            // 获取前一个激活的标签页的名称
+            var previousTab = $(e.relatedTarget).text();
+            $(".active-tab span").html(activeTab);
+            $(".previous-tab span").html(previousTab);
+        });
+    });
+    </script>
+</body>
+
+</html>
