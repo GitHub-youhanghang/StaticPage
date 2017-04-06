@@ -1,0 +1,179 @@
+body {
+    background: #CCC;
+}
+
+input:focus {
+    border: none !imptant;
+}
+/*清除浮动代码*/
+.clearfloat:after {display: block;clear: both;content: "";visibility: hidden;height: 0;}
+.clearfloat{zoom:1;}
+.addButton {
+    width: 38px;
+    height: 38px;
+    border-radius: 21px;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    z-index: 1000;
+    background-image: url(../../img/newTab/add.png);
+    background-size: 100%;
+    opacity: 1;
+    box-shadow: #e74c3c 0 0 10px;
+    -webkit-transform: rotate(0);
+    -webkit-transition: all ease-out .35s;
+    border: none
+}
+
+#mainTop {
+    width: 1000px;
+    margin: 0 auto;
+    height: 200px;
+}
+
+#searchOut {
+    height: 40px;
+    border-radius: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.searchOptionOut {
+    width: 500px;
+    height: 30px;
+    margin: 0 auto;
+}
+
+.searchOptions {
+    margin-right: 48px;
+    color: rgba(236, 240, 241, .85);
+    font-size: 14px;
+    padding-bottom: 3px;
+    cursor: pointer
+}
+
+.searchOptions:hover {
+    color: rgba(245, 245, 245, 1)
+}
+
+.SearchInput {
+    width: 560px!important;
+    height: 40px!important;
+    border: none!important;
+    border-radius: 20px!important;
+    padding-left: 84px!important;
+    background-color: rgba(255, 255, 255, .82);
+    box-sizing: border-box!important;
+    color: #16A085!important;
+    font-size: 16px!important
+}
+
+#searchInputOut {
+    border: 1px solid red;
+    position: relative
+}
+
+#searchChange {
+    -webkit-transition: all .2s ease;
+    position: absolute;
+    top: 15px;
+    left: 24px;
+    width: 50px;
+    height: 40px;
+    text-align: center;
+    font-size: 16px;
+    line-height: 40px;
+    cursor: pointer;
+    color: #ccc;
+}
+
+.SearchEngineItem,
+.sg {
+    padding-left: 20px;
+    padding-top: 5px;
+    font-size: 17px;
+    overflow: hidden;
+    float: left;
+    white-space: nowrap;
+    text-overflow: ellipsis
+}
+
+.search-logo {
+    height: 40px;
+    background-size: 60%;
+    background-position: 10px center;
+    background-repeat: no-repeat;
+}
+
+#infinitySearch {
+    background-color: #fff!important;
+    padding-right: 80px!important;
+    padding-left: 44px!important
+}
+
+.searchOptions {
+    margin-right: 48px!important
+}
+
+#searchForm {
+    text-align: center;
+    width: 700px;
+    height: 40px;
+    margin: 0 auto;
+    position: relative;
+}
+
+#searchButton {
+    display: inline-block;
+    width: 76px;
+    height: 40px;
+    border-radius: 0 40px 40px 0;
+    -webkit-transition: all .2s ease;
+    background: url('../../img/newTab/search.png') no-repeat;
+    background-color: #2ECC71;
+    background-position: center;
+    background-size: 35%;
+    margin-bottom: 0;
+    z-index: 1111;
+    position: relative;
+    top: 15px;
+    left: -80px;
+    cursor: pointer;
+}
+
+
+/*书签内容css*/
+
+.book-mark {
+    background: #FFF;
+    padding: 10px;
+}
+
+.link-item:after {
+
+display: block;clear: both;content: "";visibility: hidden;height: 0;    
+}
+.link-item{zoom:1;    line-height: 30px;
+    padding-left: 10px;}
+.link-item-class {
+    float: left;
+    width: 100px;
+    height: 30px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.link-item-con{
+    float: left;
+    min-height: 30px;
+    margin-left: 20px;
+    width: 960px;
+}
+.link-item-con a{display: inline-block;width: 170px;height: 30px;
+text-align: center;text-decoration: none;    
+transition-duration: 0.3s;
+    transition-property: transform;
+    -webkit-tap-highlight-color: transparent;
+    transform: translateZ(0);
+    box-shadow: 0 0 1px transparent;   background-color: #ececec;margin-bottom: 10px;margin-left: 10px; }
+    .link-item-con a:hover{ transform: scale(1.1);background-color: red;color: #FFF;}
