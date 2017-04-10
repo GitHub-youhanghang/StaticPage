@@ -1,0 +1,38 @@
+
+@charset "utf-8";
+
+html, body, ul, li { margin: 0; padding: 6px; line-height: 1.2em;}
+br {line-height:8px; margin:0px;}
+
+h1, h2, ul, li, p { margin: 0; padding: 0; }
+html, body {font-family:georgia, verdana, tahoma, arial, sans-serif; font-size: 0.625em/1.5em; }
+a {color:#1c769a; text-decoration:none; font-size:1.1em;}
+a:hover {text-decoration:none;}
+
+.content{position: fixed;top:0;left:0;background-color: #222d32;color: #FFF;min-width: 350px;}
+.content h2{text-align: center;font-weight: normal;line-height: 60px;background-color: #2C393E;border-radius: 6px;color: #FFF;}
+
+.menu ul li {position: relative;display:block;width:350px;padding-top:2px;margin-bottom:5px;list-style:none;overflow:visible;}
+.menu ul li a i{margin-right: 10px;}
+
+.menu ul li a {display:block;height:40px; line-height: 40px;padding-right: 20px;padding-left: 10px;font-size:14px;color:#FFF;outline:none;    word-break:keep-all;/* 不换行 */
+    white-space:nowrap;/* 不换行 */
+    overflow:hidden;/* 内容超出宽度时隐藏超出部分的内容 */
+    text-overflow:ellipsis;/* 当对象内文本溢出时显示省略标记(...) ；需与overflow:hidden;一起使用。*/}
+.menu ul li a:hover{border-left: 3px solid #3C8DBC;box-sizing: border-box;}
+.menu ul li:hover{background-color: #1E282C;}
+.menu ul li .active {background:url(../../img/knowledge/on.png) top right no-repeat;}
+
+.menu ul li .inactive {background:url(../../img/knowledge/off.png) top right no-repeat;}
+.menu ul li ul {display:none; margin-top:-4px;margin-bottom:20px; background-color: #2C3B41; }
+.menu ul li ul li:hover{background-color:#293131 ;border-left: none;}
+.menu ul li ul li a i{margin-right: 10px;}
+.menu ul li ul li ul {margin-bottom:5px;background-color: #4B5D5F;}
+.menu ul li ul li {background:none;}
+.menu ul li ul li a {display:block;height:34px; line-height: 34px;padding-left: 30px;}
+.menu ul li ul li ul li:hover{background-color:#3B3E3E ;}
+.menu ul li ul li ul li a {display:block;height:34px; line-height: 34px;padding-left: 50px;}
+
+.menu ul li ul li ul li a i{margin-right: 0;position: relative;left:-10px;}
+.menu ul li ul li ul li a:hover i{font-size: 18px;}
+/*自定义*/

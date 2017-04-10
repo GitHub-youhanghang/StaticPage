@@ -2,12 +2,14 @@
 <html>
 
 <head>
+    <meta charset="utf-8">
     <title>newTab</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 引入 Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/hover.css">
-    <link rel="stylesheet" type="text/css" href="css/animate.css">
+    <!--     <link href="css/bootstrap.min.css" rel="stylesheet">
+ -->
+    <!--     <link rel="stylesheet" type="text/css" href="css/hover.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css"> -->
     <!-- HTML5 Shim 和 Respond.js 用于让 IE8 支持 HTML5元素和媒体查询 -->
     <!-- 注意： 如果通过 file://  引入 Respond.js 文件，则该文件无法起效果 -->
     <!--[if lt IE 9]>
@@ -19,61 +21,149 @@
 </head>
 
 <body>
+<!-- 
+背景
+加上新闻
+加上音乐播放器
+修改a的样式也就是主题
+记事本
+
+禁止快捷键
+
+配置是否是在新窗口打开廉洁
+提供众多的链接直接选择 
+显示时间日期天气，用一个插件
+-->
+    <header id="header"></header>
     <div class="container">
-        <h1>newTab</h1>
-        <div class="addButton"></div>
-        <div id="mainTop">
-            <div id="searchOut">
-                <form id="searchForm" action="">
-                    <input type="search" id="infinitySearch" class="SearchInput">
-                    <label id="searchButton" for="infinitySearch"></label>
-                    <div id="searchChange">
-                        <div class="search-logo"></div>
-                    </div>
-                </form>
+        <form id="searchForm" action="">
+            <input type="search" id="infinitySearch" class="SearchInput">
+            <label id="searchButton" for="infinitySearch"></label>
+            <div id="searchChange">
+                <div class="search-logo"></div>
             </div>
-        </div>
+        </form>
         <div class="book-mark">
             <div id="linkClass" class="link-class">
-				<div class="link-item">
-					<div class="link-item-class">生活</div>
-					<div class="link-item-con">
-						<a href="">ddd</a>
-						<a href="">ddd</a>
-						<a href="">ddd</a>
-						<a href="">ddd</a>
-						<a href="">ddd</a>
-						<a href="">ddd</a>
-						<a href="">ddd</a>
-						<a href="">ddd</a>
-						<a href="">ddd</a>
-						<a href="">ddd</a>
-						<a href="">ddd</a>
-						<a href="">ddd</a>
-						<a href="">ddd</a>
-						<a href="">ddd</a>
-						<a href="">ddd</a>
-						<a href="">ddd</a>
-						<a href="">ddd</a>
-						<a href="">ddd</a>
-
-					
-
-					</div>
-				</div>
+                <table>
+                    <caption>
+                        <div title="添加分类" class="addButton">
+                        </div>
+                        <div title="编辑分类" class="editButton">
+                        </div>
+                        <button class="saveEdit" id="saveEdit">保存编辑</button>
+                        <!--                          <form id="pageConfig" class="pageConfig">
+                                搜索打开
+                              <input type="radio" name="open" value="new">新页面
+                              <input type="radio" name="open" value="current">当前页面
+                             <button class="saveEdit" id="saveEdit">保存编辑</button>
+                         </form>
+                          -->
+                    </caption>
+                    <tbody id="linkBody">
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
+    <div class="box"> </div>
+    <div class="addClassBox">
+        <form id="addForm" class="addForm">
+            <div class="addForm-inlineBlock">
+                <div>
+                    <label for="linkTitle">标题</label>
+                    <input type="text" name="linkTitle" id="linkTitle">
+                </div>
+                <div>
+                    <label for="linkHref">地址</label>
+                    <input type="text" name="linkHref" id="linkHref"> </div>
+                <div>
+                    <label for="linkHref">新增分类</label>
+                    <input class="add-class-input short" type="text" name="className" id="className">
+                    <span class="red">填写此内容会忽视下面的分类选项!</span>
+                </div>
+                <div>
+                    <label>分类</label>
+                    <select name="selectClass" id="selectClass">
+                        <option value="0">生活</option>
+                    </select>
+                    <input id="save" class="save-link" type="button" value="保存退出">
+                    <input id="addOther" class="save-link" type="button" value="继续添加">
+                    <input id="cancel" class="cancel-link" type="button" value="取消">
+                    <span class="j-alert red">请填写完整信息!</span>
+                </div>
+            </div>
+        </form>
+    </div>
+<iframe class="musicBox" frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=450 src="//music.163.com/outchain/player?type=0&id=545380732&auto=0&height=430"></iframe>    
     <!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
     <script src="js/jquery-1.9.1.min.js"></script>
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-    <script src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/newTab/web-storage-cache.js"></script>
-    <script type="text/javascript" src="js/newTab/search.js"></script>
+    <!--     <script src="js/bootstrap.min.js"></script> -->
+    <script src="js/newTab/web-storage-cache.js"></script>
+    <script src="js/newTab/search.js"></script>
+    <script src="js/newTab/newTab.js"></script>
+    <!-- 禁止鼠标右键 -->
     <script type="text/javascript">
+
     </script>
+    <!--     <script src="js/react/react.min.js"></script>
+    <script src="js/react/react-dom.min.js"></script>
+    <script src="js/react/react-dom-server.min.js"></script>
+    <script src="js/react/react-with-addons.min.js"></script> -->
+    <!--     <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
+    <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script> -->
+    <!--     <script type="text/babel">
+        
+
+        var LinkClass = React.createClass({ 
+            getInitialState: function() {
+
+                 return {
+
+                 }; 
+             }, 
+              getDefaultProps : function () {
+                return {
+                  data : data
+                };
+              },             
+            componentDidMount: function() {
+
+            }, 
+            render: function() {
+                
+               var a= <tr>
+                    <td>{data[0].className}</td>
+                    <td>
+                        <a href={data[0].linkCon[0].href}>{data[0].linkCon[0].title}
+                        </a>
+                    </td>
+                </tr>  ;
+                return a;
+
+            } 
+        });
+
+        ReactDOM.render(<LinkClass/>
+         ,
+          document.getElementById('linkBody')
+        );  
+
+    </script> -->
 </body>
-<!--                 <div id="searchOption" class="searchOptionOut searchOptionOutShow{{setting.searchType}}" op="1"><span class="searchOptions globalColor" style="border-bottom: 2px solid #2ECC71;color:#fdfdfd" url="https://www.baidu.com/baidu?tn=64075107_dg&amp;ie=utf-8&amp;wd=">网页</span><span class="searchOptions globalColor" style="color:#fdfdfd" url="https://image.baidu.com/search/index?tn=baiduimage&amp;word=">图片</span><span class="searchOptions globalColor" style="color:#fdfdfd" url="http://news.baidu.com/ns?tn=news&amp;ie=utf-8&amp;word=">新闻</span><span class="searchOptions globalColor" style="color:#fdfdfd" url="http://music.baidu.com/search?ie=utf-8&amp;key=">音乐</span><span class="searchOptions globalColor" style="color:#fdfdfd" url="http://video.baidu.com/v?ie=utf-8&amp;word=">视频</span><span class="searchOptions globalColor" style="color:#fdfdfd" url="http://map.baidu.com/?newmap=1&amp;ie=utf-8&amp;s=s%26wd%3D">地图</span></div>
+<!--                 
+<div id="searchOption" class="searchOptionOut searchOptionOutShow{{setting.searchType}}" op="1"><span class="searchOptions globalColor" style="border-bottom: 2px solid #2ECC71;color:#fdfdfd" url="https://www.baidu.com/baidu?tn=64075107_dg&amp;ie=utf-8&amp;wd=">网页</span><span class="searchOptions globalColor" style="color:#fdfdfd" url="https://image.baidu.com/search/index?tn=baiduimage&amp;word=">图片</span><span class="searchOptions globalColor" style="color:#fdfdfd" url="http://news.baidu.com/ns?tn=news&amp;ie=utf-8&amp;word=">新闻</span><span class="searchOptions globalColor" style="color:#fdfdfd" url="http://music.baidu.com/search?ie=utf-8&amp;key=">音乐</span><span class="searchOptions globalColor" style="color:#fdfdfd" url="http://video.baidu.com/v?ie=utf-8&amp;word=">视频</span><span class="searchOptions globalColor" style="color:#fdfdfd" url="http://map.baidu.com/?newmap=1&amp;ie=utf-8&amp;s=s%26wd%3D">地图</span></div>
  -->
+<!--  <LinkClass className='生活'  href="https://www.baidu.com/" title="百度"/>
+ -->
+<!-- ;    <tr>
+                    <td>{this.props.data[0].className}</td>
+                    <td>
+                        <a href={this.props.data[0].linkCon[0].href}>{this.props.title}
+                        </a>
+                    </td>
+                </tr>               -->
 
 </html>

@@ -1,0 +1,154 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>知识</title>
+    <link rel="stylesheet" type="text/css" href="css/knowledge/menu-css.css">
+    <link rel="stylesheet" type="text/css" href="css/knowledge/font-awesome.min.css">
+</head>
+
+<body>
+    <iframe src="http://www.runoob.com"></iframe>
+    <div id="content" class="content">
+        <h2>技能收藏</h2>
+        <div class="menu" id="menu" data-ng-app="myApp" ng-controller="myCtrl">
+            <ul>
+                <li data-ng-repeat="x in data"><a class="active" href="#"><i class="icon-folder-close-alt"></i>{{ x.firstTitle }}</a>
+                    <ul>
+                        <li data-ng-repeat="y in data[$index].firstCon"><a href="#"><i class="icon-folder-close-alt"></i>{{ y.secondTitle }}</a>
+                            <ul>
+                                <li data-ng-repeat="z in data[$parent.$index].firstCon[$index].secondCon"><a href="{{z.href}}"><i class="icon-circle-blank"></i>{{ z.thirdTitle}}</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script src="js/knowledge/menu_min.js"></script>
+    <script src="js/angular/angular.min.js"></script>
+    <script type="text/javascript">
+    var app = angular.module('myApp', []);
+        var data = [{
+            'firstTitle': '前端',
+            'firstCon': [{
+                'secondTitle': 'CSS',
+                'secondCon': [{
+                    'thirdTitle': 'baidu',
+                    'href': 'https://www.baidu.com'
+                },{
+                    'thirdTitle': 'baidu',
+                    'href': 'https://www.baidu.com'
+                },{
+                    'thirdTitle': 'baidu',
+                    'href': 'https://www.baidu.com'
+                },{
+                    'thirdTitle': 'baidu',
+                    'href': 'https://www.baidu.com'
+                },{
+                    'thirdTitle': 'baidu',
+                    'href': 'https://www.baidu.com'
+                },{
+                    'thirdTitle': 'baidu',
+                    'href': 'https://www.baidu.com'
+                },{
+                    'thirdTitle': 'baidu',
+                    'href': 'https://www.baidu.com'
+                },{
+                    'thirdTitle': 'baidu',
+                    'href': 'https://www.baidu.com'
+                },{
+                    'thirdTitle': 'baidu',
+                    'href': 'https://www.baidu.com'
+                },{
+                    'thirdTitle': 'baidu',
+                    'href': 'https://www.baidu.com'
+                },{
+                    'thirdTitle': 'baidu',
+                    'href': 'https://www.baidu.com'
+                },{
+                    'thirdTitle': 'baidu',
+                    'href': 'https://www.baidu.com'
+                },{
+                    'thirdTitle': 'baidu',
+                    'href': 'https://www.baidu.com'
+                },{
+                    'thirdTitle': 'baidu',
+                    'href': 'https://www.baidu.com'
+                }]
+            }],
+        }, {
+            'firstTitle': '电脑',
+            'firstCon': [{
+                'secondTitle': 'CSS',
+                'secondCon': [{
+                    'thirdTitle': 'lll',
+                    'href': 'https://www.baidu.com'
+                }]
+            }],
+        }];
+    app.controller('myCtrl', function($scope) {
+
+        $scope.data = data;
+    });
+    </script>
+    <script>
+    $(document).ready(function() {
+        $(".menu ul li").menu();
+    });
+    </script>
+    <script type="text/javascript">
+
+         // <ul>
+         //        <li><a class="active" href="#"><i class="icon-folder-close-alt"></i>Item 1</a>
+         //            <ul>
+         //                <li><a href="#"><i class="icon-folder-open-alt"></i>Subitem 2</a>
+         //                    <ul>
+         //                        <li><a href="#"><i class="icon-circle-blank"></i>SubitemSubitemSubitemSubitemSubitemSubitemSubitemSubitemSubitemSubitemSubitem 1</a></li>
+         //                        <li><a href="#">Subitem 2</a></li>
+         //                        <li><a href="#">Subitem 3</a></li>
+         //                        <li><a href="#">Subitem 4</a></li>
+         //                    </ul>
+         //            </ul>
+         //            </li>
+         //    </ul> 
+
+
+
+
+
+    // function initMenu(data) {
+    //     var allHtml = $('#menu')[0];
+    //     allHtml.innerHTML = '';
+    //     allHtml.innerHTML += ' <ul>';
+    //     for (var i = 0; i < data.length; i++) {
+
+    //         allHtml.innerHTML += '<li>';
+    //         allHtml.innerHTML += '<a class="active" href="#"><i class="icon-folder-close-alt"></i>firstTitle</a>';
+    //         allHtml.innerHTML += '<ul>';
+    //         for (var j = 0; j < data[i].firstCon.length; j++) {
+    //             allHtml.innerHTML += ' <li>';
+    //             allHtml.innerHTML += '<a href="#"><i class="icon-folder-close-alt"></i>secondTitle</a>';
+    //             allHtml.innerHTML += '<ul>';
+    //             for (var k = 0; k < data[i].firstCon[j].secondCon.length; k++) {
+    //                 allHtml.innerHTML += '<li><a href=' + data[i].firstCon[j].secondCon[k].href + '><i class="icon-circle-blank"></i>' + data[i].firstCon[j].secondCon[k].thirdTitle + '</a></li>';
+    //             }
+    //             allHtml.innerHTML += ' </ul>';
+    //             allHtml.innerHTML += '</li>';
+    //         }
+    //         allHtml.innerHTML += ' </ul>';
+    //         allHtml.innerHTML += '</li>';
+
+    //     }
+    //     allHtml.innerHTML += '</ul>';
+    // }
+
+
+
+    // initMenu(data);
+    </script>
+</body>
+
+</html>

@@ -40,4 +40,21 @@
              }
    	
         })
+
+        //在输入框获得焦点的时候按回车才会搜索
+        $('#infinitySearch').on('focus',function(){
+              // 绑定回车键
+            $(window).on('keydown', function(event) {
+
+                      if (window.event.keyCode == 13)
+                      {
+                       
+                        event.returnValue=false;
+                        event.cancel = true;
+                        $('#searchButton').trigger('click');
+                      }
+
+            });             
+        })
+     
     });
