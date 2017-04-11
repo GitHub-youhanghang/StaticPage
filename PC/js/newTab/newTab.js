@@ -49,6 +49,7 @@
             $('#linkBody')[0].innerHTML = '';
             var AllHtml = '';
             if (isEditing) {
+               if (data) {
                 for (var i = 0; i < data.length; i++) {
                     AllHtml += '<tr><td class="firstTd">' + data[i].className + '<span data-classNum=' + i + ' class="deleteClass show"></span></td><td class="secondTd">';
                     for (var j = 0; j < data[i].linkCon.length; j++) {
@@ -56,7 +57,9 @@
                     }
                     AllHtml += '</td></tr>';
                 }
+                }
             } else {
+                if (data) {
                 for (var i = 0; i < data.length; i++) {
                     AllHtml += '<tr><td class="firstTd">' + data[i].className + '<span data-classNum=' + i + ' class="deleteClass"></span></td><td class="secondTd">';
                     for (var j = 0; j < data[i].linkCon.length; j++) {
@@ -64,8 +67,9 @@
                     }
                     AllHtml += '</td></tr>';
                 }
+                }
             }
-
+           
             $('#linkBody')[0].innerHTML += AllHtml;
             //每次渲染都要重新给渲染的元素绑定事件，否则是重新渲染的元素没有绑定事件
             $('#linkBody').find('.firstTd ').find('.deleteClass').on('click', function(e) {

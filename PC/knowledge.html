@@ -9,16 +9,36 @@
 </head>
 
 <body>
-    <iframe src="http://www.runoob.com"></iframe>
+<!-- 
+    问题
+    新添加的分类不能立马刷新在左侧书签栏
+    添加分类的数据保存的没有问题，但是刷新页面后左侧书签栏的第二层目录标题显示为空，可能与angular的渲染有关，
+    编辑书签还没做
+-->
+<!-- 
+    以后会做的功能
+    屏蔽原浏览器快捷键 用自己的设置的快捷键
+    手动复制现有数据并备份在自己电脑，添加恢复数据的的功能，将备份的数据添加到当前页面的localstorage上
+    打开书签时默认在当前iframe打开
+-->
+    <div id="tab" class="tab-box">
+        <div class="tab-box-tit J-front-tit">
+            <ul>
+            </ul>
+        </div>
+        <div class="tab-box-con J-front-con">
+        </div>
+    </div>
     <div id="content" class="content">
-        <h2>技能收藏</h2>
+        <h2>技能收藏<a href="/" title="主页" id="home" class="icon-home home"></a><a id="editBookmarks" title='删除书签' class="icon-edit edit"></a></h2>
+        <div id="swithBookmarksBtn" class="swith-bookmarks-btn"><i class="icon-angle-right"></i></div>
         <div class="menu" id="menu" data-ng-app="myApp" ng-controller="myCtrl">
             <ul>
                 <li data-ng-repeat="x in data"><a class="active" href="#"><i class="icon-folder-close-alt"></i>{{ x.firstTitle }}</a>
                     <ul>
                         <li data-ng-repeat="y in data[$index].firstCon"><a href="#"><i class="icon-folder-close-alt"></i>{{ y.secondTitle }}</a>
                             <ul>
-                                <li data-ng-repeat="z in data[$parent.$index].firstCon[$index].secondCon"><a href="{{z.href}}"><i class="icon-circle-blank"></i>{{ z.thirdTitle}}</a></li>
+                                <li data-ng-repeat="z in data[$parent.$index].firstCon[$index].secondCon"><a class="hasHref" href="{{z.href}}"><i class="icon-circle-blank"></i>{{ z.thirdTitle}}</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -26,128 +46,59 @@
             </ul>
         </div>
     </div>
+
+    <div class="box"></div>  
+    <div class="addClassBox">
+        <form id="addForm" class="addForm">
+            <div class="addForm-inlineBlock">
+                <div>
+                    <label for="linkTitle">标题</label>
+                    <input type="text" name="linkTitle" id="linkTitle">
+                </div>
+                <div>
+                    <label for="linkHref">地址</label>
+                    <input type="text" name="linkHref" id="linkHref"> </div>
+
+                <div>
+                    <label>选择分类</label>
+                    <select name="selectClass" id="selectClass1">
+                    </select>                    
+                    <select name="selectClass2" id="selectClass2">
+                    </select>
+                </div>
+                <div>
+                    <label for="linkHref">当前分类</label>
+                    <input class="add-class-input short" type="text" name="className1" id="className1" placeholder="第一层目录">
+                    <input class="add-class-input short" type="text" name="className2" id="className2" placeholder="第二层目录">
+                   <!--  <button id="saveClass" class="save-class" >保存分类</button> -->
+                    <span class="red note">当前分类：手动填写全部或选好第一级目录手动填写第二级目录，然后保存，会新增第一级目录和第二级目录或选好的第一级目录和新增当前的第二级目录</span>
+                    <input id="save" class="save-link" type="button" value="保存退出">
+                    <input id="cancel" class="cancel-link" type="button" value="取消">
+                    <span class="j-alert red ">请填写完整信息!</span>
+                </div>                
+            </div>
+        </form>
+    </div>
+
     <script src="js/jquery-1.9.1.min.js"></script>
     <script src="js/knowledge/menu_min.js"></script>
     <script src="js/angular/angular.min.js"></script>
-    <script type="text/javascript">
-    var app = angular.module('myApp', []);
-        var data = [{
-            'firstTitle': '前端',
-            'firstCon': [{
-                'secondTitle': 'CSS',
-                'secondCon': [{
-                    'thirdTitle': 'baidu',
-                    'href': 'https://www.baidu.com'
-                },{
-                    'thirdTitle': 'baidu',
-                    'href': 'https://www.baidu.com'
-                },{
-                    'thirdTitle': 'baidu',
-                    'href': 'https://www.baidu.com'
-                },{
-                    'thirdTitle': 'baidu',
-                    'href': 'https://www.baidu.com'
-                },{
-                    'thirdTitle': 'baidu',
-                    'href': 'https://www.baidu.com'
-                },{
-                    'thirdTitle': 'baidu',
-                    'href': 'https://www.baidu.com'
-                },{
-                    'thirdTitle': 'baidu',
-                    'href': 'https://www.baidu.com'
-                },{
-                    'thirdTitle': 'baidu',
-                    'href': 'https://www.baidu.com'
-                },{
-                    'thirdTitle': 'baidu',
-                    'href': 'https://www.baidu.com'
-                },{
-                    'thirdTitle': 'baidu',
-                    'href': 'https://www.baidu.com'
-                },{
-                    'thirdTitle': 'baidu',
-                    'href': 'https://www.baidu.com'
-                },{
-                    'thirdTitle': 'baidu',
-                    'href': 'https://www.baidu.com'
-                },{
-                    'thirdTitle': 'baidu',
-                    'href': 'https://www.baidu.com'
-                },{
-                    'thirdTitle': 'baidu',
-                    'href': 'https://www.baidu.com'
-                }]
-            }],
-        }, {
-            'firstTitle': '电脑',
-            'firstCon': [{
-                'secondTitle': 'CSS',
-                'secondCon': [{
-                    'thirdTitle': 'lll',
-                    'href': 'https://www.baidu.com'
-                }]
-            }],
-        }];
-    app.controller('myCtrl', function($scope) {
-
-        $scope.data = data;
-    });
-    </script>
+    <script src="js/knowledge/web-storage-cache.js"></script>
+    <script src="js/knowledge/data.js"></script>
+    <script src="js/knowledge/tab.js"></script>
+    <script src="js/knowledge/addHref.js"></script>
     <script>
     $(document).ready(function() {
+        //左侧书签列表调用
         $(".menu ul li").menu();
+
+
     });
+
+ 
     </script>
     <script type="text/javascript">
 
-         // <ul>
-         //        <li><a class="active" href="#"><i class="icon-folder-close-alt"></i>Item 1</a>
-         //            <ul>
-         //                <li><a href="#"><i class="icon-folder-open-alt"></i>Subitem 2</a>
-         //                    <ul>
-         //                        <li><a href="#"><i class="icon-circle-blank"></i>SubitemSubitemSubitemSubitemSubitemSubitemSubitemSubitemSubitemSubitemSubitem 1</a></li>
-         //                        <li><a href="#">Subitem 2</a></li>
-         //                        <li><a href="#">Subitem 3</a></li>
-         //                        <li><a href="#">Subitem 4</a></li>
-         //                    </ul>
-         //            </ul>
-         //            </li>
-         //    </ul> 
-
-
-
-
-
-    // function initMenu(data) {
-    //     var allHtml = $('#menu')[0];
-    //     allHtml.innerHTML = '';
-    //     allHtml.innerHTML += ' <ul>';
-    //     for (var i = 0; i < data.length; i++) {
-
-    //         allHtml.innerHTML += '<li>';
-    //         allHtml.innerHTML += '<a class="active" href="#"><i class="icon-folder-close-alt"></i>firstTitle</a>';
-    //         allHtml.innerHTML += '<ul>';
-    //         for (var j = 0; j < data[i].firstCon.length; j++) {
-    //             allHtml.innerHTML += ' <li>';
-    //             allHtml.innerHTML += '<a href="#"><i class="icon-folder-close-alt"></i>secondTitle</a>';
-    //             allHtml.innerHTML += '<ul>';
-    //             for (var k = 0; k < data[i].firstCon[j].secondCon.length; k++) {
-    //                 allHtml.innerHTML += '<li><a href=' + data[i].firstCon[j].secondCon[k].href + '><i class="icon-circle-blank"></i>' + data[i].firstCon[j].secondCon[k].thirdTitle + '</a></li>';
-    //             }
-    //             allHtml.innerHTML += ' </ul>';
-    //             allHtml.innerHTML += '</li>';
-    //         }
-    //         allHtml.innerHTML += ' </ul>';
-    //         allHtml.innerHTML += '</li>';
-
-    //     }
-    //     allHtml.innerHTML += '</ul>';
-    // }
-
-
-
-    // initMenu(data);
     </script>
 </body>
 
