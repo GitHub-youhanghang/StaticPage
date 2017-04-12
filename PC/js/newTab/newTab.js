@@ -21,9 +21,12 @@
             var data = wsCache.get('linkData')
             $('#selectClass')[0] = '';
             var options = '';
-            for (var i = 0; i < data.length; i++) {
+            if (data) {
+             for (var i = 0; i < data.length; i++) {
                 options += '<option value=' + i + '>' + data[i].className + '</option>'
+            }               
             }
+
             $('#selectClass')[0].innerHTML = options;
         }
 
