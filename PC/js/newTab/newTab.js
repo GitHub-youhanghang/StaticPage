@@ -2,7 +2,7 @@
         var wsCache = new WebStorageCache();
         var data = wsCache.get('linkData') || initData;
 
-         wsCache.set('linkData',data)
+
 
         renderAll();
         //初始化数据
@@ -17,7 +17,7 @@
             }]
         }];
 
-
+ wsCache.set('linkData',data);
 
         //初始化分类select
         function initSelect() {
