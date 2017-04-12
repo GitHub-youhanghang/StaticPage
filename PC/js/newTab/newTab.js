@@ -17,7 +17,10 @@
             }]
         }];
 
-        wsCache.set('linkData',initData);
+        if (!wsCache.get('linkData')) {
+                 wsCache.set('linkData',initData);   
+        }
+
 
         renderAll();
         //初始化分类select
