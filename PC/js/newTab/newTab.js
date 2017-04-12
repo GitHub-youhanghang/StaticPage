@@ -17,7 +17,7 @@
             }]
         }];
 
-        if (!wsCache.get('linkData')) {
+        if (! wsCache.get('linkData')) {
                  wsCache.set('linkData',initData);   
         }
 
