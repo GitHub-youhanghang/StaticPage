@@ -176,6 +176,7 @@
             console.log('地址:' + href);
             var isAdd = false;
             var data = wsCache.get('linkData');
+            if (data) {
             for (var i = 0; i < data.length; i++) {
                 console.log('遍历当前分类：' + data[i].className)
                 console.log(className == data[i].className);
@@ -187,7 +188,9 @@
                     isAdd = true;
 
                 }
+            }                
             }
+
             if (!isAdd) {
                 data.push({
                     'className': className,
