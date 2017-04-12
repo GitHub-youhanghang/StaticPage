@@ -2,7 +2,7 @@
        //tab标签
 
        //初始化第一个标签
-       openNewIframe('http://youhanghang.com/StaticPage/PC/newTab.html', '主页');
+       // openNewIframe('http://youhanghang.com/StaticPage/PC/newTab.html', '主页');
        //为左侧书签栏a元素绑定点击事件
        $('#menu').find('.hasHref').on('click', function(e) {
                e.preventDefault();
