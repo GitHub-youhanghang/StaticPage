@@ -19,6 +19,7 @@
 
         wsCache.set('linkData',initData);
 
+        renderAll();
         //初始化分类select
         function initSelect() {
             var data = wsCache.get('linkData')
