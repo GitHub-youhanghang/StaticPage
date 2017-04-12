@@ -17,7 +17,7 @@
             }]
         }];
 
- wsCache.set('linkData',data);
+        wsCache.set('linkData',initData);
 
         //初始化分类select
         function initSelect() {
