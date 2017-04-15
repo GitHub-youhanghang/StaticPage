@@ -27,9 +27,9 @@ a:hover {text-decoration:none;}
     text-overflow:ellipsis;/* 当对象内文本溢出时显示省略标记(...) ；需与overflow:hidden;一起使用。*/font-size: 20px;}
 .menu ul li a:hover{border-left: 3px solid #3C8DBC;box-sizing: border-box;}
 .menu ul li:hover{background-color: #1E282C;}
-.menu ul li .active {background:url(../../img/knowledge/on.png) top right no-repeat;}
+.menu ul li .active {background:url(../images/knowledge/on.png) top right no-repeat;}
 
-.menu ul li .inactive {background:url(../../img/knowledge/off.png) top right no-repeat;}
+.menu ul li .inactive {background:url(../images/knowledge/off.png) top right no-repeat;}
 .menu ul li ul {display:none; margin-top:-4px;margin-bottom:20px; background-color: #2C3B41; }
 .menu ul li ul li:hover{background-color:#293131 ;border-left: none;}
 .menu ul li ul li a{font-size: 18px;}

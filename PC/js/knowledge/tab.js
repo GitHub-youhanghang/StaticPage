@@ -21,7 +21,6 @@
            var lis = $('.' + tabBoxTit).find('li');
            var divs = $('.' + tabBoxCon).find('.mod');
 
-
            lis.each(function() {
                $(this).on('click', function() {
                    var Index = $(this).index();
