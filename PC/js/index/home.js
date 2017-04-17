@@ -74,7 +74,7 @@
         if (!document.getElementById("imagegallery")) return false;
         var placeholder = document.createElement("img");
         placeholder.setAttribute("id", "placeholder");
-        placeholder.setAttribute("src", "/home/css/images/placeholder.jpg");
+        placeholder.setAttribute("src", "http://img2.niutuku.com/desk/1208/1445/ntk-1445-9697.jpg");
         placeholder.setAttribute("alt", "my image gallery");
         var description = document.createElement("p");
         description.setAttribute("id", "description");
