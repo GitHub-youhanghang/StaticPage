@@ -36,7 +36,7 @@ opacity:0.5;filter:alpha(opacity=50);
 .center{margin: 0 auto;} 
 .w1000center{width: 960px;margin: 0 auto;}
 .header{}
-.logo{float: left;height: 52px;background: url('/StaticPage/home/css/images/logo.png') no-repeat ;width: 250px;height:52px;background-size: 100% 100%;}
+.logo{float: left;height: 52px;background: url('../images/logo.png') no-repeat ;width: 250px;height:52px;background-size: 100% 100%;}
 .wrap{background-color: ; }
     .menu{background-color: white;opacity:1;filter:alpha(opacity=100);}
     .menu-tit {
@@ -73,7 +73,7 @@ opacity:0.5;filter:alpha(opacity=50);
 .fixednav{position:fixed;top:0px;left:0px;width:100%;z-index: 11;}
  #navigation{height:52px;}
  #navigation h1{float:left;}
- #logo{background: url('/StaticPage/home/css/images/logo.png') no-repeat ;width: 250px;height:52px;background-size: 100% 100%;}
+ #logo{background: url('../images/logo.png') no-repeat ;width: 250px;height:52px;background-size: 100% 100%;}
  #navigation ul{float:left;}
  #navigation ul li {float:left;position: relative;}
  #navigation ul li a{color:white;display:block;padding-left: 40px;padding-right: 40px;line-height: 52px;}
@@ -137,7 +137,7 @@ canvas {
         width: auto;
         height: auto;
         z-index: -100;
-        background: url(/StaticPage/home/css/images/jiguang.png) no-repeat;
+        background: url(../images/jiguang.png) no-repeat;
         background-size: cover;
         z-index: -1;
     }
@@ -159,8 +159,8 @@ canvas {
         .progress-new .huibao-tip .line{font-size:12px;color:#DEDEE5;vertical-align:2px;margin-left:10px;margin-right:10px;}
         .progress-new .progress-node{position:absolute;left:0;top:-7px;height:24px;}
         .progress-new .progress-node .icon{width:24px;height:24px;position:absolute;top:0;right:0;}
-        .progress-new .progress-node .icon.yes{background: url('/StaticPage/home/css/images/progress-node-yes.png');}
-        .progress-new .progress-node .icon.no{background: url('/StaticPage/home/css/images/progress-node-no.png');}
+        .progress-new .progress-node .icon.yes{background: url('../images/progress-node-yes.png');}
+        .progress-new .progress-node .icon.no{background: url('../images/progress-node-no.png');}
         .progress-new .progress-node .tip{position:absolute;top:-33px;height:25px;line-height:25px;background:#495078;font-size:12px;color:#FFF;padding-left:4px;padding-right:4px;border-radius:3px;}
         .progress-new .progress-node .tip:after{width: 0;height: 0;content:'';position:absolute;margin:auto;right:0;left:0;bottom:-10px;border:6px solid #495078;
 border-color:#0066cc  transparent transparent transparent; }
