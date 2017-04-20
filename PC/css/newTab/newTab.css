@@ -38,8 +38,8 @@ input:focus {
 #searchChange {
     -webkit-transition: all .2s ease;
     position: absolute;
-    top: 15px;
-    left: 24px;
+    top: 0;
+    left: 0;
     width: 50px;
     height: 40px;
     text-align: center;
@@ -64,11 +64,11 @@ input:focus {
 
 #searchForm {
     text-align: center;
-    width: 700px;
+    width: 560px;
     height: 40px;
     margin: 0 auto;
     position: relative;
-    top: -50px;
+
 }
 
 #searchButton {
@@ -84,8 +84,8 @@ input:focus {
     margin-bottom: 0;
     z-index: 1111;
     position: relative;
-    top: 15px;
-    left: -80px;
+    top: -40px;
+    right: -242px;
     cursor: pointer;
 }
 /* .pageConfig{display: none;display: inline-block}
@@ -100,6 +100,7 @@ input:focus {
 .book-mark {
     background: #FFF;
     padding: 10px;
+    margin-top: 50px;
 }
 
 .link-class table {

@@ -18,10 +18,15 @@
       <![endif]-->
     <!-- 自定义css -->
     <link rel="stylesheet" type="text/css" href="css/newTab/newTab.css">
+    <style type="text/css">
+		.s-sp-menu{text-align: center;margin-bottom: 4px;}
+		.s-sp-menu a{font-size: 18px;color: #333;text-decoration: none;}
+		.s-sp-menu a:hover{color: red; transform: scale(1.1);display:inline-block;}
+    </style>
 </head>
 
 <body>
-<!-- 
+    <!-- 
 背景
 加上新闻
 加上音乐播放器
@@ -36,7 +41,13 @@
 -->
     <header id="header"></header>
     <div class="container">
+        <div class="s-sp-menu">
+            <a href="http://news.baidu.com" target="_blank" class="mnav">新闻</a>
+            <a href="http://map.baidu.com" target="_blank" class="mnav">地图</a>
+
+        </div>    
         <form id="searchForm" action="">
+
             <input type="search" id="infinitySearch" class="SearchInput">
             <label id="searchButton" for="infinitySearch"></label>
             <div id="searchChange">
@@ -104,7 +115,6 @@
     <script src="js/newTab/newTab.js"></script>
     <!-- 禁止鼠标右键 -->
     <script type="text/javascript">
-
     </script>
     <!--     <script src="js/react/react.min.js"></script>
     <script src="js/react/react-dom.min.js"></script>
