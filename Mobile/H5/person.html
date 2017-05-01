@@ -491,7 +491,16 @@
             
 
         })   
+        popBtn.bind('click', function(event) {
 
+            popBox.parents('.pop-bg').show();
+
+        })
+        closeBtn.bind('click', function(event) {
+            popBox.parents('.pop-bg').hide();
+            
+
+        })   
         //当遮罩被点击时要自动关闭，这会很好地考查事件冒泡机制的机会。
  
         popBg.bind('touchstart', function(event) {
@@ -502,6 +511,17 @@
         })
 
         $('.me-img').bind('touchstart', function(event) {
+            /* Act on the event */
+            $(this).removeClass('annimal-img').addClass('annimal-img')
+        });
+        popBg.bind('click', function(event) {
+            if (event.target==event.currentTarget) {
+                 popBox.parents('.pop-bg').hide();
+            }    
+
+        })
+
+        $('.me-img').bind('click', function(event) {
             /* Act on the event */
             $(this).removeClass('annimal-img').addClass('annimal-img')
         });
