@@ -31,7 +31,7 @@ table{border:none; }
 .clearfloat{zoom:1;}
 /*tip*/
 html,img { font-size:100px; }
-body { font-size:.14rem;font-family:Helvetica;position:relative;}
+body { font-size:.14rem;font-family:Microsoft YaHei;position:relative;}
 html,body{height:100%;}
 #container{min-height:100%;height: auto !important;height: 100%; /*IE6不识别min-height*/position: relative;}
 #page{/*padding-bottom等于footer的高度*/}

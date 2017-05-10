@@ -19,9 +19,48 @@
     <!-- 自定义css -->
     <link rel="stylesheet" type="text/css" href="css/newTab/newTab.css">
     <style type="text/css">
-		.s-sp-menu{text-align: center;margin-bottom: 4px;}
-		.s-sp-menu a{font-size: 18px;color: #333;text-decoration: none;}
-		.s-sp-menu a:hover{color: red; transform: scale(1.1);display:inline-block;}
+    .s-sp-menu {
+        text-align: center;
+        margin-bottom: 4px;
+    }
+    
+    .s-sp-menu a {
+        font-size: 18px;
+        color: #333;
+        text-decoration: none;
+    }
+    
+    .s-sp-menu a:hover {
+        color: red;
+        transform: scale(1.1);
+        display: inline-block;
+    }
+    
+    .info-edit {
+        position: fixed;
+        height: 30px;
+        border-radius: 4px;
+        background-color: #FFF;
+        color: #333;
+        border: 1px solid transparent;
+        cursor: pointer;
+        text-align: center;
+        padding: 0 10px;
+        opacity: 0;
+    }
+    .info-edit.info-save{top:0;right:0;}
+  
+
+
+    .info-edit:hover {
+        border: 1px solid #adadad;
+        background-color: #e6e6e6;
+        color: #333;
+        opacity: 1;
+    }
+    .info-recover{position: absolute;top:0;left:0;}
+    .recover-text{position: absolute;top:30px;left:0;width: 300px;height: 100px;}
+
     </style>
 </head>
 
@@ -44,10 +83,8 @@
         <div class="s-sp-menu">
             <a href="http://news.baidu.com" target="_blank" class="mnav">新闻</a>
             <a href="http://map.baidu.com" target="_blank" class="mnav">地图</a>
-
-        </div>    
+        </div>
         <form id="searchForm" action="">
-
             <input type="search" id="infinitySearch" class="SearchInput">
             <label id="searchButton" for="infinitySearch"></label>
             <div id="searchChange">
@@ -105,7 +142,12 @@
                 </div>
             </div>
         </form>
+
+ <!--         <button id="recoverInfo" class="info-recover">还原</button>
+         <textarea id="recoverText" class="recover-text"></textarea> -->
     </div>
+<!--     <button id="saveInfo" class="info-edit info-save">复制所有标签信息备份到有道云</button> -->
+   
     <!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
     <script src="js/jquery-1.9.1.min.js"></script>
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
@@ -115,64 +157,7 @@
     <script src="js/newTab/newTab.js"></script>
     <!-- 禁止鼠标右键 -->
     <script type="text/javascript">
+
     </script>
-    <!--     <script src="js/react/react.min.js"></script>
-    <script src="js/react/react-dom.min.js"></script>
-    <script src="js/react/react-dom-server.min.js"></script>
-    <script src="js/react/react-with-addons.min.js"></script> -->
-    <!--     <script src="https://cdn.bootcss.com/react/15.4.2/react.min.js"></script>
-    <script src="https://cdn.bootcss.com/react/15.4.2/react-dom.min.js"></script>
-    <script src="https://cdn.bootcss.com/babel-standalone/6.22.1/babel.min.js"></script> -->
-    <!--     <script type="text/babel">
-        
-
-        var LinkClass = React.createClass({ 
-            getInitialState: function() {
-
-                 return {
-
-                 }; 
-             }, 
-              getDefaultProps : function () {
-                return {
-                  data : data
-                };
-              },             
-            componentDidMount: function() {
-
-            }, 
-            render: function() {
-                
-               var a= <tr>
-                    <td>{data[0].className}</td>
-                    <td>
-                        <a href={data[0].linkCon[0].href}>{data[0].linkCon[0].title}
-                        </a>
-                    </td>
-                </tr>  ;
-                return a;
-
-            } 
-        });
-
-        ReactDOM.render(<LinkClass/>
-         ,
-          document.getElementById('linkBody')
-        );  
-
-    </script> -->
-</body>
-<!--                 
-<div id="searchOption" class="searchOptionOut searchOptionOutShow{{setting.searchType}}" op="1"><span class="searchOptions globalColor" style="border-bottom: 2px solid #2ECC71;color:#fdfdfd" url="https://www.baidu.com/baidu?tn=64075107_dg&amp;ie=utf-8&amp;wd=">网页</span><span class="searchOptions globalColor" style="color:#fdfdfd" url="https://image.baidu.com/search/index?tn=baiduimage&amp;word=">图片</span><span class="searchOptions globalColor" style="color:#fdfdfd" url="http://news.baidu.com/ns?tn=news&amp;ie=utf-8&amp;word=">新闻</span><span class="searchOptions globalColor" style="color:#fdfdfd" url="http://music.baidu.com/search?ie=utf-8&amp;key=">音乐</span><span class="searchOptions globalColor" style="color:#fdfdfd" url="http://video.baidu.com/v?ie=utf-8&amp;word=">视频</span><span class="searchOptions globalColor" style="color:#fdfdfd" url="http://map.baidu.com/?newmap=1&amp;ie=utf-8&amp;s=s%26wd%3D">地图</span></div>
- -->
-<!--  <LinkClass className='生活'  href="https://www.baidu.com/" title="百度"/>
- -->
-<!-- ;    <tr>
-                    <td>{this.props.data[0].className}</td>
-                    <td>
-                        <a href={this.props.data[0].linkCon[0].href}>{this.props.title}
-                        </a>
-                    </td>
-                </tr>               -->
 
 </html>

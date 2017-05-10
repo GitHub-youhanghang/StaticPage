@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>audioReminder</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/animate.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <style type='text/css'>
+    ul {
+        margin: 0;
+        padding: 0;
+    }
+    
+    .recordingslist li {
+        list-style: none;
+        border: 1px solid #CCC;
+        border-radius: 10px;
+        padding: 10px;
+        margin-bottom: 6px;
+    }
+    
+    .recordingslist li a {
+        vertical-align: 10px;
+    }
+    
+    .recordingslist li a span {}
+    
+    .recoder-data {
+        float: right;
+        line-height: 37px;
+    }
+    
+    .li-form {
+        display: inline-block;
+        vertical-align: top;
+    }
+    
+    .li-form .form-control {
+        width: 70px;
+    }
+    
+    .li-form .btn {
+        margin-left: 10px;
+    }
+    
+    .li-title {
+        display: inline-block;
+        width: 200px;
+        margin-right: 20px;
+        margin-left: 20px;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <h1>定时提醒录音</h1>
+            <p>保证使用最新版本的谷歌浏览器</p>
+            <p>在启用麦克风输入之前，请插入耳机或打开麦克风</p>
+            <form class="form-inline">
+                <input id="title" class="form-control" type="text" placeholder="选填录音标题">
+                <button class="btn btn-default" onclick="startRecording(this);">record</button>
+                <button class="btn btn-default" onclick="stopRecording(this);" disabled>stop</button>
+            </form>
+            <h2>Recordings</h2>
+            <ul id="recordingslist" class="recordingslist">
+            </ul>
+            <h2 style="display: none;">Log</h2>
+            <pre id="log" style="display: none;"></pre>
+        </div>
+    </div>
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/recorder.js"></script>
+    <script src="js/audioreminder/audioreminder.js"></script>
+
+</body>
+
+</html>

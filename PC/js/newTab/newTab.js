@@ -25,7 +25,7 @@
         renderAll();
         //初始化分类select
         function initSelect() {
-            var data = wsCache.get('linkData')
+            var data = wsCache.get('linkData');
             $('#selectClass')[0] = '';
             var options = '';
             if (data) {
@@ -287,6 +287,83 @@
         });
 
 
+//=========================保存还原信息功能===============================================================================================
+        $('#saveInfo').on('click', function(event) {
+          
+            var data = wsCache.get('linkData');
+            var jsonData={'data':data};
+            var infoStr=obj2string(jsonData);
+          
+            $('body').append('<p id="infoCon"></p>');
+            $('#infoCon').text(infoStr);
+  
+            copyToClipboard($('#infoCon')[0]);
+            console.log('ddd');
+             // $('#infoCon').remove();
+        })
+
+        $('#recoverInfo').on('click',function(){
+            var info=$('#recoverText').val();
+            if (info.replace(/(^s*)|(s*$)/g, "").length !=0) {
+                var recoverData = JSON.parse(info);
+                var saveData=recoverData.data;
+                wsCache.set('linkData',saveData);   
+            }
+        })
+        // console.log(JSON.parse('{data:[{className:"生活",linkCon:[{title:"淘宝",href:"https://www.taobao.com/"},{title:"淘宝",href:"https://www.taobao.com/"},{title:"淘宝",href:"https://www.taobao.com/"}]},{className:"ddd",linkCon:[{title:"淘宝",href:"https://www.taobao.com/"}]}]}'))
+        //实现复制
+        function copyToClipboard(elem) {
+
+            var targetId = "_hiddenCopyText_";
+            var isInput = elem.tagName === "INPUT" || elem.tagName === "TEXTAREA";
+            var origSelectionStart, origSelectionEnd;
+            if (isInput) {
+                // 如果是input标签或textarea，则直接指定该节点
+                target = elem;
+                origSelectionStart = elem.selectionStart;
+                origSelectionEnd = elem.selectionEnd;
+            } else {
+                // 如果不是，则使用节点的textContent
+                target = document.getElementById(targetId);
+                if (!target) {
+                    //如果不存在，则创建一个
+                    var target = document.createElement("textarea");
+                    target.style.position = "absolute";
+                    target.style.left = "-9999px";
+                    target.style.top = "0";
+                    target.id = targetId;
+                    document.body.appendChild(target);
+                }
+                target.textContent = elem.textContent;
+
+            }
+        }
+
+
+    function obj2string(o) {
+        var r = [];
+        if (typeof o == "string") {
+            return "\"" + o.replace(/([\'\"\\])/g, "\\$1").replace(/(\n)/g, "\\n").replace(/(\r)/g, "\\r").replace(/(\t)/g, "\\t") + "\"";
+        }
+        if (typeof o == "object") {
+            if (!o.sort) {
+                for (var i in o) {
+                    r.push(i + ":" + obj2string(o[i]));
+                }
+                if (!!document.all && !/^\n?function\s*toString\(\)\s*\{\n?\s*\[native code\]\n?\s*\}\n?\s*$/.test(o.toString)) {
+                    r.push("toString:" + o.toString.toString());
+                }
+                r = "{" + r.join() + "}";
+            } else {
+                for (var i = 0; i < o.length; i++) {
+                    r.push(obj2string(o[i]))
+                }
+                r = "[" + r.join() + "]";
+            }
+            return r;
+        }
+        return o.toString();
+    }
 
 
     });
