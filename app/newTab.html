@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>newTab</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 引入 Bootstrap -->
+    <!--     <link href="css/bootstrap.min.css" rel="stylesheet">
+ -->
+    <!--     <link rel="stylesheet" type="text/css" href="css/hover.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css"> -->
+    <!-- HTML5 Shim 和 Respond.js 用于让 IE8 支持 HTML5元素和媒体查询 -->
+    <!-- 注意： 如果通过 file://  引入 Respond.js 文件，则该文件无法起效果 -->
+    <!--[if lt IE 9]>
+         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+         <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+      <![endif]-->
+    <!-- 自定义css -->
+    <link rel="stylesheet" type="text/css" href="css/newTab/newTab.css">
+    <style type="text/css">
+    .s-sp-menu {
+        text-align: center;
+        margin-bottom: 4px;
+    }
+    
+    .s-sp-menu a {
+        font-size: 18px;
+        color: #333;
+        text-decoration: none;
+    }
+    
+    .s-sp-menu a:hover {
+        color: red;
+        transform: scale(1.1);
+        display: inline-block;
+    }
+    
+    .info-edit {
+        position: fixed;
+        height: 30px;
+        border-radius: 4px;
+        background-color: #FFF;
+        color: #333;
+        border: 1px solid transparent;
+        cursor: pointer;
+        text-align: center;
+        padding: 0 10px;
+        opacity: 0;
+    }
+    .info-edit.info-save{top:0;right:0;}
+  
+
+
+    .info-edit:hover {
+        border: 1px solid #adadad;
+        background-color: #e6e6e6;
+        color: #333;
+        opacity: 1;
+    }
+    .info-recover{position: absolute;top:0;left:0;}
+    .recover-text{position: absolute;top:30px;left:0;width: 300px;height: 100px;}
+
+    </style>
+</head>
+
+<body>
+    <!-- 
+背景
+加上新闻
+加上音乐播放器
+修改a的样式也就是主题
+记事本
+
+禁止快捷键
+
+配置是否是在新窗口打开廉洁
+提供众多的链接直接选择 
+显示时间日期天气，用一个插件
+-->
+    <header id="header"></header>
+    <div class="container">
+        <div class="s-sp-menu">
+            <a href="http://news.baidu.com" target="_blank" class="mnav">新闻</a>
+            <a href="http://map.baidu.com" target="_blank" class="mnav">地图</a>
+        </div>
+        <form id="searchForm" action="">
+            <input type="search" id="infinitySearch" class="SearchInput">
+            <label id="searchButton" for="infinitySearch"></label>
+            <div id="searchChange">
+                <div class="search-logo"></div>
+            </div>
+        </form>
+        <div class="book-mark">
+            <div id="linkClass" class="link-class">
+                <table>
+                    <caption>
+                        <div title="添加分类" class="addButton">
+                        </div>
+                        <div title="编辑分类" class="editButton">
+                        </div>
+                        <button class="saveEdit" id="saveEdit">保存编辑</button>
+                        <!--                          <form id="pageConfig" class="pageConfig">
+                                搜索打开
+                              <input type="radio" name="open" value="new">新页面
+                              <input type="radio" name="open" value="current">当前页面
+                             <button class="saveEdit" id="saveEdit">保存编辑</button>
+                         </form>
+                          -->
+                    </caption>
+                    <tbody id="linkBody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="box"> </div>
+    <div class="addClassBox">
+        <form id="addForm" class="addForm">
+            <div class="addForm-inlineBlock">
+                <div>
+                    <label for="linkTitle">标题</label>
+                    <input type="text" name="linkTitle" id="linkTitle">
+                </div>
+                <div>
+                    <label for="linkHref">地址</label>
+                    <input type="text" name="linkHref" id="linkHref"> </div>
+                <div>
+                    <label for="linkHref">新增分类</label>
+                    <input class="add-class-input short" type="text" name="className" id="className">
+                    <span class="red">填写此内容会忽视下面的分类选项!</span>
+                </div>
+                <div>
+                    <label>分类</label>
+                    <select name="selectClass" id="selectClass">
+                        <option value="0">生活</option>
+                    </select>
+                    <input id="save" class="save-link" type="button" value="保存退出">
+                    <input id="addOther" class="save-link" type="button" value="继续添加">
+                    <input id="cancel" class="cancel-link" type="button" value="取消">
+                    <span class="j-alert red">请填写完整信息!</span>
+                </div>
+            </div>
+        </form>
+
+ <!--         <button id="recoverInfo" class="info-recover">还原</button>
+         <textarea id="recoverText" class="recover-text"></textarea> -->
+    </div>
+<!--     <button id="saveInfo" class="info-edit info-save">复制所有标签信息备份到有道云</button> -->
+   
+    <!-- jQuery (Bootstrap 的 JavaScript 插件需要引入 jQuery) -->
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <!--     <script src="js/bootstrap.min.js"></script> -->
+    <script src="js/newTab/web-storage-cache.js"></script>
+    <script src="js/newTab/search.js"></script>
+    <script src="js/newTab/newTab.js"></script>
+    <!-- 禁止鼠标右键 -->
+    <script type="text/javascript">
+
+    </script>
+
+</html>

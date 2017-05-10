@@ -1,0 +1,171 @@
+    .red{font-size: 18px;color: red;
+}
+    .panel-heading {
+        font-size: 26px;
+    }
+    
+    .btn {
+        width: 150px;
+    }
+    
+    textarea {
+        resize: none;
+        margin-bottom: 10px;
+    }
+    
+    label {
+        margin-bottom: 10px;
+    }
+    
+    #addCon {
+        padding: 20px 0;
+    }
+     #addCon .list-group-item{padding-top: 24px;padding-bottom: 0;padding-left: 20px;padding-right: 20px;}
+   .tip-p{
+        font-size: 16px;
+        background: #f5f5f5;
+        border-radius: 6px;
+        padding: 6px;
+
+    margin-bottom: 10px;
+    }
+    xmp{margin: 0;            
+        white-space: pre-wrap;
+    word-break: break-all;
+    word-wrap: break-word;
+font-family:"Microsoft YaHei";}
+    
+    .list-group-item {
+        position: relative;
+
+    }
+    
+    .list-group-item p {
+        text-indent: 2em;
+    }
+    
+    .list-group-item .list-num {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        text-align: center;
+        background: #999;
+        color: #FFF;
+        text-indent: 0;
+    }
+    
+    .list-group-item .list-btns {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+    
+    .list-group-item .list-btns button {
+        width: 40px;
+        text-indent: 0;
+        padding: 0;
+    }
+    
+    .row {
+        position: relative;
+    }
+    .panel-heading{padding: 0;font-size: 20px;padding-left: 20px;height: 40px;line-height: 40px;}
+    #copySuccess {
+        width: 140px;
+        position: absolute;
+        top: 3px;
+        right: 15px;
+        background: #474949;
+        color: #FFF;
+        display: none;
+
+    }
+    
+    .modal-footer {
+        text-align: center;
+    }
+    
+    .editTextarea {
+        width: 100%;
+    }
+    
+    .timerNum {
+
+        border-top: 1px solid #ddd;
+    }
+    .timerNum .form-group{margin-bottom: 0;text-align: right;}
+    
+    .timerNum label {
+        font-weight: normal;
+    }
+    .timerNum input{display: inline-block;}
+    .timerNum .select_ {
+        display: inline-block;
+        width: 50px;
+        height: 24px;
+        padding: 0;
+    }
+    .timerNum .time-everday{width: 120px;}
+    .timerNum .datetime-local-one{width: 210px;}
+    .btn-list {
+        position: absolute;
+        bottom: -6px;
+        right: 0;
+    }
+    
+    .btnTimerStart {
+        height: 34px;
+        font-size: 14px;
+        padding: 0;
+    }
+    
+    .btnTimerReset {
+        height: 34px;
+        font-size: 14px;
+        padding: 0;
+    }
+    
+    .tip {
+        color: red;
+        position: absolute;
+        right: 0;
+        bottom: -20px;
+    }
+    
+    .list-group-item {
+        margin-bottom: 20px;
+    }
+    
+    .checkbox-inline {
+        position: relative;
+    }
+    
+    .script {
+        display: none
+    }
+    
+    #btnClearRecycleBin {
+        float: right;
+        margin-top: -8px;
+        margin-right: 20px;
+    }
+    
+    .renew-tip {
+        display: none;
+        color: red;
+        position: absolute;
+        top: -20px;
+        right: 0;
+    }
+    .timerhelp{position: fixed;top:0;right: 0;width: 320px;display: none;border: 1px solid;}
+    body{background: #fafbfc;font-family: "Microsoft YaHei"}
+    #describe{padding: 20px ;margin-bottom: 0;}
+    .timerhelpA:hover .timerhelp{display: block;}
+    #switchDescribe{/* position: fixed;top:100px;left:100px; *//* width: 100px;height: 30px;line-height: 30px;background: red;border-radius: 10%;text-align: center;color: #FFF;font-size: 18px;cursor: pointer; */}
+    .btn-group-{display: block;height:36px;}
+    .btn-group- a.btn{width: 25%}
+    .btn-group--{display: inline-block;margin-left: 20px;}
+    #delCon .list-group-item{padding-top: 26px;}
