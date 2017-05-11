@@ -1,4 +1,9 @@
 ul{margin: 0;padding: 0;}
+audio{display: block;width: 100%;}
+h1{font-size: 22px;height: 50px;line-height: 50px;text-align: center;border-bottom: 1px solid #CCC;margin: 0;}
+h2{font-size: 16px;height: 30px;line-height: 30px;text-align: left;margin: 0;}
+footer{}
+.row{margin-left: 0;margin-right: 0;}
     .recordingslist li {
         list-style: none;
         border: 1px solid #CCC;
@@ -28,15 +33,17 @@ ul{margin: 0;padding: 0;}
         line-height: 37px; */
         vertical-align: 10px;
         margin-left: 20px;
+
     }
     
     .li-form {
-        display: inline-block;
+       margin-top: 10px;
         vertical-align: top;
     }
     
     .li-form .form-control {
         width: 70px;
+        display: inline-block;
     }
     
     .li-form .btn {

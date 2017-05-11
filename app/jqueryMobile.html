@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>定时提醒录音</title>
+    <!-- meta使用viewport以确保页面可自由缩放 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 引入 jQuery Mobile 样式 -->
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+    <style type="text/css">
+    audio{display: block;width: 100%;}
+    ul{margin: 0;padding: 0;}
+    li{list-style: none;}
+    .form-inline input{display: inline-block;width: 50px;}
+    .ui-input-text{display: inline-block;width: 50px;}
+    .btn-default{display: inline-block;width: 80px !important;}
+    </style>
+</head>
+
+<body>
+    <div data-role="page" id="pageone">
+        <div data-role="header">
+            <h1>录音定时提醒</h1>
+        </div>
+        <div data-role="main" class="ui-content">
+            <input id="title" class="form-control" type="text" placeholder="选填录音标题">
+            <div data-role="controlgroup" data-type="horizontal">
+                <button id="audioStart" class=" btn-default">开始录音</button>
+                <button id="audioPause" class=" btn-default" disabled>暂停录音</button>
+                <button id="audioStop" class=" btn-default" disabled>停止录音</button>
+            </div>
+            <h2>录音列表</h2>
+            <ul id="recordingslist" class="recordingslist" >
+                <li>
+                    <audio controls="" src="blob:http://localhost:3000/db57b5f7-dfad-4b72-bd7a-30793bc47b37"></audio><a href="blob:http://localhost:3000/db57b5f7-dfad-4b72-bd7a-30793bc47b37" title="点击下载" download="2017-05-10 20:53:36.wav"><span class="li-title"></span></a>
+                    <div id="liForm" class="li-form form-inline">每隔
+                        <input placeholder="1" class="timer form-control" type="number">小时提醒
+                        <button class="start btn btn-default">开始</button>
+                        <button disabled="" class="stop btn btn-default">结束</button>
+                    </div><span class="recoder-data">2017-05-10 20:53:36</span></li>
+            </ul>
+        </div>
+    </div>
+    <div data-role="footer">
+        <p>注：IE和Safari全版本不支持录音功能</p>
+    </div>
+    </div>
+    <!-- 引入 jQuery 库 -->
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <!-- 引入 jQuery Mobile 库 -->
+    <script src="js/jquery.mobile-1.4.5.min.js"></script>
+    <script src="js/audioReminderJs/recorder.js"></script>
+    <script src="js/audioReminderJs/audioreminder.js"></script>
+</body>
+
+</html>

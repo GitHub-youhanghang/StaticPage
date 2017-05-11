@@ -115,7 +115,7 @@
             au.src = url;
             hf.href = url;
             hf.download = new Date().Format("yyyy-MM-dd hh:mm:ss").toString() + '.wav';
-            // hf.innerHTML = hf.download;
+            hf.innerHTML = hf.download;
 
             var title = $('#title').val();
             $('#title').val('');
