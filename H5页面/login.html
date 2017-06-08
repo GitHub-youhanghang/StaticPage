@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>注册</title>
+    <link rel="stylesheet" type="text/css" href="css/iconfont.css">
+    <link rel="stylesheet" type="text/css" href="css/iconfont.css">
+    <link rel="stylesheet" type="text/css" href="http://cdn.bootcss.com/select2/4.0.3/css/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script src="js/rem.js"></script>
+</head>
+
+<body>
+    <div class="main">
+        <div class="girl">
+            <img src="img/girl.png">
+            <span class="girl-logo">
+        <i class="iconfont icon-female"></i>
+      </span>
+            <!-- 男生头像
+      <span class="boy-logo">
+          <i class="iconfont icon-male"></i>
+      </span>  -->
+        </div>
+        <p class="girl-about">Hi,Joker</p>
+        <p class="register">裕隆公寓社区欢迎你的加入</p>
+        <form class="login-form" action="server.php" method="post">
+            <input type="text" name="" placeholder="姓名">
+            <input type="text" name="" placeholder="手机号">
+            <div  class="contacts-select-wrap">
+                <ul id="selectUl" class="contacts-ul three-select">
+                    <li>
+                        <span>楼牌号</span>
+                        <ul class="contacts-ul-level2 top">
+                            <li>1号楼</li>
+                            <li>1号楼</li>
+                            <li>3号楼</li>
+                            <li>1号楼</li>
+                            <li>1号楼</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span>单元号</span>
+                        <ul class="contacts-ul-level2 top">
+                            <li>1单元</li>
+                            <li>1单元</li>
+                            <li>1单元</li>
+                            <li>4单元</li>
+                            <li>1单元</li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <span>门牌号</span>
+                        <ul class="contacts-ul-level2 top">
+                            <li>门牌号1</li>
+                            <li>门牌号2</li>
+                            <li>门牌号3</li>
+                            <li>门牌号4</li>
+                            <li>门牌号6</li>
+                        </ul>
+                    </li>                    
+                </ul>
+            </div>
+            <a href="index.html">确认注册</a>
+        </form>
+    </div>
+    <footer id="footer">
+        <a class="item" href="my.html">
+            <div class="item-top">
+                <i class="iconfont icon-people"></i>
+            </div>
+            <div class="item-bottom">
+                <p>个人中心</p>
+            </div>
+        </a>
+        <a class="item" href="activity.html">
+            <div class="item-top">
+                <i class="iconfont icon-activity"></i>
+            </div>
+            <div class="item-bottom">
+                <p>活动</p>
+            </div>
+        </a>
+        <a class="item" href="contacts.html">
+            <div class="item-top">
+                <i class="iconfont icon-contact"></i>
+            </div>
+            <div class="item-bottom">
+                <p>通讯录</p>
+            </div>
+        </a>
+        <a class="item" href="team.html">
+            <div class="item-top">
+                <i class="iconfont icon-team"></i>
+            </div>
+            <div class="item-bottom">
+                <p>开发团队</p>
+            </div>
+        </a>
+    </footer>
+            <div class="pop-bg"></div>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!--     <script src="http://cdn.bootcss.com/select2/4.0.3/js/select2.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+          $(".js-example-basic-single").select2();
+        });
+    </script> -->
+    <script type="text/javascript">
+    $(document).ready(function() {
+
+        $('#selectUl > li').on('click', function() {
+
+            $('#selectUl').find('ul').hide();
+            $(this).find('ul').show();
+            $('.pop-bg').show();
+            selectIsOpen = true;
+
+
+
+        })
+        $('.contacts-ul-level2').find('li').on('click', function(event) {
+            event.stopPropagation();
+            var textVal = $(this).text();
+            $(this).parents('li').find('span').text(textVal);
+            $('#selectUl').find('ul').hide();
+            $('.pop-bg').hide();
+
+
+
+        })
+        $('.pop-bg').on('click', function(event) {
+            if (event.target == event.currentTarget) {
+                $(this).hide();
+                $('#selectUl').find('ul').hide();
+
+            }
+        })
+    });
+    </script>
+</body>
+
+</html>
