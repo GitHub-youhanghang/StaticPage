@@ -604,12 +604,9 @@
         }
 
         showLastPersonView();
+        $("#imageGallery").children().unbind('touchstart');
 
-        $('#imageGallery')[0].removeEventListener('ontouchmove', function(event) {
-            event.preventDefault();
-
-        }, false);
-        alert(2)
+        alert(3);
 
 
     });
