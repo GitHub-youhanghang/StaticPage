@@ -605,17 +605,16 @@
 
         showLastPersonView();
 
-        $('#imageGallery')[0].removeEventListener('touchmove', function(event) {
+        $('.csSlideOuter')[0].removeEventListener('touchmove', function(event) {
+            event.preventDefault();
+            
+        }, false);        
+        $('.csSlideOuter')[0].removeEventListener('touchstart', function(event) {
             event.preventDefault();
         }, false);        
-        $('#imageGallery')[0].removeEventListener('touchstart', function(event) {
-            event.preventDefault();
-        }, false);        
-        $('#imageGallery')[0].removeEventListener('touchend', function(event) {
+        $('.csSlideOuter')[0].removeEventListener('touchend', function(event) {
             event.preventDefault();
         }, false);
-
-        alert()
 
     });
     </script>
