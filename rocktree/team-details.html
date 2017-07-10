@@ -611,12 +611,10 @@
 
 
         $('#imageGallery').find('li').each(function(index, el) {
-            $(this)[0].ontouchmove = function() {
-                return false;
-            }
+            $(this).unbind();
         });
 
-        // alert(2);
+         alert(2);
     });
     </script>
 </body>
