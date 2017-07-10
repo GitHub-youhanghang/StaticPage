@@ -604,12 +604,12 @@
         }
 
         showLastPersonView();
-        
-        $("#imageGallery").unbind('touchmove');
-        $("#imageGallery").unbind('touchstart');
-        $("#imageGallery").unbind('touchend');
+         $("#imageGallery")[0].ontouchstart=function(){
+return false;
+}
 
-        alert(9);
+
+        alert(1);
 
 
     });
