@@ -604,12 +604,12 @@
         }
 
         showLastPersonView();
-        console.log($("#imageGallery").children())
-        $("#imageGallery").children().unbind('ontouchmove');
-        $("#imageGallery").children().unbind('ontouchstart');
-        $("#imageGallery").children().unbind('ontouchend');
+        
+        $("#imageGallery").unbind('ontouchmove');
+        $("#imageGallery").unbind('ontouchstart');
+        $("#imageGallery").unbind('ontouchend');
 
-        alert(5);
+        alert(6);
 
 
     });
