@@ -604,29 +604,12 @@
         }
 
         showLastPersonView();
-$('.team-item-text')[0].removeEventListener('touchmove', function(event) {
+
+        $('#imageGallery')[0].removeEventListener('ontouchstart', function(event) {
             event.preventDefault();
-            return false;
-            
-        }, false);  
-$('.team-item-text')[0].removeEventListener('touchstart', function(event) {
-            event.preventDefault();
-            return false;
-        }, false);  
-$('.team-item-text')[0].removeEventListener('touchend', function(event) {
-            event.preventDefault();
-            return false;
-        }, false);  
-        // $('.csSlideOuter')[0].removeEventListener('touchmove', function(event) {
-        //     event.preventDefault();
-            
-        // }, false);        
-        // $('.csSlideOuter')[0].removeEventListener('touchstart', function(event) {
-        //     event.preventDefault();
-        // }, false);        
-        // $('.csSlideOuter')[0].removeEventListener('touchend', function(event) {
-        //     event.preventDefault();
-        // }, false);
+ 
+        }, false);
+
 
     });
     </script>
