@@ -1,0 +1,812 @@
+*{-webkit-tap-highlight-color: transparent;}
+    .gallery {
+     transition: transform 1s;
+    -webkit-transition: transform 1s; /* Safari */   
+    }
+.team-item{
+    margin-top:50px;
+}
+.team-img{
+    text-align:center;
+}
+
+
+.team-item-text-padding{
+    padding-top: 3rem;
+    padding-bottom: 2rem;
+}
+
+.team-item-text {
+    background-color: #edebe7;
+    color: #857456;
+    padding: 40px 40px 30px 100px;
+    padding-left:3.8rem;
+    padding-right:3.8rem;
+    z-index: 0;
+    position: relative;
+    margin-top: -30px;
+    position: relative;
+    z-index: -1;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+
+@media (min-device-width: 320px) and (max-device-width: 1100px) {
+    .team-item-text {
+        background-color: #edebe7;
+        color: #857456;
+        padding: 18px 12px;
+        z-index: 0;
+        position: relative;
+        margin-top: 0px;
+        position: relative;
+        z-index: -1;
+    }
+    .csAction > a.csPrev {
+        width: 24px;
+        display: block;
+        top: 77px;
+        left: 34px;
+        height: 46px;
+        background: url('../images/feel3.png') no-repeat;
+        background-size: 100% 100%;
+        cursor: pointer;
+        position: absolute;
+        z-index: 99;
+        -webkit-transition: opacity 0.35s linear 0s;
+        transition: opacity 0.35s linear 0s;
+    }
+    .csAction > a.csNext {
+        width: 24px;
+        display: block;
+        top: 77px;
+        right: 34px;
+        height: 46px;
+        background: url('../images/feel4.png') no-repeat;
+        background-size: 100% 100%;
+        cursor: pointer;
+        position: absolute;
+        z-index: 99;
+        -webkit-transition: opacity 0.35s linear 0s;
+        transition: opacity 0.35s linear 0s;
+    }
+    .team-item-text-title {
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+    .back-to-team {
+        position: relative;
+        top: 16px;
+        margin-left: 34px;
+    }
+    .back-to-team a {
+        color: #857456;
+    }
+    .csSlideOuter {
+        padding-top: 40px;
+        padding-bottom: 36px;
+    }
+    .team-img{
+        text-align:center;
+    }
+    .team-img img{
+        width:50%;
+    }
+    .team-item .team-item-text-padding{
+        padding-top:70px;
+        margin-top:-82px ;
+    }
+}
+
+@media (min-device-width: 320px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {
+    /* 兼容iphone5 */
+    .person-gallery {
+        width: 100% !important;
+    }
+    /*     .gallery {
+        width: 100% !important;
+    } */
+/*     .gallery li {
+        width: 290px !important;
+        margin-left: 15px !important;
+        margin-right: 15px !important;
+    } */
+
+    .cSGallery-wrap {
+        display: none;
+    }
+    .gallery li a.has_img {
+        float: none;
+        width: 100%;
+    }
+    .gallery li a.has_img img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 160px;
+        height: 160px;
+        position: relative;
+        z-index: 11;
+    }
+    .team-item-text {
+        background-color: #edebe7;
+        color: #857456;
+        padding: 18px 12px;
+        z-index: 0;
+        position: relative;
+        margin-top: 0px;
+        position: relative;
+        z-index: -1;
+    }
+    .csAction > a.csPrev {
+        width: 24px;
+        display: block;
+        top: 57px;
+        left: 34px;
+        height: 46px;
+        background: url('../images/feel3.png') no-repeat;
+        background-size: 100% 100%;
+        cursor: pointer;
+        position: absolute;
+        z-index: 99;
+        -webkit-transition: opacity 0.35s linear 0s;
+        transition: opacity 0.35s linear 0s;
+    }
+    .csAction > a.csNext {
+        width: 24px;
+        display: block;
+        top: 57px;
+        right: 34px;
+        height: 46px;
+        background: url('../images/feel4.png') no-repeat;
+        background-size: 100% 100%;
+        cursor: pointer;
+        position: absolute;
+        z-index: 99;
+        -webkit-transition: opacity 0.35s linear 0s;
+        transition: opacity 0.35s linear 0s;
+    }
+    .team-item-text-title {
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+    .back-to-team {
+        position: relative;
+        top: 16px;
+        margin-left: 34px;
+    }
+    .back-to-team a {
+        color: #857456;
+    }
+    .csSlideOuter {
+        padding-top: 40px;
+        padding-bottom: 36px;
+    }
+    .team-img{
+        text-align:center;
+    }
+    .team-img img{
+        width:50%;
+    }
+    .team-item .team-item-text-padding{
+        padding-top:70px;
+        margin-top:-82px ;
+    }
+    
+    /* 调整iphone5系列的头部 */
+    /* .login_btn {
+        margin-left: 0;
+    }
+    .lang_switcher {
+        margin: 3px 0 0 2px;
+    } */
+}
+
+
+/*6*/
+
+@media (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+    .person-gallery {
+        width: 100% !important;
+    }
+    /*     .gallery {
+        width: 100% !important;
+    } */
+/*     .gallery li {
+        width: 339px !important;
+        margin-left: 18px !important;
+        margin-right: 18px !important;
+    } */
+    .cSGallery-wrap {
+        display: none;
+    }
+    .gallery li a.has_img {
+        float: none;
+        width: 100%;
+    }
+    .gallery li a.has_img img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 200px;
+        height: 200px;
+        position: relative;
+        z-index: 11;
+    }
+    .team-img{
+        text-align:center;
+    }
+    .team-img img{
+        width:50%;
+    }
+    .team-item .team-item-text-padding{
+        padding-top:70px;
+        margin-top:-74px ;
+    }
+}
+
+
+/*6+*/
+
+@media (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) {
+    .person-gallery {
+        width: 100% !important;
+    }
+    /*     .gallery {
+        width: 100% !important;
+    } */
+/*     .gallery li {
+        width: 374px !important;
+        margin-left: 20px !important;
+        margin-right: 20px !important;
+    } */
+    .cSGallery-wrap {
+        display: none;
+    }
+    .gallery li a.has_img {
+        float: none;
+        width: 100%;
+    }
+    .gallery li a.has_img img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 200px;
+        height: 200px;
+        position: relative;
+        z-index: 11;
+    }
+    .team-img{
+        text-align:center;
+    }
+    .team-img img{
+        width:50%;
+    }
+    .team-item .team-item-text-padding{
+        padding-top:70px;
+        margin-top:-82px ;
+    }
+}
+
+@media (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 3) {
+    .person-gallery {
+        width: 100% !important;
+    }
+    /*     .gallery {
+        width: 100% !important;
+    } */
+/*     .gallery li {
+        width: 339px !important;
+        margin-left: 18px !important;
+        margin-right: 18px !important;
+    } */
+    .cSGallery-wrap {
+        display: none;
+    }
+    .gallery li a.has_img {
+        float: none;
+        width: 100%;
+    }
+    .gallery li a.has_img img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 200px;
+        height: 200px;
+        position: relative;
+        z-index: 11;
+    }
+}
+
+@media (min-device-width: 768px) and (max-device-width: 1024px) {
+    .person-gallery {
+        width: 100% !important;
+    }
+    /*     .gallery {
+        width: 100% !important;
+    } */
+    .gallery li {
+        width: 696px !important;
+        margin-left: 36px !important;
+        margin-right: 36px !important;
+    }
+    .cSGallery-wrap {
+        display: none;
+    }
+    .gallery li a.has_img {
+        float: none;
+        width: 100%;
+    }
+    .gallery li a.has_img img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 240px;
+        height: 240px;
+        position: relative;
+        z-index: 11;
+    }
+}
+
+@media (min-device-width: 1024px) and (max-device-width: 1100px) {
+    .person-gallery {
+        width: 100% !important;
+    }
+    /*     .gallery {
+        width: 100% !important;
+    } */
+    .gallery li {
+        width: 928px !important;
+        margin-left: 48px !important;
+        margin-right: 48px !important;
+    }
+    .cSGallery-wrap {
+        display: none;
+    }
+    .gallery li a.has_img {
+        float: none;
+        width: 100%;
+    }
+    .gallery li a.has_img img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 240px;
+        height: 240px;
+        position: relative;
+        z-index: 11;
+    }
+}
+
+
+/* 平板之类的宽度 1024 以下设备 */
+
+
+/* PC客户端或大屏幕设备: 1028px 至更大 */
+
+@media only screen and (min-width: 1029px) {
+    .cSGallery-wrap {
+        width: 470px;
+        height: 90px;
+        background: none;
+        overflow: hidden;
+        float: right;
+        position: absolute;
+        top: 60px;
+        right: 54px;
+    }
+    .gallery li a.has_img {
+        float: left;
+        width: 360px;
+        height: 360px;
+        margin-top: 42px;
+    }
+    .gallery li a.has_img:hover {
+        -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+        filter: alpha(opacity=80);
+        -moz-opacity: 1;
+        -khtml-opacity: 1;
+        opacity: 1;
+    }
+    .gallery li a:hover {
+        position: relative;
+        z-index: 11;
+    }
+    .team-item-text {
+        background-color: #edebe7;
+        color: #857456;
+        padding: 40px 40px 30px 100px;
+        z-index: 0;
+        position: relative;
+        margin-top: 0px;
+        margin-left: 307px;
+    }
+    .csSlideOuter {
+        padding-top: 175px;
+        padding-bottom: 90px;
+    }
+    .back-to-team {
+        position: relative;
+        top: 89px;
+    }
+    .gallery li a img {
+        width: 360px;
+        height: 360px;
+        position: relative;
+        z-index: 11;
+    }
+    /* slider actions */
+    .csAction > a.csPrev {
+        width: 24px;
+        display: block;
+        top: -120px;
+        left: 560px;
+        height: 46px;
+        background: url('../images/feel3.png') no-repeat;
+        background-size: 100% 100%;
+        cursor: pointer;
+        position: absolute;
+        z-index: 99;
+        -webkit-transition: opacity 0.35s linear 0s;
+        transition: opacity 0.35s linear 0s;
+    }
+    .csAction > a.csNext {
+        width: 24px;
+        display: block;
+        top: -120px;
+        right: 10px;
+        height: 46px;
+        background: url('../images/feel4.png') no-repeat;
+        background-size: 100% 100%;
+        cursor: pointer;
+        position: absolute;
+        z-index: 99;
+        -webkit-transition: opacity 0.35s linear 0s;
+        transition: opacity 0.35s linear 0s;
+    }
+    .team-item{
+        width:100%;
+        margin:1rem auto;
+    }
+    .team-img{
+        width:30%;
+        float:left;
+        margin-top: 1.3rem;
+    }
+    .team-text{
+        width:70%;
+        float:left;
+    }
+    .container-padding{
+        padding-right:1rem;
+        padding-left:1rem;
+    }
+    .team-item-text-padding{
+        padding-top:3rem;
+        padding-bottom:2rem;
+    }
+}
+
+
+/** /!!! core css Should not edit !!!/**/
+
+.csSlideOuter {
+    overflow: hidden;
+}
+
+.lightSlider:before,
+.lightSlider:after {
+    content: " ";
+    display: table;
+}
+
+.csSlideWrapper > ul:after {
+    clear: both;
+}
+
+.csSlideWrapper .csSlide {
+    -webkit-transform: translate(0px, 0px);
+    -ms-transform: translate(0px, 0px);
+    transform: translate(0px, 0px);
+    -webkit-transition: all 1s;
+    transition: all 1s;
+    -webkit-transition-duration: inherit;
+    transition-duration: inherit;
+    -webkit-transition-timing-function: inherit;
+    transition-timing-function: inherit;
+}
+
+.csSlideWrapper .csFade {
+    position: relative;
+}
+
+.csSlideWrapper .csFade > li {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    z-index: 9;
+    margin-right: 0;
+}
+
+.csSlideWrapper.usingCss .csFade > li {
+    opacity: 0;
+    -webkit-transition-delay: 0s;
+    transition-delay: 0s;
+    -webkit-transition-duration: inherit;
+    transition-duration: inherit;
+    -webkit-transition-property: opacity;
+    transition-property: opacity;
+    -webkit-transition-timing-function: inherit;
+    transition-timing-function: inherit;
+}
+
+.csSlideWrapper .csFade > li.active {
+    z-index: 10;
+}
+
+.csSlideWrapper.usingCss .csFade > li.active {
+    opacity: 1;
+}
+
+
+/** /!!! End of core css Should not edit !!!/**/
+
+
+/* Pager */
+
+.csSlideOuter .csPager.cSpg {
+    margin: 10px 0 0;
+    padding: 0;
+    text-align: center;
+}
+
+.csSlideOuter .csPager.cSpg > li {
+    cursor: pointer;
+    display: inline-block;
+    padding: 0 5px;
+}
+
+.csSlideOuter .csPager.cSpg > li a {
+    background-color: #222222;
+    border-radius: 30px;
+    display: inline-block;
+    height: 8px;
+    overflow: hidden;
+    text-indent: -999em;
+    width: 8px;
+    -webkit-transition: all 0.5s linear 0s;
+    transition: all 0.5s linear 0s;
+}
+
+.csSlideOuter .csPager.cSpg > li:hover a,
+.csSlideOuter .csPager.cSpg > li.active a {
+    background-color: #428bca;
+}
+
+.csSlideOuter .media {
+    opacity: 0.8;
+}
+
+.csSlideOuter .media.active {
+    opacity: 1;
+}
+
+
+/* End of pager */
+
+
+/** Gallery */
+
+.csSlideOuter .csPager.cSGallery {
+    list-style: none outside none;
+    padding-left: 0;
+    margin: 0;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    position: relative;
+    left: 0;
+   
+}
+
+.csSlideOuter .csPager.cSGallery li {
+    box-sizing: content-box;
+    width: 84px !important;
+    height: 84px !important;
+    margin-right: 4px !important;
+    padding: 3px;
+}
+
+.csSlideOuter .csPager.cSGallery li a {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.csSlideOuter .csPager.cSGallery li.active,
+.csSlideOuter .csPager.cSGallery li:hover {
+    opacity: 1;
+    background: #857456;
+}
+
+.csSlideOuter .csPager.cSGallery img {
+    display: block;
+    height: auto;
+    max-width: 100%;
+    width: 84px;
+    height: 84px;
+}
+
+.csSlideOuter .csPager.cSGallery img:hover {}
+
+.csSlideOuter .csPager.cSGallery:before,
+.csSlideOuter .csPager.cSGallery:after {
+    content: " ";
+    display: table;
+}
+
+.csSlideOuter .csPager.cSGallery:after {
+    clear: both;
+}
+
+
+/* End of Gallery*/
+
+
+/* .csAction > a.csNext {
+    width: 24px;
+    display: block;
+    top: -50px;
+    right: 100px;
+    height: 46px;
+    background-image: url('../images/feel4.png');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    position: absolute;
+    z-index: 99;
+    margin-top: -16px;
+  
+    -webkit-transition: opacity 0.35s linear 0s;
+    transition: opacity 0.35s linear 0s;
+    background: red;
+} */
+
+.csAction > a:hover {
+    opacity: 1;
+}
+
+.csAction > .csPrev {
+    background-position: 0 0;
+    left: 10px;
+}
+
+.csAction > .csNext {
+    background-position: -32px 0;
+    right: 10px;
+}
+
+.cS-hidden {
+    height: 1px;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    overflow: hidden;
+}
+
+.com {
+    color: #93a1a1;
+}
+
+.lit {
+    color: #195f91;
+}
+
+.pun,
+.opn,
+.clo {
+    color: #93a1a1;
+}
+
+.fun {
+    color: #dc322f;
+}
+
+.str,
+.atv {
+    color: #D14;
+}
+
+.kwd,
+.prettyprint .tag {
+    color: #1e347b;
+}
+
+.typ,
+.atn,
+.dec,
+.var {
+    color: teal;
+}
+
+.pln {
+    color: #48484c;
+}
+
+.prettyprint {
+    background-color: #F7F7F9;
+    border: 1px solid #E8E8E8;
+    font-size: 14px;
+    padding: 8px;
+    white-space: pre-wrap;
+}
+
+
+/* Specify class=linenums on a pre to get line numbering */
+
+ol.linenums {
+    margin: 0;
+    padding-left: 33px;
+    list-style-position: outside;
+}
+
+ol.linenums li {
+    padding-left: 12px;
+    color: #bebec5;
+    line-height: 20px;
+    text-shadow: 0 1px 0 #fff;
+}
+
+
+/*470px*/
+
+.person-gallery {
+    width: 1140px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+.team-item-text-name {
+    position: relative;
+    color: #857456;
+    font-size: 22px;
+
+}
+
+.team-item-text-position {
+    font-size: 18px;
+    color: #857456;
+}
+
+.team-item-text-bloder {
+    font-weight: 600;
+}
+
+.team-item-text-name:after {
+    display: inline-block;
+    content: "";
+    width: 1px;
+    height: 12px;
+    background: #857456;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+
+.team-item a{
+    cursor:pointer;
+}
+.team-img {
+    z-index:1;
+    position:relative;
+}
+.team-item .team-item-text-title a{
+    z-index:3;
+}
+  .gallery li>a{cursor: default !important;}

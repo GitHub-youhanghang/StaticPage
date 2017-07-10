@@ -1,0 +1,49 @@
+*{
+	margin:0;
+	padding:0;
+}
+
+.arrow-right{
+	display:inline-block;
+	width:12px;
+	height:10px;
+	background: url('../images/arrow-right.png') no-repeat;
+	margin-left:5px;
+}
+.footer-arrow-wrap{
+	position:relative;
+}
+.footer-arrow{
+	width:0;
+	height:0;
+	border:50px solid red;
+	border-color: transparent transparent #857456 transparent;
+	margin:0 auto;
+}
+.footer-arrow-wrap p{
+	position:relative;
+	text-align:center;
+	margin-top:0px;
+	color:#fff;
+}
+.footer-arrow-wrap p:hover{
+	cursor:pointer;
+}
+.arrow-top{
+	display:block;
+	margin:0 auto;
+	margin-top: -35px;
+	background:url('../images/arrow-top.png') no-repeat;
+	width:17px;
+	height:9px;
+	margin-bottom: 3px;
+}
+
+
+/*自适应*/
+/*清除浮动代码*/
+.clearfloat:after {display: block;clear: both;content: "";visibility: hidden;height: 0;}
+.clearfloat{zoom:1;}
+
+
+
