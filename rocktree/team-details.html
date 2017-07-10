@@ -613,7 +613,7 @@
         $('#test').on('click', function() {
             $(this).width(500);
         })    
-            $('#imageGallery').unbind();
+            $('#imageGallery').find('li').unbind();
         // $('#test')[0].removeEventListener('click', function(event) {
         //     event.preventDefault();
         // }, false);
