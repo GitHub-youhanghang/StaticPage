@@ -608,12 +608,16 @@
         //     return false;
         // }
 
-
+        // $('#imageGallery').on('click',function(){
+        //     alert()
+        // })
 
         $('#imageGallery').find('li').each(function(index, el) {
             $(this).unbind();
         });
-
+        $('.csSlideOuter').unbind();
+        $('.csSlideWrapper').unbind();
+        $('#imageGallery').unbind();
          alert(2);
     });
     </script>
