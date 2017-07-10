@@ -81,8 +81,8 @@
     <link rel='stylesheet' id='rocktree-style-css' href='https://www.rocktreecapital.com/wp-content/themes/rocktree/style.css?ver=1.2' type='text/css' media='all' />
     <script>
     /*if (document.location.protocol != "https:") {
-                                                                                                                    document.location = document.URL.replace(/^http:/i, "https:");
-                                                                                                                }*/
+                                                                                                                        document.location = document.URL.replace(/^http:/i, "https:");
+                                                                                                                    }*/
     </script>
     <!-- <script type="text/javascript" src="https://www.rocktreecapital.com/wp-content/cache/minify/b1da8.js"></script> -->
     <script type='text/javascript'>
@@ -604,11 +604,17 @@
         }
 
         showLastPersonView();
+        // $("#imageGallery")[0].ontouchmove = function() {
+        //     return false;
+        // }
 
 
 
-
-            $('#imageGallery').find('li').unbind();
+        $('#imageGallery').find('li').each(function(index, el) {
+            $(this)[0].ontouchmove = function() {
+                return false;
+            }
+        });
 
         // alert(2);
     });
