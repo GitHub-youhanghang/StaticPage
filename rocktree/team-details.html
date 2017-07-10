@@ -81,8 +81,8 @@
     <link rel='stylesheet' id='rocktree-style-css' href='https://www.rocktreecapital.com/wp-content/themes/rocktree/style.css?ver=1.2' type='text/css' media='all' />
     <script>
     /*if (document.location.protocol != "https:") {
-                                                                                                                document.location = document.URL.replace(/^http:/i, "https:");
-                                                                                                            }*/
+                                                                                                                    document.location = document.URL.replace(/^http:/i, "https:");
+                                                                                                                }*/
     </script>
     <!-- <script type="text/javascript" src="https://www.rocktreecapital.com/wp-content/cache/minify/b1da8.js"></script> -->
     <script type='text/javascript'>
@@ -242,6 +242,7 @@
     </div>
     <!-- banner -->
     <div class="person-gallery">
+        <button id="test">test</button>
         <div class="back-to-team">
             <a href="team.html">back to team page <span class="arrow-right"></span></a>
         </div>
@@ -604,14 +605,18 @@
         }
 
         showLastPersonView();
-         $("#imageGallery")[0].ontouchmove=function(){
-return false;
-}
+        $("#imageGallery")[0].ontouchmove = function() {
+            return false;
+        }
 
 
-        alert(2);
-
-
+        $('#test').on('click', function() {
+            $(this).width(500);
+        })    
+            $('#test').unbind();
+        // $('#test')[0].removeEventListener('click', function(event) {
+        //     event.preventDefault();
+        // }, false);
     });
     </script>
 </body>
