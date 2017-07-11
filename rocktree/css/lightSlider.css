@@ -33,6 +33,7 @@
 
 
 @media (min-device-width: 320px) and (max-device-width: 1100px) {
+    
     .team-item-text {
         background-color: #edebe7;
         color: #857456;
@@ -810,3 +811,13 @@ ol.linenums li {
     z-index:3;
 }
   .gallery li>a{cursor: default !important;}
+
+
+
+@media (min-device-width: 1024px)  {
+
+    .csAction .csPrev{display: block !important;}
+    .csAction .csNext{display: block !important;}
+
+
+}
