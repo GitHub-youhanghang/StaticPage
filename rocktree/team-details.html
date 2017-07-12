@@ -680,7 +680,7 @@
       var newHostAfter=window.location.href.slice(newHostAfter);
         var stateObj = { personNum: personNum };
        
-        history.replaceState(stateObj, document.title, newHostAfter+'?currentPerson='+personNum);    
+        history.pushState(stateObj, document.title, newHostAfter+'?currentPerson='+personNum);    
     }   
     
 
