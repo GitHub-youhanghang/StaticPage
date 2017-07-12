@@ -584,13 +584,16 @@
                 $('.csAction').find('.csPrev').show();
                 $('.csAction').find('.csNext').show();
             }            
-            
+            sharePersonInfo(localStorage.personNum);
+
         })
 
 
         $('.cSGallery').find('li').on('click', function() {
             var index = $(this).index();
             localStorage.personNum = index;
+            sharePersonInfo(localStorage.personNum);
+            
 
         })
 
@@ -650,6 +653,9 @@
                 $('.csAction').find('.csPrev').show();
                 $('.csAction').find('.csNext').show();
             }
+
+            sharePersonInfo(localStorage.personNum);
+
 
         }
 
