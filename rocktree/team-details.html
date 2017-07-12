@@ -257,14 +257,7 @@
                     <p class="team-item-text-des">
                         Mr. Omer Ozden <span class="team-item-text-bloder">(欧阳默)</span> has been at the forefront of pioneering transactions between China and the United States for over two decades, working with such major companies as New Oriental, NetEase, Baidu, Alibaba, UrWork, Beijing Capital, Xinyuan and ZhenFund, as well as major groups in the U.S. such as Sam Zell (the largest individual real estate investor in the United States and inventor of the REIT), JPMorgan, Goldman Sachs, Baker & McKenzie, and Morrison & Foerster. He is an expert in finance, law, real estate, technology and doing business between China and the United States. As CEO of RockTree Capital, Mr. Ozden has led a number of transactions between China, North America and the Middle East in the areas of real estate acquisition, finance and development, private equity, and technology and has helped RockTree emerge as the leader, and only company, specializing in transforming Chinese real estate companies into international players.
                     </p>
-                    <p class="team-item-text-des">
-                        He was formerly Partner at the New York office of Baker & McKenzie LLP, the largest law firm in the world, and lawyer at the Hong Kong office of Morrison & Foerster LLP, a leading Silicon Valley law firm, where he acted on a number of technology related venture capital investments and the first initial public offerings (IPOs) from China into the United States. He speaks Mandarin Chinese and is a member of the New York Lawyer’s Bar Association.</p>
-                    <p class="team-item-text-des">
-                        As a student conducting his graduate studies during the mid to late 1990s, Mr. Ozden was brought to Beijing’s Zhongguancun Hi-Tech Zone by the founders of New Oriental to be their international lawyer and help establish their international business, and also co-founded a technology incubator with Chinese and foreign investors during the very earliest days of China’s technology revolution. Mr. Ozden has a Bachelor of Commerce (Honors) majoring in Finance from the University of Toronto. He completed the International Joint Law Degree program graduating with both a Juris Doctor and LL.B from the University of Detroit Michigan and University of Windsor Ontario where he studied two law degrees at the same time in two countries. He also went to Taiwan in 1991 where as a young student, he studied Mandarin Chinese on diplomatic scholarship at National Taiwan Normal University.
-                    </p>
-                    <a class="team-item-text-more" href="#">
-                                        Full bio <span class="arrow-right"></span>
-                                    </a>
+                  
                 </div>
             </li>
             <li data-thumb="images/thumb/hanxin.jpg">
@@ -489,19 +482,27 @@
         $('.csAction').find('.csPrev').on('click', function() {
             var preNum = parseInt(localStorage.personNum) - 1;
             $('.cSGallery').find('li').removeClass('active');
+            $('#imageGallery').find('li').removeClass('active');
             if (preNum >= 0) {
                 $('.cSGallery').find('li').eq(preNum).addClass('active');
+                $('#imageGallery').find('li').eq(preNum).addClass('active');
+
             } else {
                 $('.cSGallery').find('li').eq(0).addClass('active');
+                $('#imageGallery').find('li').eq(0).addClass('active');
             }
 
+            //设置当前的高度为当前li元素的高度
+            var currentLiHeight=$('#imageGallery').find('li.active').height();
+
+            $('.csSlideOuter').height(currentLiHeight);
 
             var index = $('.cSGallery').find('li.active').index();
 
 
 
             localStorage.personNum = index;
-            console.log('personNum:' + localStorage.personNum);
+            // console.log('personNum:' + localStorage.personNum);
 
 
             if (leftNum - 94 < 0) {
@@ -533,18 +534,26 @@
                 $('.csAction').find('.csPrev').show();
                 $('.csAction').find('.csNext').show();
             }
-
+            sharePersonInfo(localStorage.personNum);
         })
 
         $('.csAction').find('.csNext').on('click', function() {
             var cSGalleryLiNum = $('.cSGallery').children().length
             var nextNum = parseInt(localStorage.personNum) + 1;
             $('.cSGallery').find('li').removeClass('active');
+            $('#imageGallery').find('li').removeClass('active');
             if (nextNum < cSGalleryLiNum) {
                 $('.cSGallery').find('li').eq(nextNum).addClass('active');
+                $('#imageGallery').find('li').eq(nextNum).addClass('active');
             } else {
                 $('.cSGallery').find('li').eq(cSGalleryLiNum - 1).addClass('active');
+                $('#imageGallery').find('li').eq(cSGalleryLiNum - 1).addClass('active');
             }
+
+            //设置当前的高度为当前li元素的高度
+            var currentLiHeight=$('#imageGallery').find('li.active').height();
+
+            $('.csSlideOuter').height(currentLiHeight);
 
             var index = $('.cSGallery').find('li.active').index();
 
@@ -575,7 +584,7 @@
                 $('.csAction').find('.csPrev').show();
                 $('.csAction').find('.csNext').show();
             }            
-
+            
         })
 
 
@@ -587,6 +596,11 @@
 
 
         function showLastPersonView() {
+
+           if( GetQueryString('currentPerson')){
+               var currentPersonNum=GetQueryString('currentPerson');
+               localStorage.personNum=currentPersonNum;
+           }
             var left = $('.cSGallery').css('left');
 
             var leftNum = parseInt(left.slice(0, -2));
@@ -594,6 +608,8 @@
                 var personNum = parseInt(localStorage.personNum);
                 console.log("personNum:" + personNum);
             }
+           
+            
             //打开时指定某个人物
             if (personNum > 4) {
                 var needMoveNum = personNum - 4;
@@ -605,7 +621,21 @@
             }
             $('.csPager ').find('li').removeClass('active');
 
-            $('.csPager ').find('li').eq(personNum).addClass('active');
+            $('.csPager ').find('li').eq(personNum).addClass('active');           
+
+
+
+            $('#imageGallery').find('li').removeClass('active');
+
+            $('#imageGallery').find('li').eq(personNum).addClass('active');
+
+            
+            //设置当前的高度为当前li元素的高度
+            var currentLiHeight=$('#imageGallery').find('li.active').height();
+
+            $('.csSlideOuter').height(currentLiHeight);
+
+
             var galleryLiWid = $('.csSlideWrapper').width() * personNum;
 
             $('.gallery ')[0].style.transition = "none";
@@ -628,7 +658,32 @@
       
         $('.csSlideWrapper').unbind();
 
+        $('.csPager').find('li').on('click',function(){
+            //设置当前的高度为当前li元素的高度
+            var currentLiHeight=$('#imageGallery').find('li.active').height();
+
+            $('.csSlideOuter').height(currentLiHeight);
+        })
+    
+    //根据名称获得地址相应参数的值
+    function GetQueryString(name)
+    {
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if(r!=null)return  unescape(r[2]); return null;
+    } 
+
+    function sharePersonInfo(personNum){
+         history.replaceState(null, document.title, location.href.split("?")[0]); 
+      var hostLength=window.location.host.length;
+    //   console.log(hostLength);
+      var newHostAfter=window.location.href.slice(newHostAfter);
+        var stateObj = { personNum: personNum };
        
+        history.replaceState(stateObj, document.title, newHostAfter+'?currentPerson='+personNum);    
+    }   
+    
+
     });
     </script>
 </body>
