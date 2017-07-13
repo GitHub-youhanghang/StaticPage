@@ -600,8 +600,8 @@
 
         function showLastPersonView() {
 
-           if( GetQueryString('currentPerson')){
-               var currentPersonNum=GetQueryString('currentPerson');
+           if( location.href.split("#")[1]){
+               var currentPersonNum=location.href.split("#")[1];
                localStorage.personNum=currentPersonNum;
            }
             var left = $('.cSGallery').css('left');
@@ -680,13 +680,13 @@
     } 
 
     function sharePersonInfo(personNum){
-         history.replaceState(null, document.title, location.href.split("?")[0]); 
+         history.replaceState(null, document.title, location.href.split("#")[0]); 
       var hostLength=window.location.host.length;
     //   console.log(hostLength);
       var newHostAfter=window.location.href.slice(newHostAfter);
         var stateObj = { personNum: personNum };
        
-        history.pushState(stateObj, document.title, newHostAfter+'?currentPerson='+personNum);    
+        history.pushState(stateObj, document.title, newHostAfter+'#'+personNum);    
     }   
     
 
